@@ -413,6 +413,14 @@ body::before {
 .security-card-desc { font-size: 15px; line-height: 24px; color: var(--text-secondary); flex: 1; }
 .security-card-meta { font-size: 13px; font-weight: 600; color: var(--text-accent); display: flex; align-items: center; gap: var(--space-2); }
 
+.shortcut-keys { display: flex; align-items: center; flex-wrap: wrap; gap: var(--space-2); }
+.shortcut-keys span { color: var(--text-tertiary); font-size: 13px; }
+.shortcut-keys kbd {
+  font-family: var(--font-sans); font-size: 13px; font-weight: 600; color: var(--text-primary);
+  background: var(--bg-tertiary); border: 1px solid var(--border-prominent); border-radius: var(--radius-2);
+  padding: var(--space-2) var(--space-4); box-shadow: var(--shadow-1);
+}
+
 .security-highlight { display: grid; grid-template-columns: 1fr 1fr; gap: 0; overflow: hidden; margin-top: var(--space-8); border-radius: var(--radius-5); }
 @media (max-width: 768px) { .security-highlight { grid-template-columns: 1fr; } }
 .security-highlight-visual {

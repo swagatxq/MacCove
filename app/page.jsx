@@ -136,6 +136,52 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section shortcuts-section" id="shortcuts">
+        <div className="container">
+          <Reveal className="shortcuts-header">
+            <h2 className="text-h2">Top 5 Excel Shortcuts</h2>
+            <p className="text-body">The Windows Excel shortcuts you already know, now working natively on your Mac.</p>
+          </Reveal>
+          <div className="security-grid stagger-children">
+            <div className="security-card glass">
+              <div className="shortcut-keys">
+                <kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>V</kbd>
+              </div>
+              <div className="security-card-title">Paste Special</div>
+              <div className="security-card-desc">Paste values, formulas, or formatting only — without carrying over the rest of the copied cell.</div>
+            </div>
+            <div className="security-card glass">
+              <div className="shortcut-keys">
+                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd>
+              </div>
+              <div className="security-card-title">Toggle Filters</div>
+              <div className="security-card-desc">Turn filter dropdowns on or off for the selected range in a single keystroke.</div>
+            </div>
+            <div className="security-card glass">
+              <div className="shortcut-keys">
+                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>$</kbd>
+              </div>
+              <div className="security-card-title">Currency Format</div>
+              <div className="security-card-desc">Apply currency formatting to the selected cells instantly.</div>
+            </div>
+            <div className="security-card glass">
+              <div className="shortcut-keys">
+                <kbd>Alt</kbd><span>+</span><kbd>=</kbd>
+              </div>
+              <div className="security-card-title">AutoSum</div>
+              <div className="security-card-desc">Insert a SUM formula for the selected cells without typing it out.</div>
+            </div>
+            <div className="security-card glass">
+              <div className="shortcut-keys">
+                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>End</kbd>
+              </div>
+              <div className="security-card-title">Select to Last Cell</div>
+              <div className="security-card-desc">Extend the selection from the active cell to the last used cell in the sheet.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* <section className="section reviews-section" id="reviews">
         <div className="container">
           <Reveal className="reviews-header">
