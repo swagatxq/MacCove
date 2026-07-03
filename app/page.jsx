@@ -46,7 +46,7 @@ export default function Home() {
                 <Icon id="download" size={24} />
               </div>
               <div className="ticker-data">
-                <div className="ticker-value"><Counter target={84732} /></div>
+                <div className="ticker-value"><Counter target={1732} /></div>
                 <div className="ticker-label">App Installs</div>
                 <div className="ticker-change up">
                   <Icon id="trending-up" size={12} /> <span>12.4%</span> this month
@@ -58,7 +58,7 @@ export default function Home() {
                 <Icon id="zap" size={24} />
               </div>
               <div className="ticker-data">
-                <div className="ticker-value"><Counter target={1248593} duration={2500} /></div>
+                <div className="ticker-value"><Counter target={148593} duration={2500} /></div>
                 <div className="ticker-label">Shortcuts Used</div>
                 <div className="ticker-change up">
                   <Icon id="trending-up" size={12} /> <span>8.7%</span> this week
