@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import NavBar from '../components/NavBar'
 import Counter from '../components/Counter'
 import FAQ from '../components/FAQ'
@@ -24,117 +25,14 @@ export default function Home() {
               </a>
             </div>
 
-            <div className="hero-app-preview">
-              <div className="app-device glass">
-                <div className="app-device-screen">
-                  <div className="device-header">
-                    <div className="device-avatar">J</div>
-                    <div style={{ flex: 1 }}>
-                      <div className="device-line" style={{ width: '50%', height: 12 }}></div>
-                      <div className="device-line short" style={{ marginTop: 6 }}></div>
-                    </div>
-                  </div>
-                  <div className="device-card">
-                    <div className="device-card-row">
-                      <div className="device-icon" style={{ background: 'var(--apple-green)' }}>
-                        <Icon id="check" size={16} />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div className="device-line" style={{ width: '80%' }}></div>
-                        <div className="device-line short" style={{ marginTop: 6 }}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="device-card">
-                    <div className="device-card-row">
-                      <div className="device-icon" style={{ background: 'var(--apple-blue)' }}>
-                        <Icon id="zap" size={16} />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div className="device-line" style={{ width: '70%' }}></div>
-                        <div className="device-line short" style={{ marginTop: 6 }}></div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="device-card">
-                    <div className="device-card-row">
-                      <div className="device-icon" style={{ background: 'var(--accent-violet)' }}>
-                        <Icon id="sliders" size={16} />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div className="device-line" style={{ width: '60%' }}></div>
-                        <div className="device-line short" style={{ marginTop: 6 }}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="app-device glass">
-                <div className="app-device-screen">
-                  <div style={{ textAlign: 'center', marginTop: 'var(--space-5)' }}>
-                    <span className="icon icon-64" style={{ color: 'var(--apple-blue)' }}>
-                      <svg><use href="#i-zap" /></svg>
-                    </span>
-                    <div className="device-line" style={{ width: '70%', margin: '16px auto 0', height: 16 }}></div>
-                    <div className="device-line short" style={{ margin: '10px auto 0', width: '50%' }}></div>
-                  </div>
-                  <div style={{ marginTop: 'auto' }}>
-                    <div className="device-card" style={{ background: 'var(--apple-blue)', border: 'none' }}>
-                      <div style={{ fontSize: 15, fontWeight: 600, color: 'white' }}>Run Shortcut</div>
-                      <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)' }}>&quot;Morning Routine&quot;</div>
-                    </div>
-                    <div className="device-card" style={{ background: 'var(--apple-green)', border: 'none' }}>
-                      <div style={{ fontSize: 15, fontWeight: 600, color: 'white' }}>Completed</div>
-                      <div style={{ fontSize: 13, color: 'rgba(255,255,255,0.8)' }}>5 actions executed</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div className="app-device glass">
-                <div className="app-device-screen">
-                  <div className="device-header">
-                    <div className="device-avatar" style={{ background: 'var(--accent-rose)' }}>S</div>
-                    <div style={{ flex: 1 }}>
-                      <div className="device-line" style={{ width: '55%', height: 12 }}></div>
-                      <div className="device-line short" style={{ marginTop: 6 }}></div>
-                    </div>
-                  </div>
-                  <div className="device-card">
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-                      <div className="device-line" style={{ width: '40%', height: 14 }}></div>
-                      <div className="device-icon" style={{ background: 'var(--apple-orange)', width: 28, height: 28 }}>
-                        <Icon id="settings" size={16} />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="device-card">
-                    <div style={{ display: 'flex', gap: 'var(--space-3)', justifyContent: 'center' }}>
-                      <div style={{ width: 40, height: 40, borderRadius: 'var(--radius-3)', background: 'var(--white-20)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Icon id="upload" size={20} />
-                      </div>
-                      <div style={{ width: 40, height: 40, borderRadius: 'var(--radius-3)', background: 'var(--white-20)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Icon id="cloud" size={20} />
-                      </div>
-                      <div style={{ width: 40, height: 40, borderRadius: 'var(--radius-3)', background: 'var(--white-20)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                        <Icon id="mail" size={20} />
-                      </div>
-                    </div>
-                  </div>
-                  <div className="device-card">
-                    <div className="device-card-row">
-                      <div className="device-icon" style={{ background: 'var(--apple-teal)' }}>
-                        <Icon id="bar-chart" size={16} />
-                      </div>
-                      <div style={{ flex: 1 }}>
-                        <div className="device-line" style={{ width: '75%' }}></div>
-                        <div className="device-line short" style={{ marginTop: 6 }}></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div className="hero-image">
+              <Image
+                src="/AppScreenshot.png"
+                alt="Mac Excel Shortcuts app screenshot"
+                width={2206}
+                height={1186}
+                priority
+              />
             </div>
           </div>
         </div>
