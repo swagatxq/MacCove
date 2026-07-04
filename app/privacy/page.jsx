@@ -83,7 +83,7 @@ export default function PrivacyPage() {
             <h2>9. Contact Us</h2>
             <p>
               Questions about this Privacy Policy can be sent to{' '}
-              <a href="mailto:privacy@xquantum.in">privacy@xquantum.in</a>.
+              <a href="mailto:privacy@maccove.com">privacy@maccove.com</a>.
             </p>
           </div>
         </div>
