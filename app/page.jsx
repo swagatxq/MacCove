@@ -20,12 +20,32 @@ export default function Home() {
             <h1 className="text-hero">Mac Excel<br/>Shortcuts</h1>
             <p className="hero-subtitle">Run Windows excel shortcuts on Mac, and get native Windows experience on Mac. Get your work done fast.</p>
             <div className="hero-ctas">
-              <a href="https://storage.googleapis.com/mes_dmg/latest/Mac_Excel_Shortcuts.dmg" className="btn btn-primary">
+              <a href="/download" className="btn btn-primary">
                 <Icon id="download" size={20} /> Download .dmg for Mac
               </a>
             </div>
+          </div>
 
-            <div className="hero-image">
+          <div className="hero-visual">
+            <div className="hero-image-row">
+              <div className="hero-image hero-image-side hero-image-left">
+                <Image
+                  src="/PasteSpecial.png"
+                  alt="Paste Special shortcuts in Mac Excel Shortcuts"
+                  width={2202}
+                  height={1650}
+                />
+              </div>
+              <div className="hero-image hero-image-side hero-image-right">
+                <Image
+                  src="/Formatting.png"
+                  alt="Formatting shortcuts in Mac Excel Shortcuts"
+                  width={2166}
+                  height={1636}
+                />
+              </div>
+            </div>
+            <div className="hero-image hero-image-main">
               <Image
                 src="/AppScreenshot.png"
                 alt="Mac Excel Shortcuts app screenshot"
@@ -138,7 +158,7 @@ export default function Home() {
 
       <section className="section shortcuts-section" id="shortcuts">
         <div className="container">
-          <Reveal className="shortcuts-header">
+          <Reveal className="how-to-header">
             <h2 className="text-h2">Top 5 Excel Shortcuts</h2>
             <p className="text-body">The Windows Excel shortcuts you already know, now working natively on your Mac.</p>
           </Reveal>
@@ -152,17 +172,10 @@ export default function Home() {
             </div>
             <div className="security-card glass">
               <div className="shortcut-keys">
-                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd>
+                <kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>T</kbd>
               </div>
-              <div className="security-card-title">Toggle Filters</div>
-              <div className="security-card-desc">Turn filter dropdowns on or off for the selected range in a single keystroke.</div>
-            </div>
-            <div className="security-card glass">
-              <div className="shortcut-keys">
-                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>$</kbd>
-              </div>
-              <div className="security-card-title">Currency Format</div>
-              <div className="security-card-desc">Apply currency formatting to the selected cells instantly.</div>
+              <div className="security-card-title">Paste Special (Formats)</div>
+              <div className="security-card-desc">Paste only the formatting from the copied cell, leaving its values and formulas behind.</div>
             </div>
             <div className="security-card glass">
               <div className="shortcut-keys">
@@ -173,10 +186,17 @@ export default function Home() {
             </div>
             <div className="security-card glass">
               <div className="shortcut-keys">
-                <kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>End</kbd>
+                <kbd>Alt</kbd><span>+</span><kbd>Enter</kbd>
               </div>
-              <div className="security-card-title">Select to Last Cell</div>
-              <div className="security-card-desc">Extend the selection from the active cell to the last used cell in the sheet.</div>
+              <div className="security-card-title">New Line in Cell</div>
+              <div className="security-card-desc">Start a new line within the same cell instead of moving to the next one.</div>
+            </div>
+            <div className="security-card glass">
+              <div className="shortcut-keys">
+                <kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>O</kbd><span>+</span><kbd>I</kbd>
+              </div>
+              <div className="security-card-title">AutoFit Column Width</div>
+              <div className="security-card-desc">Resize the selected columns to fit their contents automatically.</div>
             </div>
           </div>
         </div>
@@ -483,6 +503,11 @@ export default function Home() {
                 </div>
                 MacCove
               </a>
+              <div className="footer-powered-by">
+                Powered by
+                <Image src="/Group 61.png" alt="Xquantum" width={16} height={16} className="footer-powered-by-logo" />
+                Quantum
+              </div>
               <p className="footer-desc">The most powerful automation platform for macOS, iOS, and iPadOS. Build shortcuts, automate workflows, and control your entire Apple ecosystem.</p>
               <div className="footer-socials">
                 <a href="#" className="footer-social" title="Twitter">
@@ -502,33 +527,26 @@ export default function Home() {
             <div className="footer-col">
               <div className="footer-col-title">Product</div>
               <a href="#">Features</a>
-              <a href="#">Pricing</a>
-              <a href="#">Changelog</a>
-              <a href="#">Download</a>
+              <a href="/download">Download</a>
             </div>
             <div className="footer-col">
               <div className="footer-col-title">Resources</div>
-              <a href="#">Documentation</a>
-              <a href="#">Tutorials</a>
-              <a href="#">Shortcuts Gallery</a>
-              <a href="#">API Reference</a>
+              <a href="https://github.com/swagatxq/MacCove">Documentation</a>
             </div>
             <div className="footer-col">
               <div className="footer-col-title">Company</div>
-              <a href="#">About</a>
-              <a href="#">Blog</a>
-              <a href="#">Careers</a>
-              <a href="#">Contact</a>
+              <a href="/terms">Terms</a>
+              <a href="/privacy">Privacy</a>
             </div>
           </div>
           <div className="footer-divider"></div>
           <div className="footer-bottom">
             <div className="footer-copyright">© 2026 Xquantum Pvt Ltd. All rights reserved.</div>
-            <div className="footer-legal">
-              <a href="#">Privacy</a>
-              <a href="#">Terms</a>
+            {/* <div className="footer-legal">
+              <a href="/privacy">Privacy</a>
+              <a href="/terms">Terms</a>
               <a href="#">Cookies</a>
-            </div>
+            </div> */}
           </div>
         </div>
       </footer>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import ThemeToggle from './ThemeToggle';
 import Icon from './Icon';
 
@@ -19,14 +20,19 @@ export default function NavBar() {
              </svg>
           </div>
           MacCove
+          <span className="nav-powered-by">
+            Powered by
+            <Image src="/Group 61.png" alt="Xquantum" width={14} height={14} />
+            Quantum
+          </span>
         </a>
         <div className="nav-links">
           <a href="#features" className="active"><Icon id="box" size={16} /> Product</a>
           <a href="#blog"><Icon id="file-text" size={16} /> Blog</a>
-          <a href="#"><Icon id="book" size={16} /> Docs</a>
+          <a href="https://github.com/swagatxq/MacCove" target="_blank" rel="noopener noreferrer"><Icon id="book" size={16} /> Docs</a>
         </div>
         <div style={{display: 'flex', alignItems: 'center'}}>
-          <a href="#download" className="nav-cta"><Icon id="download" size={16} /> Download App</a>
+          <a href="/download" className="nav-cta"><Icon id="download" size={16} /> Download App</a>
           <ThemeToggle />
           <button className="mobile-menu-btn" aria-label="Open menu">
             <Icon id="menu" size={24} />
