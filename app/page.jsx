@@ -4,8 +4,18 @@ import Counter from '../components/Counter'
 import FAQ from '../components/FAQ'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
+import { getAllBlogPosts } from '../lib/datocms'
+import { formatBlogDate } from '../lib/format'
 
-export default function Home() {
+export const revalidate = 60
+
+export const metadata = {
+  alternates: { canonical: '/' },
+}
+
+export default async function Home() {
+  const latestPosts = await getAllBlogPosts({ first: 3 })
+
   return (
     <>
       <NavBar />
@@ -411,78 +421,51 @@ export default function Home() {
         </div>
       </section>
 
-      {/* <section className="section blog-section" id="blog">
-        <div className="container">
-          <Reveal className="blog-header">
-            <div className="blog-header-left">
-              <h2 className="text-h2">From the Blog</h2>
-              <p className="text-body">Tips, tutorials, and updates from the MacCove team to help you get the most out of your automation.</p>
+      {latestPosts.length > 0 && (
+        <section className="section blog-section" id="blog">
+          <div className="container">
+            <Reveal className="blog-header">
+              <div className="blog-header-left">
+                <h2 className="text-h2">From the Blog</h2>
+                <p className="text-body">Tips, tutorials, and updates from the MacCove team to help you get the most out of your automation.</p>
+              </div>
+              <a href="/blog" className="blog-link">
+                View all articles
+                <Icon id="chevron-right" size={16} className="arrow" />
+              </a>
+            </Reveal>
+            <div className="blog-grid stagger-children">
+              {latestPosts.map((post) => (
+                <a key={post.id} href={`/blog/${post.slug}`} className="blog-card glass">
+                  <div className="blog-image-wrap">
+                    {post.featuredImage && (
+                      <img
+                        className="blog-image"
+                        src={post.featuredImage.url}
+                        alt={post.featuredImage.alt || post.title}
+                        loading="lazy"
+                      />
+                    )}
+                    {post.tag && (
+                      <div className="blog-image-overlay">
+                        <span className="blog-tag">{post.tag}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="blog-content">
+                    <div className="blog-meta">
+                      <span>{formatBlogDate(post.date)}</span>
+                    </div>
+                    <h3 className="blog-title">{post.title}</h3>
+                    <p className="blog-excerpt">{post.excerpt}</p>
+                    <span className="blog-readmore">Read more <Icon id="chevron-right" size={12} /></span>
+                  </div>
+                </a>
+              ))}
             </div>
-            <a href="#" className="blog-link">
-              View all articles
-              <Icon id="chevron-right" size={16} className="arrow" />
-            </a>
-          </Reveal>
-          <div className="blog-grid stagger-children">
-            <article className="blog-card glass">
-              <div className="blog-image-wrap">
-                <div className="blog-image" style={{ background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)' }}></div>
-                <div className="blog-image-overlay">
-                  <span className="blog-tag">Tutorial</span>
-                </div>
-              </div>
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <span>Dec 15, 2024</span>
-                  <span className="dot-sep"></span>
-                  <span>8 min read</span>
-                </div>
-                <h3 className="blog-title">Building Your First Shortcut: A Complete Beginner&apos;s Guide</h3>
-                <p className="blog-excerpt">Learn how to create powerful automation shortcuts that save hours every week. We walk through 5 essential shortcuts every Mac user should have.</p>
-                <span className="blog-readmore">Read more <Icon id="chevron-right" size={12} /></span>
-              </div>
-            </article>
-
-            <article className="blog-card glass">
-              <div className="blog-image-wrap">
-                <div className="blog-image" style={{ background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)' }}></div>
-                <div className="blog-image-overlay">
-                  <span className="blog-tag">Tips</span>
-                </div>
-              </div>
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <span>Dec 8, 2024</span>
-                  <span className="dot-sep"></span>
-                  <span>5 min read</span>
-                </div>
-                <h3 className="blog-title">10 Advanced Shortcuts Power Users Swear By</h3>
-                <p className="blog-excerpt">From batch renaming to automated backups, these advanced shortcuts will take your productivity to the next level. Includes downloadable templates.</p>
-                <span className="blog-readmore">Read more <Icon id="chevron-right" size={12} /></span>
-              </div>
-            </article>
-
-            <article className="blog-card glass">
-              <div className="blog-image-wrap">
-                <div className="blog-image" style={{ background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)' }}></div>
-                <div className="blog-image-overlay">
-                  <span className="blog-tag">News</span>
-                </div>
-              </div>
-              <div className="blog-content">
-                <div className="blog-meta">
-                  <span>Nov 28, 2024</span>
-                  <span className="dot-sep"></span>
-                  <span>3 min read</span>
-                </div>
-                <h3 className="blog-title">MacCove 2.0: Introducing iPhone &amp; iPad Support</h3>
-                <p className="blog-excerpt">Your shortcuts now sync seamlessly across all your Apple devices. Plus: new widget support, improved Siri integration, and a completely redesigned interface.</p>
-                <span className="blog-readmore">Read more <Icon id="chevron-right" size={12} /></span>
-              </div>
-            </article>
           </div>
-        </div>
-      </section> */}
+        </section>
+      )}
 
       <footer className="footer" id="download">
         <div className="container">
@@ -510,16 +493,16 @@ export default function Home() {
               </div>
               <p className="footer-desc">The most powerful automation platform for macOS, iOS, and iPadOS. Build shortcuts, automate workflows, and control your entire Apple ecosystem.</p>
               <div className="footer-socials">
-                <a href="#" className="footer-social" title="Twitter">
+                <a href="#" className="footer-social" title="Twitter" target="_blank" rel="noopener noreferrer">
                   <Icon id="x" size={20} />
                 </a>
-                <a href="#" className="footer-social" title="GitHub">
+                <a href="#" className="footer-social" title="GitHub" target="_blank" rel="noopener noreferrer">
                   <Icon id="command" size={20} />
                 </a>
-                <a href="#" className="footer-social" title="Discord">
+                <a href="#" className="footer-social" title="Discord" target="_blank" rel="noopener noreferrer">
                   <Icon id="message-circle" size={20} />
                 </a>
-                <a href="#" className="footer-social" title="YouTube">
+                <a href="#" className="footer-social" title="YouTube" target="_blank" rel="noopener noreferrer">
                   <Icon id="play" size={20} />
                 </a>
               </div>
@@ -531,7 +514,7 @@ export default function Home() {
             </div>
             <div className="footer-col">
               <div className="footer-col-title">Resources</div>
-              <a href="https://github.com/swagatxq/MacCove">Documentation</a>
+              <a href="https://github.com/swagatxq/MacCove" target="_blank" rel="noopener noreferrer">Documentation</a>
             </div>
             <div className="footer-col">
               <div className="footer-col-title">Company</div>

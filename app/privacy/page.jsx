@@ -1,8 +1,9 @@
 import NavBar from '../../components/NavBar';
 
 export const metadata = {
-  title: 'Privacy Policy — MacCove',
+  title: 'Privacy Policy',
   description: 'How MacCove and Mac Excel Shortcuts handle your data.',
+  alternates: { canonical: '/privacy' },
 };
 
 export default function PrivacyPage() {

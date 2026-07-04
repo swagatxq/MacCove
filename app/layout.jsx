@@ -1,13 +1,28 @@
 import './globals.css'
 
+const SITE_TITLE = 'Mac Excel Shortcuts — Run Windows Excel Shortcuts on Mac | MacCove';
+const SITE_DESCRIPTION = 'Run the Windows Excel shortcuts you already know, natively on your Mac. Mac Excel Shortcuts brings back Paste Special, AutoSum, and more, no relearning required.';
+
 export const metadata = {
-  title: 'MacCove — Automate Your Mac & iPhone',
-  description: 'MacCove lets you build powerful shortcuts, automate repetitive tasks, and control your entire Apple ecosystem from one beautiful app.',
-  metadataBase: new URL('https://glass.app'),
+  title: {
+    default: SITE_TITLE,
+    template: '%s — MacCove',
+  },
+  description: SITE_DESCRIPTION,
+  metadataBase: new URL('https://maccove.com'),
   openGraph: {
-    title: 'MacCove — Automate Your Mac & iPhone',
-    description: 'MacCove lets you build powerful shortcuts, automate repetitive tasks, and control your entire Apple ecosystem from one beautiful app.',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    url: '/',
+    siteName: 'MacCove',
     type: 'website',
+    images: [{ url: '/AppScreenshot.png', width: 2206, height: 1186, alt: 'Mac Excel Shortcuts app screenshot' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: SITE_TITLE,
+    description: SITE_DESCRIPTION,
+    images: ['/AppScreenshot.png'],
   },
 }
 

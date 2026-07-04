@@ -1,8 +1,9 @@
 import NavBar from '../../components/NavBar';
 
 export const metadata = {
-  title: 'Terms & Conditions — MacCove',
+  title: 'Terms & Conditions',
   description: 'The terms that govern your use of Mac Excel Shortcuts.',
+  alternates: { canonical: '/terms' },
 };
 
 export default function TermsPage() {

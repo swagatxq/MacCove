@@ -28,7 +28,7 @@ export default function NavBar() {
         </a>
         <div className="nav-links">
           <a href="#features" className="active"><Icon id="box" size={16} /> Product</a>
-          {/* <a href="#blog"><Icon id="file-text" size={16} /> Blog</a> */}
+          <a href="/blog"><Icon id="file-text" size={16} /> Blog</a>
           <a href="https://github.com/swagatxq/MacCove" target="_blank" rel="noopener noreferrer"><Icon id="book" size={16} /> Docs</a>
         </div>
         <div style={{display: 'flex', alignItems: 'center'}}>
