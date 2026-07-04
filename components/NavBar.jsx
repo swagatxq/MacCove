@@ -1,8 +1,14 @@
+'use client';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import Icon from './Icon';
 
 export default function NavBar() {
+  const pathname = usePathname();
+  const isBlog = pathname.startsWith('/blog');
+  const isProduct = pathname === '/';
+
   return (
     <nav className="nav-bar">
       <div className="container nav-inner">
@@ -27,8 +33,8 @@ export default function NavBar() {
           </span>
         </a>
         <div className="nav-links">
-          <a href="#features" className="active"><Icon id="box" size={16} /> Product</a>
-          <a href="/blog"><Icon id="file-text" size={16} /> Blog</a>
+          <a href="/#features" className={isProduct ? 'active' : ''}><Icon id="box" size={16} /> Product</a>
+          <a href="/blog" className={isBlog ? 'active' : ''}><Icon id="file-text" size={16} /> Blog</a>
           <a href="https://github.com/swagatxq/MacCove" target="_blank" rel="noopener noreferrer"><Icon id="book" size={16} /> Docs</a>
         </div>
         <div style={{display: 'flex', alignItems: 'center'}}>
