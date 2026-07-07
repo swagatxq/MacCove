@@ -740,3 +740,16 @@ body::before {
 @media (max-width: 768px) { .how-to-connector { display: none; } }
 
 .how-to-step .how-to-step-number { position: relative; z-index: 1; }
+
+
+.status-disclaimer {
+  margin-top: 24px;
+  padding: 16px 18px;
+  border-radius: 12px;
+  background: rgba(255, 193, 7, 0.08);
+  border: 1px solid rgba(255, 193, 7, 0.25);
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: left;
+}

@@ -63,6 +63,14 @@ export default function DownloadClient() {
               </button>
               <a href="/" className="status-link">Back to home</a>
             </div>
+
+            <div className="status-disclaimer">
+              <strong>Note:</strong> We are currently in the process of obtaining Apple's notarization approval for Mac Excel Shortcuts. Until notarization is complete, macOS may display a security warning when you first open the application.
+              <br /><br />
+              If this happens, open <strong>System Settings → Privacy &amp; Security</strong>, locate the security message for <strong>Mac Excel Shortcuts</strong>, click <strong>Open Anyway</strong>, and confirm that you want to run the application.
+              <br /><br />
+              Once Apple's notarization process is complete, this additional step will no longer be required.
+            </div>
           </div>
         </div>
       </section>
