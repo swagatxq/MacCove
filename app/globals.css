@@ -636,6 +636,9 @@ body::before {
   background: var(--bg-tertiary); padding: 2px 6px; border-radius: var(--radius-2);
 }
 .legal-content.blog-post-content hr { border: none; border-top: 1px solid var(--border-default); margin: var(--space-8) 0; }
+.legal-content.blog-post-content img {
+  max-width: 100%; height: auto; display: block; border-radius: var(--radius-6); margin: var(--space-6) 0;
+}
 .blog-post-back { margin-top: var(--space-9); }
 .blog-post-back a { color: var(--text-accent); font-weight: 600; font-size: 15px; }
 

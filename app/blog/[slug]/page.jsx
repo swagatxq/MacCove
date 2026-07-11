@@ -51,7 +51,22 @@ export default async function BlogPostPage({ params }) {
   const post = await getBlogPostBySlug(params.slug);
   if (!post) notFound();
 
-  const contentHtml = render(post.content, { customNodeRules: [externalLinkRule] });
+  const contentHtml = render(post.content, {
+    customNodeRules: [externalLinkRule],
+    renderBlock: ({ record, adapter }) => {
+      if (record.__typename === 'ImageBlockRecord' && record.asset) {
+        const { url, alt, width, height } = record.asset;
+        return adapter.renderNode('img', {
+          src: url,
+          alt: alt || '',
+          width: String(width),
+          height: String(height),
+          loading: 'lazy',
+        });
+      }
+      return null;
+    },
+  });
 
   const jsonLd = {
     '@context': 'https://schema.org',
