@@ -1,6 +1,7 @@
 import { notFound } from 'next/navigation';
 import { render, renderNodeRule } from 'datocms-structured-text-to-html-string';
 import NavBar from '../../../components/NavBar';
+import Footer from '../../../components/Footer';
 import { getAllBlogPostSlugs, getBlogPostBySlug } from '../../../lib/datocms';
 import { formatBlogDate, estimateReadingTime } from '../../../lib/format';
 
@@ -97,6 +98,7 @@ export default async function BlogPostPage({ params }) {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

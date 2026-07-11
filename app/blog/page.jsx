@@ -1,4 +1,5 @@
 import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 import Reveal from '../../components/Reveal';
 import Icon from '../../components/Icon';
 import { getAllBlogPosts } from '../../lib/datocms';
@@ -57,6 +58,7 @@ export default async function BlogIndexPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }

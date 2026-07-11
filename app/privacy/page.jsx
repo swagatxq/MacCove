@@ -1,4 +1,5 @@
 import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
 
 export const metadata = {
   title: 'Privacy Policy',
@@ -89,6 +90,7 @@ export default function PrivacyPage() {
           </div>
         </div>
       </section>
+      <Footer />
     </>
   );
 }
