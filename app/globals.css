@@ -641,6 +641,23 @@ body::before {
 }
 .blog-post-back { margin-top: var(--space-9); }
 .blog-post-back a { color: var(--text-accent); font-weight: 600; font-size: 15px; }
+.blog-post-table-wrap {
+  overflow-x: auto; margin: 0 0 var(--space-6); border: 1px solid var(--border-default); border-radius: var(--radius-4);
+}
+.blog-post-table { width: 100%; border-collapse: collapse; font-size: 15px; line-height: 22px; }
+.blog-post-table caption {
+  caption-side: top; text-align: left; padding: var(--space-4) var(--space-5); font-weight: 600;
+  color: var(--text-primary); background: var(--bg-tertiary); border-bottom: 1px solid var(--border-default);
+}
+.blog-post-table th, .blog-post-table td {
+  padding: var(--space-3) var(--space-5); text-align: left; border-bottom: 1px solid var(--border-default);
+  border-right: 1px solid var(--border-default);
+}
+.blog-post-table th:last-child, .blog-post-table td:last-child { border-right: none; }
+.blog-post-table tr:last-child th, .blog-post-table tr:last-child td { border-bottom: none; }
+.blog-post-table th { background: var(--bg-tertiary); color: var(--text-primary); font-weight: 600; }
+.blog-post-table td { color: var(--text-secondary); }
+.blog-post-table tbody tr:nth-child(even) td { background: var(--bg-secondary); }
 
 /* ═══════════════════════════════════════════════════
    FOOTER
