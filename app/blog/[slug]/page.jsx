@@ -107,7 +107,7 @@ export default async function BlogPostPage({ params }) {
         });
       }
       if (record.__typename === 'HtmlTableRecord' && record.htmlTable) {
-        return renderHtmlTableBlock(record.htmlTable);
+        return adapter.renderNode('div', { dangerouslySetInnerHTML: { __html: renderHtmlTableBlock(record.htmlTable) } });
       }
       return null;
     },
