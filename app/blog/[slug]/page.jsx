@@ -5,6 +5,48 @@ import Footer from '../../../components/Footer';
 import { getAllBlogPostSlugs, getBlogPostBySlug } from '../../../lib/datocms';
 import { formatBlogDate, estimateReadingTime } from '../../../lib/format';
 
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function renderDastSpan(span) {
+  const text = escapeHtml(span.value);
+  const marks = span.marks || [];
+  const bold = marks.includes('strong');
+  const italic = marks.includes('emphasis');
+  const withItalic = italic ? `<em>${text}</em>` : text;
+  return bold ? `<strong>${withItalic}</strong>` : withItalic;
+}
+
+function renderDastCell(dast) {
+  const children = dast?.document?.children || [];
+  return children
+    .map((node) => (node.children || []).map(renderDastSpan).join(''))
+    .join(' ');
+}
+
+function renderHtmlTableBlock(htmlTable) {
+  const rows = htmlTable?.data || [];
+  const bodyRows = rows
+    .map((row) => {
+      const cells = row
+        .map((cell) => {
+          const tag = cell.isBold ? 'th' : 'td';
+          const style = cell.isItalic && !cell.isBold ? ' style="font-style: italic;"' : '';
+          return `<${tag}${style}>${renderDastCell(cell.value)}</${tag}>`;
+        })
+        .join('');
+      return `<tr>${cells}</tr>`;
+    })
+    .join('');
+  const caption = htmlTable?.title ? `<caption>${escapeHtml(htmlTable.title)}</caption>` : '';
+  return `<table class="blog-post-table">${caption}<tbody>${bodyRows}</tbody></table>`;
+}
+
 const externalLinkRule = renderNodeRule(
   (node) => node.type === 'link',
   ({ adapter: { renderNode }, node, children, key }) => {
@@ -63,6 +105,9 @@ export default async function BlogPostPage({ params }) {
           height: String(height),
           loading: 'lazy',
         });
+      }
+      if (record.__typename === 'HtmlTableRecord' && record.htmlTable) {
+        return renderHtmlTableBlock(record.htmlTable);
       }
       return null;
     },
