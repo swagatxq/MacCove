@@ -46,7 +46,7 @@ export default function NavigationShortcutsLandingPage() {
           <div className="hero-visual">
             <div className="hero-image hero-image-main">
               <Image
-                src="/AppScreenshot.png"
+                src="/AppScreenshot.webp"
                 alt="Mac Excel Shortcuts app screenshot"
                 width={2206}
                 height={1186}

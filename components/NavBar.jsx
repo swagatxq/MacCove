@@ -28,7 +28,7 @@ export default function NavBar() {
           MacCove
           <span className="nav-powered-by">
             Powered by
-            <Image src="/Group 61.png" alt="Xquantum" width={14} height={14} />
+            <Image src="/Group 61.webp" alt="Xquantum" width={14} height={14} />
             Quantum
           </span>
         </a>

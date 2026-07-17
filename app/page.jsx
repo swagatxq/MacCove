@@ -41,7 +41,7 @@ export default async function Home() {
             <div className="hero-image-row">
               <div className="hero-image hero-image-side hero-image-left">
                 <Image
-                  src="/PasteSpecial.png"
+                  src="/PasteSpecial.webp"
                   alt="Paste Special shortcuts in Mac Excel Shortcuts"
                   width={2202}
                   height={1650}
@@ -49,7 +49,7 @@ export default async function Home() {
               </div>
               <div className="hero-image hero-image-side hero-image-right">
                 <Image
-                  src="/Formatting.png"
+                  src="/Formatting.webp"
                   alt="Formatting shortcuts in Mac Excel Shortcuts"
                   width={2166}
                   height={1636}
@@ -58,7 +58,7 @@ export default async function Home() {
             </div>
             <div className="hero-image hero-image-main">
               <Image
-                src="/AppScreenshot.png"
+                src="/AppScreenshot.webp"
                 alt="Mac Excel Shortcuts app screenshot"
                 width={2206}
                 height={1186}

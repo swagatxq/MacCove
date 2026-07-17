@@ -16,13 +16,13 @@ export const metadata = {
     url: '/',
     siteName: 'MacCove',
     type: 'website',
-    images: [{ url: '/AppScreenshot.png', width: 2206, height: 1186, alt: 'Mac Excel Shortcuts app screenshot' }],
+    images: [{ url: '/AppScreenshot.webp', width: 2206, height: 1186, alt: 'Mac Excel Shortcuts app screenshot' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: SITE_TITLE,
     description: SITE_DESCRIPTION,
-    images: ['/AppScreenshot.png'],
+    images: ['/AppScreenshot.webp'],
   },
 }
 

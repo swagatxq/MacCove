@@ -23,7 +23,7 @@ export default function Footer() {
             </a>
             <div className="footer-powered-by">
               Powered by
-              <Image src="/Group 61.png" alt="Xquantum" width={16} height={16} className="footer-powered-by-logo" />
+              <Image src="/Group 61.webp" alt="Xquantum" width={16} height={16} className="footer-powered-by-logo" />
               Quantum
             </div>
             <p className="footer-desc">The most powerful automation platform for macOS, iOS, and iPadOS. Build shortcuts, automate workflows, and control your entire Apple ecosystem.</p>

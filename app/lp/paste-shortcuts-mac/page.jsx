@@ -45,7 +45,7 @@ export default function PasteShortcutsLandingPage() {
           <div className="hero-visual">
             <div className="hero-image hero-image-main">
               <Image
-                src="/PasteSpecial.png"
+                src="/PasteSpecial.webp"
                 alt="Paste Special shortcuts in Mac Excel Shortcuts"
                 width={2202}
                 height={1650}
