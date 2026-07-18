@@ -5,8 +5,8 @@ import Counter from '../components/Counter'
 import FAQ from '../components/FAQ'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
-import { getAllBlogPosts } from '../lib/datocms'
-import { formatBlogDate } from '../lib/format'
+import { getAllBlogPosts, getBrandAffiliates } from '../lib/datocms'
+import { formatBlogDate, getBrandPrimaryLink } from '../lib/format'
 
 export const revalidate = 60
 
@@ -16,6 +16,7 @@ export const metadata = {
 
 export default async function Home() {
   const latestPosts = await getAllBlogPosts({ first: 3 })
+  const brandAffiliates = await getBrandAffiliates({ first: 5 })
 
   return (
     <>
@@ -421,6 +422,80 @@ export default async function Home() {
           <FAQ />
         </div>
       </section>
+
+      {brandAffiliates.length > 0 && (
+        <section className="section brand-section" id="brand-affiliates">
+          <div className="container">
+            <Reveal className="brand-header">
+              <div className="brand-header-left">
+                <h2 className="text-h2">Brand Affiliates</h2>
+                <p className="text-body">Brands we partner with and recommend to the MacCove community.</p>
+              </div>
+              <a href="/brand-affiliates" className="brand-link">
+                See all affiliates
+                <Icon id="chevron-right" size={16} className="arrow" />
+              </a>
+            </Reveal>
+            <div className="brand-grid stagger-children">
+              {brandAffiliates.map((brand) => {
+                const primaryLink = getBrandPrimaryLink(brand)
+                const CardTag = primaryLink ? 'a' : 'div'
+                return (
+                  <CardTag
+                    key={brand.id}
+                    className="brand-card glass"
+                    {...(primaryLink ? { href: primaryLink, target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    <div className="brand-card-identity">
+                      {brand.logo && (
+                        <img
+                          className="brand-card-logo"
+                          src={brand.logo.url}
+                          alt={brand.logo.alt || `${brand.name} logo`}
+                          loading="lazy"
+                        />
+                      )}
+                      <div className="brand-card-name">{brand.name}</div>
+                    </div>
+                    {brand.image && (
+                      <div className="brand-card-image-wrap">
+                        <img
+                          className="brand-card-image"
+                          src={brand.image.url}
+                          alt={brand.image.alt || brand.name}
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div className="brand-card-links">
+                      {brand.website && (
+                        <span className="brand-card-link" aria-label={`${brand.name} website`}>
+                          <Icon id="globe" size={16} />
+                        </span>
+                      )}
+                      {brand.twitter && (
+                        <span className="brand-card-link" aria-label={`${brand.name} on Twitter`}>
+                          <Icon id="x" size={16} />
+                        </span>
+                      )}
+                      {brand.youtube && (
+                        <span className="brand-card-link" aria-label={`${brand.name} on YouTube`}>
+                          <Icon id="play" size={16} />
+                        </span>
+                      )}
+                      {brand.telegram && (
+                        <span className="brand-card-link" aria-label={`${brand.name} on Telegram`}>
+                          <Icon id="send" size={16} />
+                        </span>
+                      )}
+                    </div>
+                  </CardTag>
+                )
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {latestPosts.length > 0 && (
         <section className="section blog-section" id="blog">

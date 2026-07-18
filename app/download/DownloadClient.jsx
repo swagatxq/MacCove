@@ -4,7 +4,7 @@ import NavBar from '../../components/NavBar';
 import Icon from '../../components/Icon';
 
 const DMG_URL = 'https://storage.googleapis.com/mes_dmg/latest/Mac_Excel_Shortcuts.dmg';
-const COUNTDOWN_SECONDS = 5;
+const COUNTDOWN_SECONDS = 3;
 
 export default function DownloadClient() {
   const [secondsLeft, setSecondsLeft] = useState(COUNTDOWN_SECONDS);

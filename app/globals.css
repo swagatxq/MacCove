@@ -613,6 +613,44 @@ body::before {
 .blog-readmore { font-size: 14px; font-weight: 600; color: var(--text-accent); display: inline-flex; align-items: center; gap: var(--space-2); }
 
 /* ═══════════════════════════════════════════════════
+   BRAND AFFILIATES
+   ═══════════════════════════════════════════════════ */
+.brand-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: var(--space-8); flex-wrap: wrap; gap: var(--space-5); }
+.brand-header-left { max-width: 480px; }
+.brand-header .text-h2 { margin-bottom: var(--space-3); }
+.brand-header .text-body { color: var(--text-secondary); }
+.brand-link {
+  display: inline-flex; align-items: center; gap: var(--space-2); font-size: 15px; font-weight: 600;
+  color: var(--text-accent); text-decoration: none; transition: gap 0.2s var(--ease-standard); white-space: nowrap;
+}
+.brand-link:hover { gap: var(--space-3); }
+.brand-link .arrow { transition: transform 0.2s var(--ease-standard); }
+.brand-link:hover .arrow { transform: translateX(4px); }
+
+.brand-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--space-5); }
+@media (max-width: 768px) { .brand-grid { grid-template-columns: 1fr; } }
+@media (min-width: 769px) and (max-width: 1024px) { .brand-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (min-width: 1025px) and (max-width: 1280px) { .brand-grid { grid-template-columns: repeat(3, 1fr); } }
+
+.brand-card {
+  overflow: hidden; padding: var(--space-5); transition: all 0.3s var(--ease-standard);
+  display: flex; flex-direction: column; gap: var(--space-4); text-decoration: none;
+}
+.brand-card:hover { transform: translateY(-4px); box-shadow: var(--glass-shadow-3); }
+.brand-card:hover .brand-card-image { transform: scale(1.05); }
+.brand-card-identity { display: flex; align-items: center; gap: var(--space-3); }
+.brand-card-logo { width: 32px; height: 32px; border-radius: var(--radius-2); object-fit: cover; flex-shrink: 0; background: var(--bg-tertiary); }
+.brand-card-name { font-size: 16px; font-weight: 700; color: var(--text-primary); }
+.brand-card-image-wrap { height: 140px; overflow: hidden; position: relative; border-radius: var(--radius-4); background: var(--bg-tertiary); }
+.brand-card-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease-standard); display: block; }
+.brand-card-links { display: flex; align-items: center; justify-content: center; gap: var(--space-2); }
+.brand-card-link {
+  width: 32px; height: 32px; border-radius: var(--radius-full); display: flex; align-items: center; justify-content: center;
+  color: var(--text-secondary); background: var(--state-hover); transition: all 0.2s var(--ease-standard);
+}
+.brand-card-link:hover { color: var(--text-accent); background: var(--state-selected); }
+
+/* ═══════════════════════════════════════════════════
    BLOG POST (detail page)
    ═══════════════════════════════════════════════════ */
 .blog-post-section { padding-top: 140px; }
