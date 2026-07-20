@@ -547,28 +547,39 @@ export default async function Home() {
         <div className="container">
           <Reveal className="launch-partners-inner">
             <div className="launch-partners-label">Launch Partners</div>
-            <a
-              href="https://www.tinystartups.com/startup/maccoves-mac-excel-shortcuts"
-              target="_blank"
-              rel="noopener"
-              className="launch-partner-badge"
-            >
-              <svg width="40" height="40" viewBox="0 0 100 100">
-                <defs>
-                  <linearGradient id="tsg" x1=".1" y1="0" x2=".9" y2="1">
-                    <stop offset="0%" stopColor="#3525E6" />
-                    <stop offset="55%" stopColor="#D81FE0" />
-                    <stop offset="100%" stopColor="#22B8F0" />
-                  </linearGradient>
-                </defs>
-                <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="url(#tsg)" />
-              </svg>
-              <span className="launch-partner-badge-text">
-                <span className="launch-partner-badge-eyebrow">Launched on</span>
-                <span className="launch-partner-badge-name">Tiny Startups</span>
-                <span className="launch-partner-badge-url">tinystartups.com</span>
-              </span>
-            </a>
+            <div className="launch-partners-row">
+              <a
+                href="https://www.tinystartups.com/startup/maccoves-mac-excel-shortcuts"
+                target="_blank"
+                rel="noopener"
+                className="launch-partner-badge"
+              >
+                <svg width="40" height="40" viewBox="0 0 100 100">
+                  <defs>
+                    <linearGradient id="tsg" x1=".1" y1="0" x2=".9" y2="1">
+                      <stop offset="0%" stopColor="#3525E6" />
+                      <stop offset="55%" stopColor="#D81FE0" />
+                      <stop offset="100%" stopColor="#22B8F0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="url(#tsg)" />
+                </svg>
+                <span className="launch-partner-badge-text">
+                  <span className="launch-partner-badge-eyebrow">Launched on</span>
+                  <span className="launch-partner-badge-name">Tiny Startups</span>
+                  <span className="launch-partner-badge-url">tinystartups.com</span>
+                </span>
+              </a>
+              <a href="https://openhunts.com" target="_blank" rel="noopener" title="OpenHunts Club">
+                <img
+                  alt="OpenHunts Club Member"
+                  height="105"
+                  src="https://cdn.openhunts.com/badges/club.webp"
+                  width="486"
+                  className="openhunts-badge"
+                />
+              </a>
+            </div>
           </Reveal>
         </div>
       </section>

@@ -764,6 +764,9 @@ body::before {
    ═══════════════════════════════════════════════════ */
 .launch-partners-inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); text-align: center; }
 .launch-partners-label { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-secondary); }
+.launch-partners-row { display: flex; align-items: center; justify-content: center; gap: var(--space-5); flex-wrap: wrap; }
+.launch-partners-row > a { display: flex; align-items: center; }
+.openhunts-badge { display: block; width: auto; height: 60px; }
 
 .launch-partner-badge {
   display: inline-flex;
