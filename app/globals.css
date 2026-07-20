@@ -759,6 +759,37 @@ body::before {
 /* ═══════════════════════════════════════════════════
    HOW TO USE
    ═══════════════════════════════════════════════════ */
+/* ═══════════════════════════════════════════════════
+   LAUNCH PARTNERS
+   ═══════════════════════════════════════════════════ */
+.launch-partners-inner { display: flex; flex-direction: column; align-items: center; gap: var(--space-4); text-align: center; }
+.launch-partners-label { font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-secondary); }
+
+.launch-partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px 10px 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  background: linear-gradient(#fff, #fff) padding-box, linear-gradient(90deg, #3525E6, #D81FE0, #22B8F0) border-box;
+  border: 2px solid transparent;
+  color: #0E0B1F;
+  transition: transform 0.2s var(--ease-standard);
+}
+.launch-partner-badge:hover { transform: translateY(-2px); }
+.launch-partner-badge-text { display: flex; flex-direction: column; line-height: 1.15; }
+.launch-partner-badge-eyebrow { font-family: monospace; font-size: 8px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: #6A6585; }
+.launch-partner-badge-name { font-size: 16px; font-weight: 800; letter-spacing: -0.025em; }
+.launch-partner-badge-url { font-size: 10px; color: #6A6585; margin-top: 2px; }
+
+[data-theme="dark"] .launch-partner-badge {
+  background: linear-gradient(#0E0B1F, #0E0B1F) padding-box, linear-gradient(90deg, #3525E6, #D81FE0, #22B8F0) border-box;
+  color: #fff;
+}
+[data-theme="dark"] .launch-partner-badge-eyebrow,
+[data-theme="dark"] .launch-partner-badge-url { color: rgba(255, 255, 255, 0.55); }
+
 .how-to-section { position: relative; z-index: 2; }
 .how-to-header { text-align: center; margin-bottom: var(--space-10); }
 .how-to-header .text-h2 { margin-bottom: var(--space-3); }
