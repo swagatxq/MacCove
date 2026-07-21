@@ -767,6 +767,14 @@ body::before {
 .launch-partners-row { display: flex; align-items: center; justify-content: center; gap: var(--space-5); flex-wrap: wrap; }
 .launch-partners-row > a { display: flex; align-items: center; }
 .openhunts-badge { display: block; width: auto; height: 60px; }
+.twelve-tools-badge { display: block; width: auto; height: 54px; }
+.twelve-tools-badge-dark { display: none; }
+[data-theme="dark"] .twelve-tools-badge-light { display: none; }
+[data-theme="dark"] .twelve-tools-badge-dark { display: block; }
+.wired-business-badge { display: block; width: auto; height: 54px; }
+.wired-business-badge-dark { display: none; }
+[data-theme="dark"] .wired-business-badge-light { display: none; }
+[data-theme="dark"] .wired-business-badge-dark { display: block; }
 
 .launch-partner-badge {
   display: inline-flex;

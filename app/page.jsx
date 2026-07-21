@@ -579,6 +579,38 @@ export default async function Home() {
                   className="openhunts-badge"
                 />
               </a>
+              <a href="https://twelve.tools" target="_blank" rel="noopener" title="Featured on Twelve Tools">
+                <img
+                  src="https://twelve.tools/badge0-light.svg"
+                  alt="Featured on Twelve Tools"
+                  width="200"
+                  height="54"
+                  className="twelve-tools-badge twelve-tools-badge-light"
+                />
+                <img
+                  src="https://twelve.tools/badge0-dark.svg"
+                  alt="Featured on Twelve Tools"
+                  width="200"
+                  height="54"
+                  className="twelve-tools-badge twelve-tools-badge-dark"
+                />
+              </a>
+              <a href="https://wired.business" target="_blank" rel="noopener" title="Featured on Wired Business">
+                <img
+                  src="https://wired.business/badge0-white.svg"
+                  alt="Featured on Wired Business"
+                  width="200"
+                  height="54"
+                  className="wired-business-badge wired-business-badge-light"
+                />
+                <img
+                  src="https://wired.business/badge0-dark.svg"
+                  alt="Featured on Wired Business"
+                  width="200"
+                  height="54"
+                  className="wired-business-badge wired-business-badge-dark"
+                />
+              </a>
             </div>
           </Reveal>
         </div>
