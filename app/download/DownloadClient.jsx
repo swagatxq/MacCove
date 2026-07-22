@@ -2,6 +2,7 @@
 import { useEffect, useState, useCallback, useRef } from 'react';
 import NavBar from '../../components/NavBar';
 import Icon from '../../components/Icon';
+import { fetchDownloadToken } from '../../lib/attribution';
 
 const DMG_URL = 'https://storage.googleapis.com/mes_dmg/latest/Mac_Excel_Shortcuts.dmg';
 const COUNTDOWN_SECONDS = 3;
@@ -18,7 +19,14 @@ export default function DownloadClient() {
     if (typeof window !== 'undefined' && window.dataLayer) {
       window.dataLayer.push({ event: 'dmg_download_start', file: 'Mac_Excel_Shortcuts.dmg' });
     }
-    window.location.href = DMG_URL;
+    // Best-effort: hand the app a signed attribution token via the clipboard, since a direct
+    // DMG download has no OS-level install-referrer channel. Never blocks the download.
+    fetchDownloadToken()
+      .then((token) => navigator.clipboard?.writeText(token))
+      .catch(() => {})
+      .finally(() => {
+        window.location.href = DMG_URL;
+      });
   }, []);
 
   useEffect(() => {

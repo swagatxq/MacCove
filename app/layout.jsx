@@ -1,4 +1,5 @@
 import './globals.css'
+import Attribution from '../components/Attribution'
 
 const SITE_TITLE = 'Mac Excel Shortcuts — Run Windows Excel Shortcuts on Mac | MacCove';
 const SITE_DESCRIPTION = 'Run the Windows Excel shortcuts you already know, natively on your Mac. Mac Excel Shortcuts brings back Paste Special, AutoSum, and more, no relearning required.';
@@ -102,6 +103,7 @@ export default function RootLayout({ children }) {
             <symbol id="i-send" viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></symbol>
           </defs>
         </svg>
+        <Attribution />
         {children}
       </body>
     </html>
