@@ -23,9 +23,10 @@ export default function DownloadClient() {
       .catch(() => {});
   }, []);
 
+  // Fires the actual download + clipboard hand-off. Called once automatically when the
+  // countdown ends, and again on every "Download Now" click thereafter — the button is a
+  // real manual retry (e.g. if the automatic navigation got blocked), not a dead no-op.
   const startDownload = useCallback(() => {
-    if (startedRef.current) return;
-    startedRef.current = true;
     setStarted(true);
     if (typeof window !== 'undefined' && window.dataLayer) {
       window.dataLayer.push({ event: 'dmg_download_start', file: 'Mac_Excel_Shortcuts.dmg' });
@@ -40,7 +41,13 @@ export default function DownloadClient() {
 
   useEffect(() => {
     if (secondsLeft <= 0) {
-      startDownload();
+      // Guards only the automatic trigger against firing twice (e.g. React StrictMode's
+      // double effect invocation in dev) — manual clicks on the button always go straight
+      // through startDownload, unguarded, once it's enabled.
+      if (!startedRef.current) {
+        startedRef.current = true;
+        startDownload();
+      }
       return;
     }
     const timer = setTimeout(() => setSecondsLeft((s) => s - 1), 1000);
