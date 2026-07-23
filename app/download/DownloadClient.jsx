@@ -11,6 +11,17 @@ export default function DownloadClient() {
   const [secondsLeft, setSecondsLeft] = useState(COUNTDOWN_SECONDS);
   const [started, setStarted] = useState(false);
   const startedRef = useRef(false);
+  const tokenRef = useRef(null);
+
+  // Pre-fetch the attribution token as soon as the page loads, well before the download
+  // fires. navigator.clipboard.writeText() must be called synchronously within the user
+  // gesture / countdown handler to reliably succeed (Safari rejects it otherwise) — so the
+  // network round-trip cannot happen in between the trigger and the write.
+  useEffect(() => {
+    fetchDownloadToken()
+      .then((token) => { tokenRef.current = token; })
+      .catch(() => {});
+  }, []);
 
   const startDownload = useCallback(() => {
     if (startedRef.current) return;
@@ -21,12 +32,10 @@ export default function DownloadClient() {
     }
     // Best-effort: hand the app a signed attribution token via the clipboard, since a direct
     // DMG download has no OS-level install-referrer channel. Never blocks the download.
-    fetchDownloadToken()
-      .then((token) => navigator.clipboard?.writeText(token))
-      .catch(() => {})
-      .finally(() => {
-        window.location.href = DMG_URL;
-      });
+    if (tokenRef.current) {
+      try { navigator.clipboard?.writeText(tokenRef.current); } catch {}
+    }
+    window.location.href = DMG_URL;
   }, []);
 
   useEffect(() => {
@@ -66,7 +75,12 @@ export default function DownloadClient() {
             )}
 
             <div className="status-actions">
-              <button className="btn btn-primary" onClick={startDownload}>
+              <button
+                className="btn btn-primary"
+                onClick={startDownload}
+                disabled={!started}
+                aria-disabled={!started}
+              >
                 <Icon id="download" size={20} /> Download Now
               </button>
               <a href="/" className="status-link">Back to home</a>
