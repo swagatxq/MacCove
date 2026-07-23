@@ -5,7 +5,7 @@ import Icon from '../../components/Icon';
 import { fetchDownloadToken } from '../../lib/attribution';
 
 const DMG_URL = 'https://storage.googleapis.com/mes_dmg/latest/Mac_Excel_Shortcuts.dmg';
-const COUNTDOWN_SECONDS = 3;
+const COUNTDOWN_SECONDS = 5;
 
 export default function DownloadClient() {
   const [secondsLeft, setSecondsLeft] = useState(COUNTDOWN_SECONDS);
