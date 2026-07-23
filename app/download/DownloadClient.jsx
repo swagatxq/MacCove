@@ -88,7 +88,8 @@ export default function DownloadClient() {
                 disabled={!started}
                 aria-disabled={!started}
               >
-                <Icon id="download" size={20} /> Download Now
+                <Icon id="download" size={20} />
+                {started ? 'Download Now' : `Download Now (${secondsLeft}s)`}
               </button>
               <a href="/" className="status-link">Back to home</a>
             </div>

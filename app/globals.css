@@ -339,6 +339,11 @@ body::before {
 }
 .btn-primary:hover { background: #0056D6; box-shadow: 0 6px 20px rgba(0,122,255,0.45); transform: translateY(-2px); }
 .btn-primary:active { transform: scale(0.97); box-shadow: 0 1px 4px rgba(0,122,255,0.30); }
+.btn:disabled {
+  background: var(--bg-tertiary); color: var(--text-tertiary); box-shadow: none; cursor: not-allowed;
+  transform: none;
+}
+.btn:disabled:hover { background: var(--bg-tertiary); box-shadow: none; transform: none; }
 .btn-secondary {
   background: transparent; color: var(--apple-blue); height: 52px; padding: 0 var(--space-7); font-size: 17px;
   border-radius: var(--radius-full); border: 1.5px solid var(--apple-blue); transition: all 0.15s var(--ease-spring);
