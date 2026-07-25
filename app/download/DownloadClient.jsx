@@ -12,6 +12,7 @@ export default function DownloadClient() {
   const [started, setStarted] = useState(false);
   const startedRef = useRef(false);
   const tokenRef = useRef(null);
+  const isSafariRef = useRef(false);
 
   // Pre-fetch the attribution token as soon as the page loads, well before the download
   // fires. navigator.clipboard.writeText() must be called synchronously within the user
@@ -21,6 +22,11 @@ export default function DownloadClient() {
     fetchDownloadToken()
       .then((token) => { tokenRef.current = token; })
       .catch(() => {});
+    // Safari only grants clipboard-write "transient activation" inside a direct user
+    // gesture (a click) — a setTimeout-fired auto-download doesn't qualify, so the
+    // clipboard hand-off silently fails there and attribution is lost. Chrome/Firefox
+    // allow it from the timer, so only Safari needs the manual-click requirement.
+    isSafariRef.current = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
   }, []);
 
   // Fires the actual download + clipboard hand-off. Called once automatically when the
@@ -41,10 +47,13 @@ export default function DownloadClient() {
 
   useEffect(() => {
     if (secondsLeft <= 0) {
-      // Guards only the automatic trigger against firing twice (e.g. React StrictMode's
-      // double effect invocation in dev) — manual clicks on the button always go straight
-      // through startDownload, unguarded, once it's enabled.
-      if (!startedRef.current) {
+      // In Safari the download must be triggered by the "Download Now" click itself (the
+      // only way the clipboard write counts as user-gesture-initiated) — so once the
+      // countdown ends we just leave the button enabled and wait, instead of auto-firing.
+      // Guards the auto-trigger against firing twice (e.g. React StrictMode's double
+      // effect invocation in dev) — manual clicks always go straight through
+      // startDownload, unguarded, once the button is enabled.
+      if (!isSafariRef.current && !startedRef.current) {
         startedRef.current = true;
         startDownload();
       }
@@ -55,6 +64,8 @@ export default function DownloadClient() {
   }, [secondsLeft, startDownload]);
 
   const progress = ((COUNTDOWN_SECONDS - secondsLeft) / COUNTDOWN_SECONDS) * 100;
+  const countdownDone = secondsLeft <= 0;
+  const awaitingSafariClick = countdownDone && isSafariRef.current && !started;
 
   return (
     <>
@@ -65,14 +76,18 @@ export default function DownloadClient() {
             <div className="status-icon-wrap" style={{ background: 'var(--apple-blue)' }}>
               <Icon id="download" size={32} />
             </div>
-            <h1 className="text-h2">{started ? 'Your download has started' : 'Preparing your download'}</h1>
+            <h1 className="text-h2">
+              {started ? 'Your download has started' : awaitingSafariClick ? "You're ready to download" : 'Preparing your download'}
+            </h1>
             <p className="text-body">
               {started
                 ? "If your download didn't start automatically, use the button below to download it directly."
+                : awaitingSafariClick
+                ? 'Click the button below to download Mac Excel Shortcuts.'
                 : `Mac Excel Shortcuts will start downloading automatically in ${secondsLeft} second${secondsLeft === 1 ? '' : 's'}.`}
             </p>
 
-            {!started && (
+            {!countdownDone && (
               <>
                 <div className="status-progress">
                   <div className="status-progress-fill" style={{ width: `${progress}%` }} />
@@ -85,11 +100,11 @@ export default function DownloadClient() {
               <button
                 className="btn btn-primary"
                 onClick={startDownload}
-                disabled={!started}
-                aria-disabled={!started}
+                disabled={!countdownDone}
+                aria-disabled={!countdownDone}
               >
                 <Icon id="download" size={20} />
-                {started ? 'Download Now' : `Download Now (${secondsLeft}s)`}
+                {countdownDone ? 'Download Now' : `Download Now (${secondsLeft}s)`}
               </button>
               <a href="/" className="status-link">Back to home</a>
             </div>
