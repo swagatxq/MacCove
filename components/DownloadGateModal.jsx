@@ -1,5 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import Icon from './Icon';
 import { updateVisitorAdditionalData } from '../lib/attribution';
 import { isValidEmail } from '../lib/validate';
@@ -73,7 +74,7 @@ export default function DownloadGateModal({ onClose, onDone }) {
     onDone(hasAdmin ? '/download' : '/admin-required');
   };
 
-  return (
+  return createPortal(
     <div className="download-gate-backdrop" onClick={close} role="dialog" aria-modal="true" aria-label="Before you download">
       <div className="download-gate-modal glass" onClick={(e) => e.stopPropagation()}>
         <button className="video-lightbox-close download-gate-close" onClick={close} aria-label="Close">
@@ -188,6 +189,7 @@ export default function DownloadGateModal({ onClose, onDone }) {
           </div>
         )}
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
