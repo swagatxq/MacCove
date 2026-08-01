@@ -5,8 +5,12 @@ import Counter from '../components/Counter'
 import FAQ from '../components/FAQ'
 import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
-import { getAllBlogPosts, getBrandAffiliates } from '../lib/datocms'
+import DownloadCTA from '../components/DownloadCTA'
+import ProductCarousel from '../components/ProductCarousel'
+import { getAllBlogPosts, getBrandAffiliates, getMerchandise } from '../lib/datocms'
 import { formatBlogDate, getBrandPrimaryLink } from '../lib/format'
+import { getVisitorCountryCode } from '../lib/geo'
+import { getCountryName } from '../lib/countries'
 
 export const revalidate = 60
 
@@ -17,10 +21,27 @@ export const metadata = {
 export default async function Home() {
   const latestPosts = await getAllBlogPosts({ first: 3 })
   const brandAffiliates = await getBrandAffiliates({ first: 5 })
+  const visitorCountryCode = await getVisitorCountryCode()
+  const merchandise = await getMerchandise({ first: 6, country: visitorCountryCode })
+  const merchandiseCountryName = merchandise[0] ? getCountryName(merchandise[0].country) : null
 
   return (
     <>
       <NavBar />
+
+      {visitorCountryCode === 'IN' && (
+        <a href="/shop" className="shop-banner">
+          <div className="container shop-banner-inner">
+            <span className="shop-banner-text">
+              <Icon id="shopping-bag" size={22} />
+              Looking for amazing Mac accessories? Look at our curated products.
+            </span>
+            <span className="shop-banner-cta">
+              Shop now <Icon id="chevron-right" size={18} />
+            </span>
+          </div>
+        </a>
+      )}
 
       <section className="hero" id="hero">
         <div className="container">
@@ -32,9 +53,9 @@ export default async function Home() {
             <h1 className="text-hero">Mac Excel<br/>Shortcuts</h1>
             <p className="hero-subtitle">Run Windows excel shortcuts on Mac, and get native Windows experience on Mac. Get your work done fast.</p>
             <div className="hero-ctas">
-              <a href="/download" className="btn btn-primary">
+              <DownloadCTA className="btn btn-primary">
                 <Icon id="download" size={20} /> Download .dmg for Mac
-              </a>
+              </DownloadCTA>
             </div>
           </div>
 
@@ -70,7 +91,80 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="ticker-strip" id="features">
+      <section className="section launch-partners-section" id="launch-partners">
+        <div className="container">
+          <Reveal className="launch-partners-inner">
+            <div className="launch-partners-label">Launch Partners</div>
+            <div className="launch-partners-row">
+              <a
+                href="https://www.tinystartups.com/startup/maccoves-mac-excel-shortcuts"
+                target="_blank"
+                rel="noopener"
+                className="launch-partner-badge"
+              >
+                <svg width="40" height="40" viewBox="0 0 100 100">
+                  <defs>
+                    <linearGradient id="tsg" x1=".1" y1="0" x2=".9" y2="1">
+                      <stop offset="0%" stopColor="#3525E6" />
+                      <stop offset="55%" stopColor="#D81FE0" />
+                      <stop offset="100%" stopColor="#22B8F0" />
+                    </linearGradient>
+                  </defs>
+                  <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="url(#tsg)" />
+                </svg>
+                <span className="launch-partner-badge-text">
+                  <span className="launch-partner-badge-eyebrow">Launched on</span>
+                  <span className="launch-partner-badge-name">Tiny Startups</span>
+                  <span className="launch-partner-badge-url">tinystartups.com</span>
+                </span>
+              </a>
+              <a href="https://openhunts.com" target="_blank" rel="noopener" title="OpenHunts Club">
+                <img
+                  alt="OpenHunts Club Member"
+                  height="105"
+                  src="https://cdn.openhunts.com/badges/club.webp"
+                  width="486"
+                  className="openhunts-badge"
+                />
+              </a>
+              <a href="https://twelve.tools" target="_blank" rel="noopener" title="Featured on Twelve Tools">
+                <img
+                  src="https://twelve.tools/badge0-light.svg"
+                  alt="Featured on Twelve Tools"
+                  width="200"
+                  height="54"
+                  className="twelve-tools-badge twelve-tools-badge-light"
+                />
+                <img
+                  src="https://twelve.tools/badge0-dark.svg"
+                  alt="Featured on Twelve Tools"
+                  width="200"
+                  height="54"
+                  className="twelve-tools-badge twelve-tools-badge-dark"
+                />
+              </a>
+              <a href="https://wired.business" target="_blank" rel="noopener" title="Featured on Wired Business">
+                <img
+                  src="https://wired.business/badge0-white.svg"
+                  alt="Featured on Wired Business"
+                  width="200"
+                  height="54"
+                  className="wired-business-badge wired-business-badge-light"
+                />
+                <img
+                  src="https://wired.business/badge0-dark.svg"
+                  alt="Featured on Wired Business"
+                  width="200"
+                  height="54"
+                  className="wired-business-badge wired-business-badge-dark"
+                />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      {/* <section className="ticker-strip" id="features">
         <div className="container">
           <div className="ticker-content">
             <div className="ticker-item">
@@ -97,7 +191,7 @@ export default async function Home() {
                 </div>
               </div>
             </div>
-            {/* <div className="ticker-item">
+            <div className="ticker-item">
               <div className="ticker-icon">
                 <Icon id="star" size={24} />
               </div>
@@ -120,10 +214,10 @@ export default async function Home() {
                   <Icon id="trending-up" size={12} /> <span>+3</span> this month
                 </div>
               </div>
-            </div> */}
+            </div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="section how-to-section" id="how-to-use">
         <div className="container">
@@ -132,15 +226,15 @@ export default async function Home() {
             <p className="text-body">Get started with Mac Excel Shortcuts in four simple steps. From download to full automation in under 1 minute.</p>
           </Reveal>
           <div className="how-to-steps stagger-children">
-            <div className="how-to-step glass">
+            <div className="how-to-step">
               <div className="how-to-step-number">1</div>
               <div className="how-to-step-icon-wrap">
-                <Icon id="download" size={24} />
+                <Icon id="download" size={28} />
               </div>
               <div className="how-to-step-title">Download the App</div>
               <div className="how-to-step-desc">Download the DMG directly. Installation takes seconds and requires zero setup.</div>
             </div>
-            <div className="how-to-step glass">
+            <div className="how-to-step">
               <div className="how-to-step-number">2</div>
               <div className="how-to-step-icon-wrap">
                 <Icon id="sliders" size={24} />
@@ -148,7 +242,7 @@ export default async function Home() {
               <div className="how-to-step-title">Provide permissions</div>
               <div className="how-to-step-desc">We need two permissions, Accessibility to access Excel, and Input Monitoring to connect your keyboard to Excel.</div>
             </div>
-            <div className="how-to-step glass">
+            <div className="how-to-step">
               <div className="how-to-step-number">3</div>
               <div className="how-to-step-icon-wrap">
                 <Icon id="zap" size={24} />
@@ -174,41 +268,41 @@ export default async function Home() {
             <h2 className="text-h2">Top 5 Excel Shortcuts</h2>
             <p className="text-body">The Windows Excel shortcuts you already know, now working natively on your Mac.</p>
           </Reveal>
-          <div className="security-grid stagger-children">
-            <div className="security-card glass">
+          <div className="shortcuts-grid stagger-children">
+            <div className="shortcut-card">
               <div className="shortcut-keys">
                 <kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>V</kbd>
               </div>
-              <div className="security-card-title">Paste Special</div>
-              <div className="security-card-desc">Paste values, formulas, or formatting only — without carrying over the rest of the copied cell.</div>
+              <div className="shortcut-card-title">Paste Special</div>
+              <div className="shortcut-card-desc">Paste values, formulas, or formatting only — without carrying over the rest of the copied cell.</div>
             </div>
-            <div className="security-card glass">
+            <div className="shortcut-card">
               <div className="shortcut-keys">
                 <kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>T</kbd>
               </div>
-              <div className="security-card-title">Paste Special (Formats)</div>
-              <div className="security-card-desc">Paste only the formatting from the copied cell, leaving its values and formulas behind.</div>
+              <div className="shortcut-card-title">Paste Special (Formats)</div>
+              <div className="shortcut-card-desc">Paste only the formatting from the copied cell, leaving its values and formulas behind.</div>
             </div>
-            <div className="security-card glass">
+            <div className="shortcut-card">
               <div className="shortcut-keys">
                 <kbd>Alt</kbd><span>+</span><kbd>=</kbd>
               </div>
-              <div className="security-card-title">AutoSum</div>
-              <div className="security-card-desc">Insert a SUM formula for the selected cells without typing it out.</div>
+              <div className="shortcut-card-title">AutoSum</div>
+              <div className="shortcut-card-desc">Insert a SUM formula for the selected cells without typing it out.</div>
             </div>
-            <div className="security-card glass">
+            <div className="shortcut-card">
               <div className="shortcut-keys">
                 <kbd>Alt</kbd><span>+</span><kbd>Enter</kbd>
               </div>
-              <div className="security-card-title">New Line in Cell</div>
-              <div className="security-card-desc">Start a new line within the same cell instead of moving to the next one.</div>
+              <div className="shortcut-card-title">New Line in Cell</div>
+              <div className="shortcut-card-desc">Start a new line within the same cell instead of moving to the next one.</div>
             </div>
-            <div className="security-card glass">
+            <div className="shortcut-card">
               <div className="shortcut-keys">
                 <kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>O</kbd><span>+</span><kbd>I</kbd>
               </div>
-              <div className="security-card-title">AutoFit Column Width</div>
-              <div className="security-card-desc">Resize the selected columns to fit their contents automatically.</div>
+              <div className="shortcut-card-title">AutoFit Column Width</div>
+              <div className="shortcut-card-desc">Resize the selected columns to fit their contents automatically.</div>
             </div>
           </div>
         </div>
@@ -497,6 +591,26 @@ export default async function Home() {
         </section>
       )}
 
+      {merchandise.length > 0 && (
+        <section className="pm-section" id="merchandise">
+          <div className="container">
+            <Reveal className="pm-section-header">
+              <div>
+                <h2 className="pm-section-title">Gear That Pairs Well</h2>
+                <p className="pm-section-subtitle">
+                  Curated accessories our community actually uses alongside their MacBook
+                  {merchandiseCountryName ? `, available in ${merchandiseCountryName}.` : '.'}
+                </p>
+              </div>
+              <a href="/shop" className="pm-section-link">
+                Visit the shop <Icon id="chevron-right" size={16} className="arrow" />
+              </a>
+            </Reveal>
+            <ProductCarousel items={merchandise} />
+          </div>
+        </section>
+      )}
+
       {latestPosts.length > 0 && (
         <section className="section blog-section" id="blog">
           <div className="container">
@@ -542,79 +656,6 @@ export default async function Home() {
           </div>
         </section>
       )}
-
-      <section className="section launch-partners-section" id="launch-partners">
-        <div className="container">
-          <Reveal className="launch-partners-inner">
-            <div className="launch-partners-label">Launch Partners</div>
-            <div className="launch-partners-row">
-              <a
-                href="https://www.tinystartups.com/startup/maccoves-mac-excel-shortcuts"
-                target="_blank"
-                rel="noopener"
-                className="launch-partner-badge"
-              >
-                <svg width="40" height="40" viewBox="0 0 100 100">
-                  <defs>
-                    <linearGradient id="tsg" x1=".1" y1="0" x2=".9" y2="1">
-                      <stop offset="0%" stopColor="#3525E6" />
-                      <stop offset="55%" stopColor="#D81FE0" />
-                      <stop offset="100%" stopColor="#22B8F0" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="url(#tsg)" />
-                </svg>
-                <span className="launch-partner-badge-text">
-                  <span className="launch-partner-badge-eyebrow">Launched on</span>
-                  <span className="launch-partner-badge-name">Tiny Startups</span>
-                  <span className="launch-partner-badge-url">tinystartups.com</span>
-                </span>
-              </a>
-              <a href="https://openhunts.com" target="_blank" rel="noopener" title="OpenHunts Club">
-                <img
-                  alt="OpenHunts Club Member"
-                  height="105"
-                  src="https://cdn.openhunts.com/badges/club.webp"
-                  width="486"
-                  className="openhunts-badge"
-                />
-              </a>
-              <a href="https://twelve.tools" target="_blank" rel="noopener" title="Featured on Twelve Tools">
-                <img
-                  src="https://twelve.tools/badge0-light.svg"
-                  alt="Featured on Twelve Tools"
-                  width="200"
-                  height="54"
-                  className="twelve-tools-badge twelve-tools-badge-light"
-                />
-                <img
-                  src="https://twelve.tools/badge0-dark.svg"
-                  alt="Featured on Twelve Tools"
-                  width="200"
-                  height="54"
-                  className="twelve-tools-badge twelve-tools-badge-dark"
-                />
-              </a>
-              <a href="https://wired.business" target="_blank" rel="noopener" title="Featured on Wired Business">
-                <img
-                  src="https://wired.business/badge0-white.svg"
-                  alt="Featured on Wired Business"
-                  width="200"
-                  height="54"
-                  className="wired-business-badge wired-business-badge-light"
-                />
-                <img
-                  src="https://wired.business/badge0-dark.svg"
-                  alt="Featured on Wired Business"
-                  width="200"
-                  height="54"
-                  className="wired-business-badge wired-business-badge-dark"
-                />
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
 
       <Footer />
     </>

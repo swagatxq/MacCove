@@ -3,11 +3,13 @@ import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
 import Icon from './Icon';
+import DownloadCTA from './DownloadCTA';
 
 export default function NavBar() {
   const pathname = usePathname();
   const isBlog = pathname.startsWith('/blog');
   const isProduct = pathname === '/';
+  const isShop = pathname.startsWith('/shop');
 
   return (
     <nav className="nav-bar">
@@ -33,12 +35,13 @@ export default function NavBar() {
           </span>
         </a>
         <div className="nav-links">
-          <a href="/#features" className={isProduct ? 'active' : ''}><Icon id="box" size={16} /> Product</a>
+          <a href="/#features" className={isProduct ? 'active' : ''}><Icon id="box" size={16} /> Apps</a>
+          <a href="/shop" className={isShop ? 'active' : ''}><Icon id="shopping-bag" size={16} /> Shop</a>
           <a href="/blog" className={isBlog ? 'active' : ''}><Icon id="file-text" size={16} /> Blog</a>
           <a href="https://github.com/swagatxq/MacCove" target="_blank" rel="noopener noreferrer"><Icon id="book" size={16} /> Docs</a>
         </div>
         <div style={{display: 'flex', alignItems: 'center'}}>
-          <a href="/download" className="nav-cta"><Icon id="download" size={16} /> Download App</a>
+          <DownloadCTA className="nav-cta"><Icon id="download" size={16} /> Download Excel Shortcuts</DownloadCTA>
           <ThemeToggle />
           <button className="mobile-menu-btn" aria-label="Open menu">
             <Icon id="menu" size={24} />
