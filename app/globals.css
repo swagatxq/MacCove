@@ -908,6 +908,7 @@ body::before {
 .wired-business-badge-dark { display: none; }
 [data-theme="dark"] .wired-business-badge-light { display: none; }
 [data-theme="dark"] .wired-business-badge-dark { display: block; }
+.fazier-badge { display: block; width: 120px; height: auto; }
 
 .launch-partner-badge {
   display: inline-flex;

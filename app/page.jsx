@@ -159,6 +159,14 @@ export default async function Home() {
                   className="wired-business-badge wired-business-badge-dark"
                 />
               </a>
+              <a href="https://fazier.com/launches/maccove.com" target="_blank" rel="noopener" title="Fazier badge">
+                <img
+                  src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light"
+                  width="120"
+                  alt="Fazier badge"
+                  className="fazier-badge"
+                />
+              </a>
             </div>
           </Reveal>
         </div>
