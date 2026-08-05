@@ -1,19 +1,9 @@
 import { notFound } from 'next/navigation';
-import { render, renderNodeRule } from 'datocms-structured-text-to-html-string';
 import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
 import { getAllBlogPostSlugs, getBlogPostBySlug } from '../../../lib/datocms';
 import { formatBlogDate, estimateReadingTime } from '../../../lib/format';
-import { renderHtmlTableBlock } from '../../../lib/richtext';
-
-const externalLinkRule = renderNodeRule(
-  (node) => node.type === 'link',
-  ({ adapter: { renderNode }, node, children, key }) => {
-    const isExternal = /^https?:\/\//.test(node.url) && !node.url.includes('maccove.com');
-    const attrs = isExternal ? { href: node.url, target: '_blank', rel: 'noopener noreferrer' } : { href: node.url };
-    return renderNode('a', { key, ...attrs }, children);
-  }
-);
+import { renderRichText } from '../../../lib/richtext';
 
 export const revalidate = 60;
 
@@ -52,25 +42,7 @@ export default async function BlogPostPage({ params }) {
   const post = await getBlogPostBySlug(params.slug);
   if (!post) notFound();
 
-  const contentHtml = render(post.content, {
-    customNodeRules: [externalLinkRule],
-    renderBlock: ({ record, adapter }) => {
-      if (record.__typename === 'ImageBlockRecord' && record.asset) {
-        const { url, alt, width, height } = record.asset;
-        return adapter.renderNode('img', {
-          src: url,
-          alt: alt || '',
-          width: String(width),
-          height: String(height),
-          loading: 'lazy',
-        });
-      }
-      if (record.__typename === 'HtmlTableRecord' && record.htmlTable) {
-        return adapter.renderNode('div', { class: 'blog-post-table-wrap', dangerouslySetInnerHTML: { __html: renderHtmlTableBlock(record.htmlTable) } });
-      }
-      return null;
-    },
-  });
+  const contentHtml = renderRichText(post.content);
 
   const jsonLd = {
     '@context': 'https://schema.org',
