@@ -159,12 +159,17 @@ export default async function Home() {
                   className="wired-business-badge wired-business-badge-dark"
                 />
               </a>
-              <a href="https://fazier.com/launches/maccove.com" target="_blank" rel="noopener" title="Fazier badge">
+              <a
+                href="https://startupbase.io/products/mac-excel-shortcuts?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Launched on StartupBase"
+              >
                 <img
-                  src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=light"
-                  width="120"
-                  alt="Fazier badge"
-                  className="fazier-badge"
+                  src="https://statics.startupbase.io/site/badges/launched-on-sb.svg"
+                  alt="Launched on StartupBase"
+                  height="55"
+                  className="startupbase-badge"
                 />
               </a>
             </div>
