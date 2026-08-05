@@ -1,5 +1,6 @@
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
+import Icon from '../../components/Icon';
 import ShopHeroCarousel from '../../components/ShopHeroCarousel';
 import ShopListings from '../../components/ShopListings';
 import { getMerchandiseWithVideo, getMerchandiseFacets, getMerchandisePage } from '../../lib/datocms';
@@ -24,6 +25,19 @@ export default async function ShopPage() {
   return (
     <>
       <NavBar />
+
+      <a href="/" className="shop-banner home-banner">
+        <div className="container shop-banner-inner">
+          <span className="shop-banner-text">
+            <Icon id="command" size={22} />
+            Looking for amazing Mac productivity apps?
+          </span>
+          <span className="shop-banner-cta">
+            Take me there <Icon id="chevron-right" size={18} />
+          </span>
+        </div>
+      </a>
+
       <section className="shop-page">
         <ShopHeroCarousel items={heroItems.length > 0 ? heroItems : firstPage.items.slice(0, 5)} />
         <div className="container shop-main">
