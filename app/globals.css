@@ -256,7 +256,18 @@ body::before {
 }
 .theme-toggle:hover { transform: scale(1.05); background: var(--bg-tertiary); }
 .mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-primary); }
-@media (max-width: 768px) { .nav-links { display: none; } .mobile-menu-btn { display: block; } .nav-cta { display: none; } }
+@media (max-width: 768px) { .nav-links { display: none; } .mobile-menu-btn { display: block; } .nav-cta { display: none; } .nav-inner .download-cta-row { display: none; } }
+
+.download-cta-row { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
+.download-cta-secondary { display: flex; align-items: center; gap: var(--space-2); }
+.btn-mini {
+  display: inline-flex; align-items: center; gap: 6px; height: 32px; padding: 0 var(--space-4);
+  border-radius: var(--radius-full); border: 1px solid var(--border-default); background: var(--bg-secondary);
+  color: var(--text-secondary); font-size: 13px; font-weight: 600; font-family: var(--font-sans);
+  cursor: pointer; transition: all 0.15s var(--ease-standard); white-space: nowrap;
+}
+.btn-mini:hover { border-color: var(--apple-blue); color: var(--apple-blue); background: rgba(0,122,255,0.06); }
+.btn-mini:active { transform: scale(0.96); }
 
 /* ═══════════════════════════════════════════════════
    SHOP BANNER
