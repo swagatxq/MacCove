@@ -1,0 +1,57 @@
+# Mac Excel Shortcuts
+
+> Mac Excel Shortcuts (by MacCove) is a macOS app that replicates familiar Windows Excel keyboard shortcuts natively on Mac, so users switching from Windows to Mac can keep working at full speed without relearning muscle memory.
+
+Mac Excel Shortcuts targets professionals who use Excel daily and have recently migrated (or are migrating) from a Windows PC to a MacBook. Instead of forcing users to learn Mac-native Excel shortcuts, the app intercepts the Windows shortcut key combinations they already know and runs the equivalent Excel action on macOS.
+
+## Key Features
+
+- **Windows-to-Mac shortcut translation**: Use Windows Excel shortcuts (e.g. Paste Special, AutoSum, Insert Line Break in Cell, AutoFit Column Width) directly on macOS with no relearning required.
+- **Runs locally, works offline**: Shortcuts execute entirely on-device; no internet connection is required to use them.
+- **Fast setup**: Download, install, and start using Windows shortcuts in under a minute.
+- **Menu bar / dock integration**: Runs quietly in the background with settings for dock visibility, menu bar presence, login item, and auto-updates (via Sparkle).
+- **Light/dark theme support**: App UI adapts to macOS appearance settings.
+- **Accessibility-permission based**: Uses macOS Accessibility and keyboard permissions to detect and remap shortcuts across apps.
+- **Security**: Local-first architecture; no detailed shortcut usage is tracked, keystrokes are not logged, and Excel data is never transmitted (we do count total shortcuts used for product improvement). Where cloud sync is used, it is encrypted in transit.
+
+## Pricing
+
+- Free to download, with a usage-limited or 7-day trial.
+- $4.99/month or $49.99 one-time (lifetime) to unlock unlimited shortcuts, advanced actions, and cloud sync.
+- Referral discount: referring two people gives 50% off an upgrade.
+- One license currently covers a single Mac (no team sharing yet).
+
+## Requirements
+
+- macOS 14.0 (Sonoma) or later.
+
+## Top Shortcuts Replicated
+
+- Paste Special (values/formulas only)
+- Paste Special (formats only)
+- AutoSum
+- New Line in Cell
+- AutoFit Column Width
+
+## Pages
+
+- [Homepage](https://macexcelshortcuts.com/): Product overview, features, how-it-works, shortcuts, FAQ.
+- [FAQ](https://macexcelshortcuts.com/faq): Full list of frequently asked questions — installation, pricing, licensing, privacy, support.
+- [Blog](https://macexcelshortcuts.com/blog): Tips, tutorials, and product updates.
+- [Shop](https://macexcelshortcuts.com/shop): Related accessories for Mac users.
+- [Brand Affiliates](https://macexcelshortcuts.com/brand-affiliates): Partner brands.
+- [Privacy Policy](https://macexcelshortcuts.com/privacy)
+- [Terms of Service](https://macexcelshortcuts.com/terms)
+
+## Landing Pages
+
+- [Excel Shortcuts on Mac](https://macexcelshortcuts.com/lp/excel-shortcuts-mac)
+- [Paste Shortcuts on Mac](https://macexcelshortcuts.com/lp/paste-shortcuts-mac)
+- [Navigation Shortcuts on Mac](https://macexcelshortcuts.com/lp/navigation-shortcuts-mac)
+
+## Elsewhere
+
+- [GitHub](https://github.com/swagatxq/MacCove)
+- [LinkedIn](https://www.linkedin.com/company/maccove)
+- [Discord](https://discord.gg/vkjcw6EQuE)
+- [Twitter/X](https://x.com/swagatsarma)

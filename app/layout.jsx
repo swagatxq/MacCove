@@ -27,10 +27,27 @@ export const metadata = {
   },
 }
 
+const organizationJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'MacCove',
+  url: 'https://maccove.com',
+  logo: 'https://maccove.com/icon.png',
+  parentOrganization: { '@type': 'Organization', name: 'Xquantum Pvt Ltd' },
+  sameAs: [
+    'https://github.com/swagatxq/MacCove',
+    'https://www.linkedin.com/company/maccove',
+    'https://discord.gg/vkjcw6EQuE',
+    'https://x.com/swagatsarma',
+  ],
+}
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
+
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
 
         <script dangerouslySetInnerHTML={{ __html: `
           (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':

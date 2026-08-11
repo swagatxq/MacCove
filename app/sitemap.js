@@ -12,7 +12,7 @@ export default async function sitemap() {
 
   const staticRoutes = [
     { url: `${BASE_URL}/`, changeFrequency: 'weekly', priority: 1 },
-    { url: `${BASE_URL}/download`, changeFrequency: 'monthly', priority: 0.8 },
+    { url: `${BASE_URL}/faq`, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/shop`, changeFrequency: 'daily', priority: 0.8 },
     { url: `${BASE_URL}/blog`, changeFrequency: 'daily', priority: 0.7 },
     { url: `${BASE_URL}/affiliate`, changeFrequency: 'monthly', priority: 0.5 },

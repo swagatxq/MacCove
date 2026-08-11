@@ -1,0 +1,270 @@
+# Mac Excel Shortcuts (by MacCove)
+
+> Mac Excel Shortcuts is a macOS utility that replicates familiar Windows Excel keyboard shortcuts natively on Mac, so users switching from Windows to Mac can keep working at full speed without relearning muscle memory.
+
+MacCove (maccove.com) is Swagat Sarma's / Xquantum's product studio. Its flagship product is Mac Excel Shortcuts, built specifically for professionals — finance, accounting, operations, analysts — who use Excel daily and have recently migrated (or are migrating) from a Windows PC to a MacBook.
+
+## The problem it solves
+
+macOS remaps or drops many Excel shortcuts that Windows users rely on (Paste Special, AutoSum, in-cell line breaks, column autofit, and more). New Mac users either give up on shortcuts entirely or spend weeks relearning muscle memory. Mac Excel Shortcuts intercepts the Windows key combinations a user already knows and triggers the equivalent Excel action on macOS, so no relearning is required.
+
+## Key features
+
+- **Windows-to-Mac shortcut translation**: Use Windows Excel shortcuts directly on macOS with zero relearning.
+- **Runs locally, works offline**: Shortcut execution happens entirely on-device; no internet connection required to use them.
+- **Fast setup**: Download, install, and start using shortcuts in under a minute.
+- **Menu bar / dock integration**: Runs quietly in the background; configurable dock visibility, menu bar presence, login item, and auto-updates.
+- **Light/dark theme support**: Matches macOS appearance settings.
+- **Accessibility-permission based**: Uses macOS Accessibility and keyboard permissions to detect and remap shortcuts across apps.
+- **Local-first security**: No detailed shortcut usage is tracked, keystrokes are not logged, and Excel data is never transmitted anywhere (total shortcuts-used count is collected for product improvement). Where cloud sync is used it is encrypted in transit.
+
+## Top shortcuts replicated
+
+| Windows Excel shortcut behavior | What it does on Mac Excel Shortcuts |
+|---|---|
+| Paste Special (values/formulas) | Paste values, formulas, or formatting only — without carrying over the rest of the copied cell |
+| Paste Special (formats only) | Paste only the formatting from the copied cell, leaving values and formulas behind |
+| AutoSum | Insert a SUM formula for the selected cells without typing it out |
+| New Line in Cell | Start a new line within the same cell instead of moving to the next one |
+| AutoFit Column Width | Resize selected columns to fit their contents automatically |
+
+## Complete shortcut list
+
+The shortcuts below are implemented and shipped in the app today, grouped by Excel ribbon tab. The "Shortcut" column shows the Windows Excel key sequence that now works natively on Mac.
+
+### Home
+
+| Action | Shortcut |
+|---|---|
+| Sort A to Z | Alt A S A |
+| Sort Z to A | Alt A S D |
+| Custom Sort | Alt A S S |
+| Filter | Ctrl+Shift+L |
+| Reapply | Alt A Y 3 |
+| Clear Filter | Alt A C |
+| Advanced Filter | Alt A Q |
+| Find... | Ctrl+F |
+| Replace... | Ctrl+H |
+| Go To... | F5 |
+
+### Insert
+
+| Action | Shortcut |
+|---|---|
+| PivotTable | Alt N V |
+| Recommended PivotTables | Alt N S |
+| Table | Ctrl+T / Alt N T |
+| Pictures | Alt N P |
+| Shapes | Alt N SH |
+| SmartArt | Alt N M |
+| Link | Ctrl+K |
+| Equation | Alt = |
+| Slicer | Alt N S F |
+
+### Page Layout
+
+| Action | Shortcut |
+|---|---|
+| Margins | Alt P M |
+| Orientation | Alt P O |
+| Size | Alt P S |
+| Print Area | Alt P R |
+| Breaks | Alt P B |
+| Print Titles | Alt P I |
+
+### Formulas
+
+| Action | Shortcut |
+|---|---|
+| Insert Function | Shift+F3 |
+| AutoSum | Alt M U |
+| Name Manager | Ctrl+F3 |
+| Define Name | Alt M M D |
+| Create from Selection | Ctrl+Shift+F3 |
+| Trace Precedents | Alt M P |
+| Trace Dependents | Alt M D |
+| Remove Arrows | Alt M A A |
+| Show Formulas | Ctrl+` |
+| Error Checking | Alt M X |
+| Evaluate Formula | Alt M V |
+| Watch Window | Alt M W |
+| Calculate Now | F9 |
+| Calculate Sheet | Shift+F9 |
+
+### Data
+
+| Action | Shortcut |
+|---|---|
+| Refresh All | Ctrl+Alt+F5 |
+| Sort A to Z | Alt A S A |
+| Sort Z to A | Alt A S D |
+| Custom Sort | Alt A S S |
+| Filter | Ctrl+Shift+L |
+| Clear | Alt A C |
+| Reapply | Alt A Y 3 |
+| Advanced | Alt A Q |
+| Text to Columns | Alt A E |
+| Flash Fill | Ctrl+E |
+| Remove Duplicates | Alt A M |
+| Data Validation | Alt A V V |
+| Consolidate | Alt A N |
+| What-If Analysis | Alt A W |
+| Group | Alt A G G |
+| Ungroup | Alt A G U |
+| Subtotal | Alt A B |
+
+### View
+
+| Action | Shortcut |
+|---|---|
+| Normal | Alt W L |
+| Page Break Preview | Alt W I |
+| Page Layout | Alt W P |
+| Gridlines | Alt W V G |
+| Formula Bar | Alt W V F |
+| Headings | Alt W V H |
+| Zoom | Alt W Q |
+| 100% Zoom | Alt W J |
+| New Window | Alt W N |
+| Arrange All | Alt W A |
+| Freeze Panes | Alt W F |
+| Freeze Top Row | Alt W R |
+| Freeze First Column | Alt W C |
+| Split | Alt W S |
+| Hide | Alt W H |
+| Unhide | Alt W U |
+| View Macros | Alt W M |
+| Record Macro | Alt W R |
+
+### Review
+
+| Action | Shortcut |
+|---|---|
+| Spelling | F7 |
+| Thesaurus | Shift+F7 |
+| New Comment | Ctrl+Alt+M |
+| New Note | Shift+F2 |
+| Protect Sheet | Alt R P S |
+| Protect Workbook | Alt R P W |
+
+## Pricing
+
+- Free download with a usage-limited or 7-day trial.
+- $4.99/month or $49.99 one-time (lifetime) for unlimited shortcuts, advanced actions, and cloud sync.
+- Referral discount: refer two people, get 50% off an upgrade.
+- One license currently covers a single Mac (team/multi-seat sharing not yet available).
+
+## System requirements
+
+- macOS 14.0 (Sonoma) or later.
+- Requires Accessibility and keyboard-monitoring permissions to remap shortcuts.
+
+## Who it's for
+
+- Windows-to-Mac migrators who use Excel as a primary daily tool.
+- Finance, accounting, and operations professionals moving to Apple hardware at work.
+- IT/MSP teams provisioning Macs for employees coming from Windows environments.
+
+## How it compares
+
+Unlike generic Mac productivity/automation apps (e.g. Keyboard Maestro, BetterTouchTool) which require users to build their own custom shortcut mappings, Mac Excel Shortcuts ships with Excel-specific, Windows-equivalent mappings out of the box — install and the familiar shortcuts just work, no configuration needed.
+
+## Company
+
+- Product: Mac Excel Shortcuts
+- Company: MacCove, built by Xquantum Pvt Ltd
+- Founder: Swagat Sarma
+
+## Pages
+
+- Homepage: https://macexcelshortcuts.com/ — product overview, features, how-it-works, shortcuts, FAQ.
+- FAQ (full): https://macexcelshortcuts.com/faq — the complete, categorized list of frequently asked questions.
+- Blog: https://macexcelshortcuts.com/blog — tips, tutorials, product updates.
+- Shop: https://macexcelshortcuts.com/shop — related Mac accessories.
+- Brand Affiliates: https://macexcelshortcuts.com/brand-affiliates
+- Privacy Policy: https://macexcelshortcuts.com/privacy
+- Terms of Service: https://macexcelshortcuts.com/terms
+
+## Landing pages
+
+- Excel Shortcuts on Mac: https://macexcelshortcuts.com/lp/excel-shortcuts-mac
+- Paste Shortcuts on Mac: https://macexcelshortcuts.com/lp/paste-shortcuts-mac
+- Navigation Shortcuts on Mac: https://macexcelshortcuts.com/lp/navigation-shortcuts-mac
+
+## Elsewhere
+
+- GitHub: https://github.com/swagatxq/MacCove
+- LinkedIn: https://www.linkedin.com/company/maccove
+- Discord: https://discord.gg/vkjcw6EQuE
+- Twitter/X: https://x.com/swagatsarma
+
+## FAQ
+
+Full list also published at https://macexcelshortcuts.com/faq (marked up with FAQPage schema.org structured data).
+
+### Getting Started
+
+**What is Mac Excel Shortcuts?**
+A macOS utility that lets you use the Windows Excel keyboard shortcuts you already know — Paste Special, AutoSum, and more — directly on your Mac, without relearning Mac-native shortcuts.
+
+**What platforms does Mac Excel Shortcuts support?**
+macOS 14.0+ (Sonoma and above).
+
+**Does it work with Google Sheets or Numbers?**
+No — it's built specifically for Microsoft Excel on Mac, not Google Sheets or Apple Numbers.
+
+**How do I install it?**
+Download the app, grant the Accessibility and admin permissions it asks for, then open Excel and start using your Windows shortcuts — setup takes under a minute.
+
+**What permissions does it need, and why?**
+Accessibility and admin permissions to install, plus Input Monitoring so it can detect keyboard shortcuts and connect them to Excel.
+
+**Is Mac Excel Shortcuts affiliated with Microsoft?**
+No — it's an independent third-party utility built by MacCove/Xquantum Pvt Ltd, not made or endorsed by Microsoft.
+
+### Pricing & Trial
+
+**Is there a free version?**
+Yes — free to download and use for up to trial usage limits or 7 days. Upgrade for $4.99/month or $49.99 lifetime to unlock unlimited shortcuts, advanced actions, cloud sync, and team sharing.
+
+**Is it a subscription or a one-time purchase?**
+Both: $4.99/month, or a one-time $49.99 lifetime license.
+
+**What happens when my trial ends?**
+Continued access to unlimited shortcuts, advanced actions, cloud sync, and team sharing requires an upgrade.
+
+**Can I cancel anytime?**
+Yes — subscriptions cancel anytime, with access continuing until the end of the current billing period. Lifetime licenses have no recurring billing.
+
+**Do you offer refunds?**
+Handled case-by-case in line with applicable law and the payment processor's policies. Contact support@maccove.com.
+
+**Are there discounts?**
+Yes — refer two people to Mac Excel Shortcuts and get 50% off your upgrade.
+
+### Licensing & Team Use
+
+**Can I share shortcuts with my team?**
+No, each license covers only one Mac for now.
+
+**Can I use one license on multiple Macs?**
+No — each license (subscription or lifetime) is scoped to a single Mac.
+
+### Privacy & Security
+
+**Does the app collect my data?**
+Mac Excel Shortcuts runs entirely on your device. It does not track detailed shortcut usage, log keystrokes, collect in-app analytics, or transmit Excel data anywhere — the total number of shortcuts used is counted for product improvement. For paid licenses, minimal billing information (e.g. email, purchase status) is collected for license management.
+
+**Do shortcuts run when my device is offline?**
+Yes — shortcuts run locally, up to 24 hours in the trial period and 7 days post-upgrade, and don't require an internet connection, as part of the app's local-first architecture.
+
+**Is my Excel data ever transmitted anywhere?**
+No — shortcut processing happens entirely on-device; Excel data is never sent to MacCove servers.
+
+### Support
+
+**How do I contact support?**
+Email support@maccove.com for general questions, or privacy@maccove.com for privacy-related requests.
+
+**Where can I report a bug or request a feature?**
+Use the built-in Report Issue feature in the app (in the main window) — it captures diagnostics and lets you add an optional email for follow-up. You can also open an issue on GitHub (github.com/swagatxq/MacCove) or post in the Discord community.

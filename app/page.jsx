@@ -25,8 +25,40 @@ export default async function Home() {
   const merchandise = await getMerchandise({ first: 6, country: visitorCountryCode })
   const merchandiseCountryName = merchandise[0] ? getCountryName(merchandise[0].country) : null
 
+  const softwareAppJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Mac Excel Shortcuts',
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'macOS 14.0+',
+    url: 'https://maccove.com/',
+    description: 'Run the Windows Excel shortcuts you already know, natively on your Mac. No relearning required.',
+    offers: [
+      {
+        '@type': 'Offer',
+        name: 'Free trial',
+        price: '0',
+        priceCurrency: 'USD',
+        description: '7-day free trial with usage limits.',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Monthly',
+        price: '4.99',
+        priceCurrency: 'USD',
+      },
+      {
+        '@type': 'Offer',
+        name: 'Lifetime',
+        price: '49.99',
+        priceCurrency: 'USD',
+      },
+    ],
+  }
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }} />
       <NavBar />
 
       {visitorCountryCode === 'IN' && (
@@ -263,14 +295,6 @@ export default async function Home() {
               <div className="how-to-step-title">Open Excel and start using</div>
               <div className="how-to-step-desc">Open excel and start using your shortcuts.</div>
             </div>
-            {/* <div className="how-to-step glass">
-              <div className="how-to-step-number">4</div>
-              <div className="how-to-step-icon-wrap">
-                <Icon id="cloud" size={24} />
-              </div>
-              <div className="how-to-step-title">Sync Everywhere</div>
-              <div className="how-to-step-desc">Your shortcuts sync across Mac, iPhone, and iPad via iCloud. Pick up exactly where you left off on any device.</div>
-            </div> */}
           </div>
         </div>
       </section>
@@ -526,7 +550,7 @@ export default async function Home() {
             <h2 className="text-h2">Questions &amp; Answers</h2>
             <p className="text-body">Everything you need to know about Mac Excel Shortcuts. Can&apos;t find what you&apos;re looking for? Reach out to our team — we&apos;re happy to help.</p>
           </Reveal>
-          <FAQ />
+          <FAQ showSeeAll />
         </div>
       </section>
 

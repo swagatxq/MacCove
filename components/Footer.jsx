@@ -28,17 +28,17 @@ export default function Footer() {
             </div>
             <p className="footer-desc">The most powerful automation platform for macOS, iOS, and iPadOS. Build shortcuts, automate workflows, and control your entire Apple ecosystem.</p>
             <div className="footer-socials">
-              <a href="#" className="footer-social" title="Twitter" target="_blank" rel="noopener noreferrer">
+              <a href="https://x.com/swagatsarma" className="footer-social" title="Twitter" target="_blank" rel="noopener noreferrer">
                 <span className="icon icon-20"><svg><use href="#i-x" /></svg></span>
               </a>
-              <a href="#" className="footer-social" title="GitHub" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/swagatxq/MacCove" className="footer-social" title="GitHub" target="_blank" rel="noopener noreferrer">
                 <span className="icon icon-20"><svg><use href="#i-command" /></svg></span>
               </a>
-              <a href="#" className="footer-social" title="Discord" target="_blank" rel="noopener noreferrer">
+              <a href="https://discord.gg/vkjcw6EQuE" className="footer-social" title="Discord" target="_blank" rel="noopener noreferrer">
                 <span className="icon icon-20"><svg><use href="#i-message-circle" /></svg></span>
               </a>
-              <a href="#" className="footer-social" title="YouTube" target="_blank" rel="noopener noreferrer">
-                <span className="icon icon-20"><svg><use href="#i-play" /></svg></span>
+              <a href="https://www.linkedin.com/company/maccove" className="footer-social" title="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <span className="icon icon-20"><svg><use href="#i-globe" /></svg></span>
               </a>
             </div>
           </div>
