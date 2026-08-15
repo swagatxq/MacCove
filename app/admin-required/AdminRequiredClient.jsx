@@ -1,44 +1,45 @@
 'use client';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import NavBar from '../../components/NavBar';
 import Icon from '../../components/Icon';
 
 const DMG_URL = 'https://storage.googleapis.com/mes_dmg/latest/Mac_Excel_Shortcuts.dmg';
-const ADDITIONAL_DATA_KEY = 'mes_visitor_additional_data';
 
-function buildEmailTemplate(companyName) {
-  const company = companyName ? ` at ${companyName}` : '';
-  return `Subject: Requesting admin access to install Mac Excel Shortcuts
+const EMAIL_SUBJECT = 'Requesting approval to install Mac Excel Shortcuts';
 
-Hi,
+const EMAIL_BODY = `Hi IT Team,
 
-I'd like to install Mac Excel Shortcuts on my company-issued MacBook${company}. It's a lightweight menu bar app that brings the Windows Excel keyboard shortcuts I already know to Mac.
+I would like to request approval to install Mac Excel Shortcuts on my workstation for Automating my workflows on Excel to boost my productivity.
 
-Installing it — and enabling Accessibility permissions it needs to work — requires local admin rights on this machine. Could you either grant me admin access or install it on my behalf?
+The app is signed, notarized by Apple, and provides an IT Deployment guide specifically formatted for MDM management.
 
-App: https://macexcelshortcuts.com
+Technical App Details:
+App Name: Mac Excel Shortcuts
+Vendor: Xquantum Pvt Ltd
+Bundle ID: com.xquantum.macexcelshortcuts
+Installer (.gmd): https://yourcompany.com/downloads/enterprise
+IT Documentation: https://yourcompany.com/it-deployment-guide
+Mac Excel Shortcuts requires Accessibility to perform automate Excel shortcuts. The vendor has provided the code requirement strings for deploying a MDM PPPC profile if needed.
 
-Thanks!`;
-}
+Please let me know if you need any additional security documentation or if this can be pushed to my device via Jamf or Intune or Kandji.`;
 
 export default function AdminRequiredClient() {
-  const [companyName, setCompanyName] = useState('');
-  const [copied, setCopied] = useState(false);
+  const [copiedSubject, setCopiedSubject] = useState(false);
+  const [copiedBody, setCopiedBody] = useState(false);
 
-  useEffect(() => {
+  const copySubject = async () => {
     try {
-      const stored = JSON.parse(sessionStorage.getItem(ADDITIONAL_DATA_KEY));
-      if (stored?.company_name) setCompanyName(stored.company_name);
+      await navigator.clipboard.writeText(EMAIL_SUBJECT);
+      setCopiedSubject(true);
+      setTimeout(() => setCopiedSubject(false), 2000);
     } catch {}
-  }, []);
+  };
 
-  const emailTemplate = buildEmailTemplate(companyName);
-
-  const copyTemplate = async () => {
+  const copyBody = async () => {
     try {
-      await navigator.clipboard.writeText(emailTemplate);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      await navigator.clipboard.writeText(EMAIL_BODY);
+      setCopiedBody(true);
+      setTimeout(() => setCopiedBody(false), 2000);
     } catch {}
   };
 
@@ -65,11 +66,21 @@ export default function AdminRequiredClient() {
               to request access.
             </p>
 
+            <div className="copy-block copy-block-subject">
+              <div className="copy-block-label">Subject</div>
+              <pre className="copy-block-text">{EMAIL_SUBJECT}</pre>
+              <button className="copy-block-btn" onClick={copySubject}>
+                <Icon id={copiedSubject ? 'check' : 'copy'} size={16} />
+                {copiedSubject ? 'Copied' : 'Copy'}
+              </button>
+            </div>
+
             <div className="copy-block">
-              <pre className="copy-block-text">{emailTemplate}</pre>
-              <button className="copy-block-btn" onClick={copyTemplate}>
-                <Icon id={copied ? 'check' : 'copy'} size={16} />
-                {copied ? 'Copied' : 'Copy'}
+              <div className="copy-block-label">Body</div>
+              <pre className="copy-block-text">{EMAIL_BODY}</pre>
+              <button className="copy-block-btn" onClick={copyBody}>
+                <Icon id={copiedBody ? 'check' : 'copy'} size={16} />
+                {copiedBody ? 'Copied' : 'Copy'}
               </button>
             </div>
 

@@ -7,6 +7,8 @@ import Reveal from '../components/Reveal'
 import Icon from '../components/Icon'
 import DownloadCTA from '../components/DownloadCTA'
 import ProductCarousel from '../components/ProductCarousel'
+import ShortcutKeysDemo from '../components/ShortcutKeysDemo'
+import DownloadTrigger from '../components/DownloadTrigger'
 import { getAllBlogPosts, getBrandAffiliates, getMerchandise } from '../lib/datocms'
 import { formatBlogDate, getBrandPrimaryLink } from '../lib/format'
 import { getVisitorCountryCode } from '../lib/geo'
@@ -127,83 +129,167 @@ export default async function Home() {
         <div className="container">
           <Reveal className="launch-partners-inner">
             <div className="launch-partners-label">Launch Partners</div>
-            <div className="launch-partners-row">
-              <a
-                href="https://www.tinystartups.com/startup/maccoves-mac-excel-shortcuts"
-                target="_blank"
-                rel="noopener"
-                className="launch-partner-badge"
-              >
-                <svg width="40" height="40" viewBox="0 0 100 100">
-                  <defs>
-                    <linearGradient id="tsg" x1=".1" y1="0" x2=".9" y2="1">
-                      <stop offset="0%" stopColor="#3525E6" />
-                      <stop offset="55%" stopColor="#D81FE0" />
-                      <stop offset="100%" stopColor="#22B8F0" />
-                    </linearGradient>
-                  </defs>
-                  <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="url(#tsg)" />
-                </svg>
-                <span className="launch-partner-badge-text">
-                  <span className="launch-partner-badge-eyebrow">Launched on</span>
-                  <span className="launch-partner-badge-name">Tiny Startups</span>
-                  <span className="launch-partner-badge-url">tinystartups.com</span>
-                </span>
-              </a>
-              <a href="https://openhunts.com" target="_blank" rel="noopener" title="OpenHunts Club">
-                <img
-                  alt="OpenHunts Club Member"
-                  height="105"
-                  src="https://cdn.openhunts.com/badges/club.webp"
-                  width="486"
-                  className="openhunts-badge"
-                />
-              </a>
-              <a href="https://twelve.tools" target="_blank" rel="noopener" title="Featured on Twelve Tools">
-                <img
-                  src="https://twelve.tools/badge0-light.svg"
-                  alt="Featured on Twelve Tools"
-                  width="200"
-                  height="54"
-                  className="twelve-tools-badge twelve-tools-badge-light"
-                />
-                <img
-                  src="https://twelve.tools/badge0-dark.svg"
-                  alt="Featured on Twelve Tools"
-                  width="200"
-                  height="54"
-                  className="twelve-tools-badge twelve-tools-badge-dark"
-                />
-              </a>
-              <a href="https://wired.business" target="_blank" rel="noopener" title="Featured on Wired Business">
-                <img
-                  src="https://wired.business/badge0-white.svg"
-                  alt="Featured on Wired Business"
-                  width="200"
-                  height="54"
-                  className="wired-business-badge wired-business-badge-light"
-                />
-                <img
-                  src="https://wired.business/badge0-dark.svg"
-                  alt="Featured on Wired Business"
-                  width="200"
-                  height="54"
-                  className="wired-business-badge wired-business-badge-dark"
-                />
-              </a>
-              <a
-                href="https://startupbase.io/products/mac-excel-shortcuts?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light"
-                target="_blank"
-                rel="noopener noreferrer"
-                title="Launched on StartupBase"
-              >
-                <img
-                  src="https://statics.startupbase.io/site/badges/launched-on-sb.svg"
-                  alt="Launched on StartupBase"
-                  height="55"
-                  className="startupbase-badge"
-                />
-              </a>
+            <div className="launch-partners-marquee">
+              <div className="launch-partners-track">
+                <div className="launch-partners-row">
+                  <a
+                    href="https://www.tinystartups.com/startup/maccoves-mac-excel-shortcuts"
+                    target="_blank"
+                    rel="noopener"
+                    className="launch-partner-badge"
+                  >
+                    <svg width="40" height="40" viewBox="0 0 100 100">
+                      <defs>
+                        <linearGradient id="tsg" x1=".1" y1="0" x2=".9" y2="1">
+                          <stop offset="0%" stopColor="#3525E6" />
+                          <stop offset="55%" stopColor="#D81FE0" />
+                          <stop offset="100%" stopColor="#22B8F0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="url(#tsg)" />
+                    </svg>
+                    <span className="launch-partner-badge-text">
+                      <span className="launch-partner-badge-eyebrow">Launched on</span>
+                      <span className="launch-partner-badge-name">Tiny Startups</span>
+                      <span className="launch-partner-badge-url">tinystartups.com</span>
+                    </span>
+                  </a>
+                  <a href="https://openhunts.com" target="_blank" rel="noopener" title="OpenHunts Club">
+                    <img
+                      alt="OpenHunts Club Member"
+                      height="105"
+                      src="https://cdn.openhunts.com/badges/club.webp"
+                      width="486"
+                      className="openhunts-badge"
+                    />
+                  </a>
+                  <a href="https://twelve.tools" target="_blank" rel="noopener" title="Featured on Twelve Tools">
+                    <img
+                      src="https://twelve.tools/badge0-light.svg"
+                      alt="Featured on Twelve Tools"
+                      width="200"
+                      height="54"
+                      className="twelve-tools-badge twelve-tools-badge-light"
+                    />
+                    <img
+                      src="https://twelve.tools/badge0-dark.svg"
+                      alt="Featured on Twelve Tools"
+                      width="200"
+                      height="54"
+                      className="twelve-tools-badge twelve-tools-badge-dark"
+                    />
+                  </a>
+                  <a href="https://wired.business" target="_blank" rel="noopener" title="Featured on Wired Business">
+                    <img
+                      src="https://wired.business/badge0-white.svg"
+                      alt="Featured on Wired Business"
+                      width="200"
+                      height="54"
+                      className="wired-business-badge wired-business-badge-light"
+                    />
+                    <img
+                      src="https://wired.business/badge0-dark.svg"
+                      alt="Featured on Wired Business"
+                      width="200"
+                      height="54"
+                      className="wired-business-badge wired-business-badge-dark"
+                    />
+                  </a>
+                  <a
+                    href="https://startupbase.io/products/mac-excel-shortcuts?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    title="Launched on StartupBase"
+                  >
+                    <img
+                      src="https://statics.startupbase.io/site/badges/launched-on-sb.svg"
+                      alt="Launched on StartupBase"
+                      height="55"
+                      className="startupbase-badge"
+                    />
+                  </a>
+                </div>
+                <div className="launch-partners-row" aria-hidden="true">
+                  <a
+                    href="https://www.tinystartups.com/startup/maccoves-mac-excel-shortcuts"
+                    target="_blank"
+                    rel="noopener"
+                    tabIndex={-1}
+                    className="launch-partner-badge"
+                  >
+                    <svg width="40" height="40" viewBox="0 0 100 100">
+                      <defs>
+                        <linearGradient id="tsg2" x1=".1" y1="0" x2=".9" y2="1">
+                          <stop offset="0%" stopColor="#3525E6" />
+                          <stop offset="55%" stopColor="#D81FE0" />
+                          <stop offset="100%" stopColor="#22B8F0" />
+                        </linearGradient>
+                      </defs>
+                      <path d="M50 6C52 32 68 48 94 50C68 52 52 68 50 94C48 68 32 52 6 50C32 48 48 32 50 6Z" fill="url(#tsg2)" />
+                    </svg>
+                    <span className="launch-partner-badge-text">
+                      <span className="launch-partner-badge-eyebrow">Launched on</span>
+                      <span className="launch-partner-badge-name">Tiny Startups</span>
+                      <span className="launch-partner-badge-url">tinystartups.com</span>
+                    </span>
+                  </a>
+                  <a href="https://openhunts.com" target="_blank" rel="noopener" tabIndex={-1} title="OpenHunts Club">
+                    <img
+                      alt="OpenHunts Club Member"
+                      height="105"
+                      src="https://cdn.openhunts.com/badges/club.webp"
+                      width="486"
+                      className="openhunts-badge"
+                    />
+                  </a>
+                  <a href="https://twelve.tools" target="_blank" rel="noopener" tabIndex={-1} title="Featured on Twelve Tools">
+                    <img
+                      src="https://twelve.tools/badge0-light.svg"
+                      alt="Featured on Twelve Tools"
+                      width="200"
+                      height="54"
+                      className="twelve-tools-badge twelve-tools-badge-light"
+                    />
+                    <img
+                      src="https://twelve.tools/badge0-dark.svg"
+                      alt="Featured on Twelve Tools"
+                      width="200"
+                      height="54"
+                      className="twelve-tools-badge twelve-tools-badge-dark"
+                    />
+                  </a>
+                  <a href="https://wired.business" target="_blank" rel="noopener" tabIndex={-1} title="Featured on Wired Business">
+                    <img
+                      src="https://wired.business/badge0-white.svg"
+                      alt="Featured on Wired Business"
+                      width="200"
+                      height="54"
+                      className="wired-business-badge wired-business-badge-light"
+                    />
+                    <img
+                      src="https://wired.business/badge0-dark.svg"
+                      alt="Featured on Wired Business"
+                      width="200"
+                      height="54"
+                      className="wired-business-badge wired-business-badge-dark"
+                    />
+                  </a>
+                  <a
+                    href="https://startupbase.io/products/mac-excel-shortcuts?utm_source=startupbase&utm_medium=badge&utm_campaign=launch-badge-light"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    tabIndex={-1}
+                    title="Launched on StartupBase"
+                  >
+                    <img
+                      src="https://statics.startupbase.io/site/badges/launched-on-sb.svg"
+                      alt="Launched on StartupBase"
+                      height="55"
+                      className="startupbase-badge"
+                    />
+                  </a>
+                </div>
+              </div>
             </div>
           </Reveal>
         </div>
@@ -271,14 +357,15 @@ export default async function Home() {
             <p className="text-body">Get started with Mac Excel Shortcuts in four simple steps. From download to full automation in under 1 minute.</p>
           </Reveal>
           <div className="how-to-steps stagger-children">
-            <div className="how-to-step">
+            <DownloadCTA className="how-to-step how-to-step-download">
               <div className="how-to-step-number">1</div>
               <div className="how-to-step-icon-wrap">
                 <Icon id="download" size={28} />
               </div>
               <div className="how-to-step-title">Download the App</div>
               <div className="how-to-step-desc">Download the DMG directly. Installation takes seconds and requires zero setup.</div>
-            </div>
+              <div className="how-to-step-download-cta">Get Started <Icon id="chevron-right" size={16} className="arrow" /></div>
+            </DownloadCTA>
             <div className="how-to-step">
               <div className="how-to-step-number">2</div>
               <div className="how-to-step-icon-wrap">
@@ -302,46 +389,402 @@ export default async function Home() {
       <section className="section shortcuts-section" id="shortcuts">
         <div className="container">
           <Reveal className="how-to-header">
-            <h2 className="text-h2">Top 5 Excel Shortcuts</h2>
-            <p className="text-body">The Windows Excel shortcuts you already know, now working natively on your Mac.</p>
+            <h2 className="text-h2">Top 5 Voted Shortcuts</h2>
+            <p className="text-body">The 5 most-requested Windows Excel shortcuts, voted by our users — restored natively on your Mac. Dozens more are covered.</p>
           </Reveal>
-          <div className="shortcuts-grid stagger-children">
-            <div className="shortcut-card">
-              <div className="shortcut-keys">
-                <kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>V</kbd>
-              </div>
-              <div className="shortcut-card-title">Paste Special</div>
-              <div className="shortcut-card-desc">Paste values, formulas, or formatting only — without carrying over the rest of the copied cell.</div>
-            </div>
-            <div className="shortcut-card">
-              <div className="shortcut-keys">
-                <kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>T</kbd>
-              </div>
-              <div className="shortcut-card-title">Paste Special (Formats)</div>
-              <div className="shortcut-card-desc">Paste only the formatting from the copied cell, leaving its values and formulas behind.</div>
-            </div>
-            <div className="shortcut-card">
-              <div className="shortcut-keys">
-                <kbd>Alt</kbd><span>+</span><kbd>=</kbd>
-              </div>
-              <div className="shortcut-card-title">AutoSum</div>
-              <div className="shortcut-card-desc">Insert a SUM formula for the selected cells without typing it out.</div>
-            </div>
-            <div className="shortcut-card">
-              <div className="shortcut-keys">
-                <kbd>Alt</kbd><span>+</span><kbd>Enter</kbd>
-              </div>
-              <div className="shortcut-card-title">New Line in Cell</div>
-              <div className="shortcut-card-desc">Start a new line within the same cell instead of moving to the next one.</div>
-            </div>
-            <div className="shortcut-card">
-              <div className="shortcut-keys">
-                <kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>O</kbd><span>+</span><kbd>I</kbd>
-              </div>
-              <div className="shortcut-card-title">AutoFit Column Width</div>
-              <div className="shortcut-card-desc">Resize the selected columns to fit their contents automatically.</div>
-            </div>
+          <ShortcutKeysDemo />
+          <div className="shortcuts-footer">
+            <a href="/blog/mac-excel-shortcuts-covered-list" className="section-link">
+              See the full list of shortcuts we cover <Icon id="chevron-right" size={16} className="arrow" />
+            </a>
           </div>
+          <div className="section-cta">
+            <DownloadCTA className="btn btn-primary">
+              <Icon id="download" size={20} /> Get Started
+            </DownloadCTA>
+          </div>
+        </div>
+      </section>
+
+      <section className="section mapping-section" id="shortcut-mapping">
+        <div className="container">
+          <Reveal className="security-header">
+            <h2 className="text-h2">Windows Shortcuts vs. Native Excel on Mac</h2>
+            <p className="text-body">Excel on Mac remaps almost every shortcut you know. Here&apos;s what changes by default — and what Mac Excel Shortcuts gives back to you.</p>
+          </Reveal>
+          <Reveal className="mapping-table-wrap">
+            <table className="mapping-table">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Windows shortcut</th>
+                  <th>Native Excel on Mac</th>
+                  <th>With Mac Excel Shortcuts</th>
+                </tr>
+              </thead>
+              <tbody>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Paste Special</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>V</kbd></span></td>
+                  <td><span className="shortcut-keys"><kbd>⌃</kbd><span>+</span><kbd>⌘</kbd><span>+</span><kbd>V</kbd></span></td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">AutoSum</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>=</kbd></span></td>
+                  <td><span className="shortcut-keys"><kbd>⇧</kbd><span>+</span><kbd>⌘</kbd><span>+</span><kbd>T</kbd></span></td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Fill Down</td>
+                  <td><span className="shortcut-keys"><kbd>Ctrl</kbd><span>+</span><kbd>D</kbd></span></td>
+                  <td><span className="shortcut-keys"><kbd>⌘</kbd><span>+</span><kbd>D</kbd></span></td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Freeze Panes</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>W</kbd><span>+</span><kbd>F</kbd><span>+</span><kbd>F</kbd></span></td>
+                  <td>View menu only</td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Toggle Filter</td>
+                  <td><span className="shortcut-keys"><kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd></span></td>
+                  <td><span className="shortcut-keys"><kbd>⌘</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd></span></td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Sort A to Z</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>A</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>A</kbd></span></td>
+                  <td>Data menu only</td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Data Validation</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>A</kbd><span>+</span><kbd>V</kbd><span>+</span><kbd>V</kbd></span></td>
+                  <td>Data menu only</td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Insert Row</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>I</kbd><span>+</span><kbd>R</kbd></span></td>
+                  <td>Home menu only</td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+              </tbody>
+            </table>
+          </Reveal>
+          <div className="section-cta">
+            <DownloadCTA className="btn btn-primary">
+              <Icon id="zap" size={20} /> Enable Windows Shortcuts
+            </DownloadCTA>
+          </div>
+        </div>
+      </section>
+
+      <section className="section usecases-section" id="use-cases">
+        <div className="container">
+          <Reveal className="usecases-header">
+            <h2 className="text-h2">Built for the Way You Actually Use Excel</h2>
+            <p className="text-body">Every workflow below is time you get back the moment you stop hunting for a Mac-native way to do something Windows already made instant.</p>
+            <div className="stat-callout">
+              <Icon id="zap" size={20} />
+              <span>Save an average of <strong>25+ hours a month</strong> on typical power-user Excel workflows*</span>
+            </div>
+          </Reveal>
+          <div className="usecase-list stagger-children">
+            <DownloadTrigger className="usecase-row glass">
+              <div className="usecase-row-icon" style={{ background: 'var(--apple-blue)' }}>
+                <Icon id="bar-chart" size={28} />
+              </div>
+              <div className="usecase-row-body">
+                <div className="usecase-row-top">
+                  <h3 className="usecase-row-title">Consume &amp; Run Dashboards Like a Pro</h3>
+                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~7 hrs/month saved</span>
+                </div>
+                <ul className="usecase-row-points">
+                  <li>Jump across huge reporting workbooks without ever reaching for the mouse</li>
+                  <li>Filter and drill into pivot tables in a heartbeat, mid-conversation</li>
+                  <li>Review live dashboards at the same speed you did on Windows</li>
+                </ul>
+              </div>
+            </DownloadTrigger>
+            <DownloadTrigger className="usecase-row glass-tinted-blue">
+              <div className="usecase-row-icon" style={{ background: 'var(--accent-cyan)' }}>
+                <Icon id="trending-up" size={28} />
+              </div>
+              <div className="usecase-row-body">
+                <div className="usecase-row-top">
+                  <h3 className="usecase-row-title">Financial Models</h3>
+                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~9 hrs/month saved</span>
+                </div>
+                <ul className="usecase-row-points">
+                  <li>Toggle between relative and absolute references without breaking flow</li>
+                  <li>Audit formulas and trace precedents in seconds, not minutes</li>
+                  <li>Reformat an entire statement moments before a deadline, instantly</li>
+                </ul>
+              </div>
+            </DownloadTrigger>
+            <DownloadTrigger className="usecase-row glass-tinted-rose">
+              <div className="usecase-row-icon" style={{ background: 'var(--accent-rose)' }}>
+                <Icon id="sliders" size={28} />
+              </div>
+              <div className="usecase-row-body">
+                <div className="usecase-row-top">
+                  <h3 className="usecase-row-title">Quick Formatting</h3>
+                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~5 hrs/month saved</span>
+                </div>
+                <ul className="usecase-row-points">
+                  <li>Clean up a messy handoff workbook in seconds, not a slow ribbon crawl</li>
+                  <li>Apply consistent number and currency formats across an entire sheet</li>
+                  <li>Copy formatting only, without disturbing the values underneath</li>
+                </ul>
+              </div>
+            </DownloadTrigger>
+            <DownloadTrigger className="usecase-row glass">
+              <div className="usecase-row-icon" style={{ background: 'var(--apple-green)' }}>
+                <Icon id="zap" size={28} />
+              </div>
+              <div className="usecase-row-body">
+                <div className="usecase-row-top">
+                  <h3 className="usecase-row-title">Faster Work, Same Muscle Memory</h3>
+                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~7 hrs/month saved</span>
+                </div>
+                <ul className="usecase-row-points">
+                  <li>No retraining your hands just because you switched machines</li>
+                  <li>Zero hesitation, zero second-guessing every keystroke</li>
+                  <li>Every saved second compounds across a full day of spreadsheet work</li>
+                </ul>
+              </div>
+            </DownloadTrigger>
+          </div>
+          <p className="usecases-footnote">*Estimate based on typical power-user Excel workflows over a 22-day working month and the number of ribbon/menu trips a Windows shortcut replaces — actual time saved depends on how you use Excel.</p>
+          <div className="section-cta">
+            <DownloadCTA className="btn btn-primary">
+              <Icon id="zap" size={20} /> Save 25 Hours
+            </DownloadCTA>
+          </div>
+        </div>
+      </section>
+
+      <section className="section personas-section" id="who-its-for">
+        <div className="container">
+          <Reveal className="security-header">
+            <h2 className="text-h2">Who Uses Mac Excel Shortcuts</h2>
+            <p className="text-body">Anyone who spent years in Excel on Windows and doesn&apos;t want to lose that speed on a Mac.</p>
+          </Reveal>
+          <Reveal className="persona-list">
+            <DownloadTrigger className="persona-row">
+              <div className="persona-row-icon" style={{ background: 'var(--apple-blue)' }}>
+                <Icon id="bar-chart" size={22} />
+              </div>
+              <div className="persona-row-body">
+                <div className="persona-row-title">Analysts</div>
+                <div className="persona-row-desc">Live in spreadsheets all day — pivot tables, lookups, and formatting shortcuts need to be instant, not an afterthought.</div>
+                <div className="persona-problem">
+                  <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
+                  <ul className="persona-problem-list">
+                    <li>
+                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>V</kbd></span>
+                      <span className="shortcut-label">Paste Special — pull in just the values or formulas from a copied cell, skip formatting mismatches from other systems entirely.</span>
+                    </li>
+                    <li>
+                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>W</kbd><span>+</span><kbd>F</kbd><span>+</span><kbd>F</kbd></span>
+                      <span className="shortcut-label">Freeze Panes — lock header rows in place while scrolling through thousands of rows of data, used almost every other minute reviewing large models.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </DownloadTrigger>
+            <DownloadTrigger className="persona-row">
+              <div className="persona-row-icon" style={{ background: 'var(--apple-purple)' }}>
+                <Icon id="book" size={22} />
+              </div>
+              <div className="persona-row-body">
+                <div className="persona-row-title">Consultants</div>
+                <div className="persona-row-desc">Move between client laptops and their own Mac constantly — same shortcuts everywhere means no lost time relearning.</div>
+                <div className="persona-problem">
+                  <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
+                  <ul className="persona-problem-list">
+                    <li>
+                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>W</kbd><span>+</span><kbd>A</kbd></span>
+                      <span className="shortcut-label">Arrange All — view multiple client workbooks side-by-side in separate windows instead of alt-tabbing between them all day.</span>
+                    </li>
+                    <li>
+                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>O</kbd><span>+</span><kbd>I</kbd></span>
+                      <span className="shortcut-label">AutoFit Column Width — clean up messy columns in seconds before every client-facing export.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </DownloadTrigger>
+            <DownloadTrigger className="persona-row">
+              <div className="persona-row-icon" style={{ background: 'var(--accent-cyan)' }}>
+                <Icon id="trending-up" size={22} />
+              </div>
+              <div className="persona-row-body">
+                <div className="persona-row-title">Founders</div>
+                <div className="persona-row-desc">Building the model, the deck, and the roadmap themselves — every saved second in Excel is a second back in the day.</div>
+                <div className="persona-problem">
+                  <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
+                  <ul className="persona-problem-list">
+                    <li>
+                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>=</kbd></span>
+                      <span className="shortcut-label">AutoSum — total up rows and columns instantly while building a financial model solo, no finance team to hand it off to.</span>
+                    </li>
+                    <li>
+                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>K</kbd></span>
+                      <span className="shortcut-label">Currency — apply consistent currency formatting to an investor-ready deck fast, without hunting through the ribbon before a pitch.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </DownloadTrigger>
+            <DownloadTrigger className="persona-row">
+              <div className="persona-row-icon" style={{ background: 'var(--accent-rose)' }}>
+                <Icon id="home" size={22} />
+              </div>
+              <div className="persona-row-body">
+                <div className="persona-row-title">Small Business Owners</div>
+                <div className="persona-row-desc">Handling invoicing, inventory, and budgets solo — Mac Excel Shortcuts keeps Excel fast without needing to become a Mac power user first.</div>
+                <div className="persona-problem">
+                  <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
+                  <ul className="persona-problem-list">
+                    <li>
+                      <span className="shortcut-keys"><kbd>Ctrl</kbd><span>+</span><kbd>D</kbd></span>
+                      <span className="shortcut-label">Fill Down — repeat the same value or formula down a full column of invoices in one keystroke.</span>
+                    </li>
+                    <li>
+                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>T</kbd></span>
+                      <span className="shortcut-label">Paste Formats — apply consistent formatting across inventory sheets without redoing it by hand every time.</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </DownloadTrigger>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section migration-section" id="migrating-to-mac">
+        <div className="container">
+          <Reveal className="security-highlight">
+            <div className="security-highlight-visual migration-visual">
+              <Image
+                src="/MicrosoftVsAppleV2.webp"
+                alt="Windows Excel shortcuts compared to Mac Excel shortcuts"
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
+            <div className="security-highlight-content">
+              <div className="security-highlight-title">Worried Excel Won&apos;t Work the Same on Mac?</div>
+              <div className="security-highlight-desc">Switching from Windows to Mac usually means relearning Excel from scratch — Excel on Mac remaps nearly every shortcut you rely on. Mac Excel Shortcuts fixes that by running your existing Windows shortcuts natively inside Excel on your Mac, so the switch is about the hardware, not your workflow.</div>
+              <div className="security-checklist">
+                <div className="security-checklist-item">
+                  <div className="check"><Icon id="check" size={12} /></div>
+                  All your Windows Excel shortcuts work out of the box
+                </div>
+                <div className="security-checklist-item">
+                  <div className="check"><Icon id="check" size={12} /></div>
+                  No relearning — same key combos you already know
+                </div>
+                <div className="security-checklist-item">
+                  <div className="check"><Icon id="check" size={12} /></div>
+                  Native macOS app, not an emulator or remote desktop
+                </div>
+                <div className="security-checklist-item">
+                  <div className="check"><Icon id="check" size={12} /></div>
+                  Free 7-day trial, no risk to try it on your own files
+                </div>
+              </div>
+              <DownloadCTA className="btn btn-secondary migration-cta">
+                Already Migrated? <Icon id="chevron-right" size={16} className="arrow" />
+              </DownloadCTA>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section whyus-section" id="why-key-remapper">
+        <div className="container">
+          <Reveal className="security-header">
+            <h2 className="text-h2">Why Not Just Use a Key Remapper?</h2>
+            <p className="text-body">Generic remapping tools move key presses around. Mac Excel Shortcuts understands Excel.</p>
+          </Reveal>
+          <Reveal className="callout-banner">
+            <Icon id="zap" size={22} />
+            <div><strong>Only Mac Excel Shortcuts works instantly, out of the box.</strong> No profiles, no manual configuration — every other option below requires setup before a single shortcut works.</div>
+          </Reveal>
+          <Reveal className="comparison-table-wrap">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th className="comparison-highlight-col">Mac Excel Shortcuts</th>
+                  <th>Karabiner-Elements</th>
+                  <th>BetterTouchTool</th>
+                  <th>Keyboard Maestro</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="mapping-action">Excel-native shortcuts, out of the box</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-no"><Icon id="x" size={16} /></td>
+                  <td className="comparison-no"><Icon id="x" size={16} /></td>
+                  <td className="comparison-no"><Icon id="x" size={16} /></td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Multi-key Access Key sequences (<kbd>Alt</kbd>,<kbd>E</kbd>,<kbd>S</kbd>,<kbd>V</kbd>)</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-no"><Icon id="x" size={16} /></td>
+                  <td className="comparison-no"><Icon id="x" size={16} /></td>
+                  <td>Possible with manual macros</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Setup required</td>
+                  <td className="comparison-highlight-col comparison-yes">None — install &amp; go</td>
+                  <td>Manual key-map config</td>
+                  <td>Manual app-specific config</td>
+                  <td>Manual macro building</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Free trial</td>
+                  <td className="comparison-highlight-col comparison-yes">7 days free</td>
+                  <td>Free &amp; open source</td>
+                  <td className="comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-yes"><Icon id="check" size={16} /></td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Get it now</td>
+                  <td className="comparison-highlight-col">
+                    <DownloadCTA className="comparison-download-btn">
+                      <Icon id="download" size={14} /> Download
+                    </DownloadCTA>
+                  </td>
+                  <td>—</td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </Reveal>
+          <p className="usecases-footnote">Feature availability compared as of this page&apos;s last update — check each vendor&apos;s site for current details.</p>
+          <Reveal className="comparison-footer">
+            <div className="comparison-footer-title">How the alternatives compare</div>
+            <div className="comparison-footer-links">
+              <a href="https://karabiner-elements.pqrs.org" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
+                Karabiner-Elements <span>Free, open-source system-wide key remapper — no Excel awareness</span> <Icon id="chevron-right" size={14} className="arrow" />
+              </a>
+              <a href="https://folivora.ai" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
+                BetterTouchTool <span>Gesture &amp; shortcut customizer for macOS — general-purpose, not Excel-specific</span> <Icon id="chevron-right" size={14} className="arrow" />
+              </a>
+              <a href="https://www.keyboardmaestro.com" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
+                Keyboard Maestro <span>Powerful macro automation tool — requires building your own Excel macros</span> <Icon id="chevron-right" size={14} className="arrow" />
+              </a>
+            </div>
+          </Reveal>
         </div>
       </section>
 
@@ -491,7 +934,7 @@ export default async function Home() {
                 <Icon id="check-circle" size={24} />
               </div>
               <div className="security-card-title">Apple Notarized</div>
-              <div className="security-card-desc">Every MacCove release is scanned and notarized by Apple. No malware, no tampering, no unsigned code ever reaches your Mac.</div>
+              <div className="security-card-desc">Every Mac Excel Shortcuts release is scanned and notarized by Apple. No malware, no tampering, no unsigned code ever reaches your Mac.</div>
               <div className="security-card-meta">Verify <Icon id="chevron-right" size={12} /></div>
             </div>
             {/* <div className="security-card glass">
@@ -541,6 +984,17 @@ export default async function Home() {
               </div>
             </div>
           </div> */}
+        </div>
+      </section>
+
+      <section className="section founder-section" id="founder">
+        <div className="container">
+          <Reveal className="founder-inner">
+            <div className="founder-avatar">SS</div>
+            <p className="founder-quote">&quot;I built Mac Excel Shortcuts after switching to a MacBook and realizing every Excel shortcut I&apos;d used for a decade was suddenly gone. Relearning Excel felt like the wrong problem to solve — so I built the fix instead.&quot;</p>
+            <div className="founder-name">Swagat Sarma</div>
+            <div className="founder-role">Founder, MacCove</div>
+          </Reveal>
         </div>
       </section>
 
