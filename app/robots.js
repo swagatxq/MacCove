@@ -4,7 +4,7 @@ export default function robots() {
       {
         userAgent: '*',
         allow: '/',
-        disallow: ['/payment/success', '/payment/failure', '/buy', '/download'],
+        disallow: ['/payment/success', '/payment/failure', '/payment/cancel', '/buy', '/download'],
       },
     ],
     sitemap: 'https://maccove.com/sitemap.xml',
