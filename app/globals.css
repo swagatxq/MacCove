@@ -614,7 +614,6 @@ body::before {
   background: linear-gradient(135deg, var(--apple-blue), var(--accent-violet), var(--accent-cyan));
 }
 .security-highlight-visual .shield-icon { color: white; z-index: 1; position: relative; }
-.security-highlight-visual.migration-visual { aspect-ratio: 1 / 1; min-height: 0; }
 .security-highlight-visual::after {
   content: ''; position: absolute; inset: 0; background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
 }
