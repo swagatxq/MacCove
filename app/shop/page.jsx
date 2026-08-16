@@ -6,7 +6,7 @@ import ShopListings from '../../components/ShopListings';
 import { getMerchandiseWithVideo, getMerchandiseFacets, getMerchandisePage } from '../../lib/datocms';
 
 export const metadata = {
-  title: 'Shop',
+  title: 'Shop MacBook Gear',
   description: 'Curated physical products that pair perfectly with your MacBook — hand-picked and reviewed by the MacCove community.',
   alternates: { canonical: '/shop' },
 };

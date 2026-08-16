@@ -6,7 +6,7 @@ import { getAllBlogPosts } from '../../lib/datocms';
 import { formatBlogDate } from '../../lib/format';
 
 export const metadata = {
-  title: 'Blog',
+  title: 'Excel Shortcuts Blog',
   description: 'Tips, tutorials, and updates from the MacCove team to help you get the most out of Mac Excel Shortcuts.',
   alternates: { canonical: '/blog' },
 }
