@@ -4,6 +4,19 @@ Run Windows Excel shortcuts on Mac, and get a native Windows experience on Mac. 
 
 Mac Excel Shortcuts is a macOS app that maps the Excel keyboard shortcuts you already know from Windows onto macOS, so switching between platforms doesn't mean relearning your muscle memory. Shortcuts run entirely on-device — nothing is sent to the cloud, and no internet connection is required.
 
+Mac Excel Shortcuts is built by [MacCove](https://maccove.com), a toolkit for people migrating from Windows to Mac.
+
+## What it does
+
+Excel on Mac uses a different set of keyboard shortcuts than Excel on Windows — things like navigating cells, selecting ranges, entering formulas, formatting, and managing rows/columns all use different key combinations. That mismatch slows down anyone who's spent years building Windows muscle memory.
+
+Mac Excel Shortcuts sits in the background and intercepts your familiar Windows Excel shortcuts, translating them into the equivalent macOS Excel action in real time. You keep using the same keystrokes you already know — no cheat sheets, no retraining, no lost productivity during the switch.
+
+- **Live shortcut translation** — Windows Excel shortcuts fire the correct macOS Excel action as you type.
+- **Runs in the background** — no extra windows or workflow changes; it just works while Excel is open.
+- **Local-first** — all shortcut handling happens on-device, so there's no lag waiting on a network round trip.
+- **Lightweight** — a native macOS app with minimal system footprint.
+
 ## Installation
 
 ### 1) Download the .dmg
