@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import Icon from './Icon';
 import VideoLightbox from './VideoLightbox';
 import ImageLightbox from './ImageLightbox';
@@ -13,10 +14,12 @@ export default function ShopDetailMedia({ photo, videoUrl, title }) {
   return (
     <div className="shop-detail-media">
       {photo && (
-        <img
+        <Image
           className="shop-detail-image"
           src={photo.url}
           alt={photo.alt || title}
+          fill
+          sizes="(max-width: 768px) 100vw, 800px"
           onClick={() => setZoomedPhoto(photo)}
         />
       )}

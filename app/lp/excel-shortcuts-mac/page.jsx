@@ -6,6 +6,16 @@ import Icon from '../../../components/Icon'
 import FAQ from '../../../components/FAQ'
 import { getBrandAffiliates } from '../../../lib/datocms'
 import { getBrandPrimaryLink } from '../../../lib/format'
+import { faqs } from '../../../lib/faqs'
+
+const PAGE_QUESTIONS = [
+  'What is Mac Excel Shortcuts?',
+  'How do I install it?',
+  'What permissions does it need, and why?',
+  'Does it work with Google Sheets or Numbers?',
+  'What platforms does Mac Excel Shortcuts support?',
+  'Is there a free version?',
+]
 
 export const metadata = {
   title: 'Excel Keyboard Shortcuts for Mac (Full List + Cheat Sheet)',
@@ -22,9 +32,59 @@ export const metadata = {
 
 export default async function ExcelShortcutsLandingPage() {
   const brandAffiliates = await getBrandAffiliates({ first: 5 })
+  const pageFaqs = faqs.filter((faq) => PAGE_QUESTIONS.includes(faq.q))
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: pageFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  }
+
+  const howToJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to get Excel shortcuts working on Mac',
+    description: 'Get Windows Excel keyboard shortcuts working natively on your Mac in under a minute.',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Download the App',
+        text: 'Download the DMG directly. Installation takes seconds and requires zero setup.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Provide Permissions',
+        text: 'Grant Accessibility and Input Monitoring permissions so your keyboard shortcuts can reach Excel.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Open Excel and Start Using',
+        text: 'Open Excel and start using your shortcuts, exactly like on Windows.',
+      },
+    ],
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://maccove.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Excel Keyboard Shortcuts for Mac', item: 'https://maccove.com/lp/excel-shortcuts-mac' },
+    ],
+  }
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <NavBar />
 
       <section className="hero" id="hero">
@@ -268,7 +328,7 @@ export default async function ExcelShortcutsLandingPage() {
             <h2 className="text-h2">Questions &amp; Answers</h2>
             <p className="text-body">Everything you need to know about Excel keyboard shortcuts on your Mac.</p>
           </Reveal>
-          <FAQ />
+          <FAQ items={pageFaqs} />
         </div>
       </section>
 

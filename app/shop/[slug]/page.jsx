@@ -47,8 +47,19 @@ export default async function ShopDetailPage({ params }) {
 
   const narrativeHtml = renderRichText(item.whyMacUsers);
 
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://maccove.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Shop', item: 'https://maccove.com/shop' },
+      { '@type': 'ListItem', position: 3, name: item.marketingTitle || item.title, item: `https://maccove.com/shop/${item.slug}` },
+    ],
+  };
+
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <NavBar />
       <section className="shop-page shop-detail-page">
         <div className="container shop-detail">

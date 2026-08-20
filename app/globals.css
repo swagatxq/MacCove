@@ -789,6 +789,13 @@ body::before {
 .founder-quote { font-size: 19px; line-height: 30px; font-weight: 500; color: var(--text-primary); }
 .founder-name { margin-top: var(--space-5); font-size: 15px; font-weight: 700; color: var(--text-primary); }
 .founder-role { font-size: 14px; color: var(--text-tertiary); }
+.founder-social {
+  width: 36px; height: 36px; border-radius: var(--radius-full); border: 1px solid var(--border-default);
+  display: flex; align-items: center; justify-content: center; color: var(--text-secondary); background: var(--bg-secondary);
+  margin: var(--space-4) auto 0; transition: all 0.2s var(--ease-standard); text-decoration: none;
+}
+.founder-social:hover { background: var(--bg-tertiary); color: var(--text-primary); transform: translateY(-2px); border-color: var(--border-prominent); }
+.founder-social .icon { color: currentColor; }
 
 /* ═══════════════════════════════════════════════════
    FAQ SECTION
@@ -1012,6 +1019,9 @@ body::before {
 .legal-content.blog-post-content img {
   max-width: 100%; height: auto; display: block; border-radius: var(--radius-6); margin: var(--space-6) 0;
 }
+.blog-related-posts { margin-top: var(--space-9); padding-top: var(--space-8); border-top: 1px solid var(--border-default); }
+.blog-related-posts-list { display: flex; flex-direction: column; gap: var(--space-3); margin-top: var(--space-4); }
+.blog-related-post-link { color: var(--text-accent); font-weight: 600; font-size: 15px; }
 .blog-post-back { margin-top: var(--space-9); }
 .blog-post-back a { color: var(--text-accent); font-weight: 600; font-size: 15px; }
 .blog-post-table-wrap {
@@ -1632,7 +1642,7 @@ body::before {
 .shop-detail-gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-4); margin-bottom: var(--space-10); }
 @media (max-width: 640px) { .shop-detail-gallery { grid-template-columns: repeat(2, 1fr); } }
 .shop-detail-gallery-item {
-  aspect-ratio: 1; border-radius: var(--radius-4); overflow: hidden; background: var(--pm-surface);
+  position: relative; aspect-ratio: 1; border-radius: var(--radius-4); overflow: hidden; background: var(--pm-surface);
   border: none; padding: 0; cursor: pointer; display: block;
 }
 .shop-detail-gallery-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s var(--ease-standard); }

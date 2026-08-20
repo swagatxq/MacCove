@@ -1,5 +1,6 @@
 'use client';
 import { useRef } from 'react';
+import Image from 'next/image';
 import Icon from './Icon';
 
 export default function ProductCarousel({ items }) {
@@ -20,7 +21,7 @@ export default function ProductCarousel({ items }) {
           <a key={item.id} href={`/shop/${item.slug}`} className="pm-card">
             <div className="pm-card-image-wrap">
               {item.photo && (
-                <img className="pm-card-image" src={item.photo.url} alt={item.photo.alt || item.title} loading="lazy" />
+                <Image className="pm-card-image" src={item.photo.url} alt={item.photo.alt || item.title} fill sizes="(max-width: 768px) 100vw, 320px" />
               )}
               {item.category && <span className="pm-card-category">{item.category}</span>}
             </div>

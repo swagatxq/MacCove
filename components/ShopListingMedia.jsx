@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import Icon from './Icon';
 import VideoLightbox from './VideoLightbox';
 import { getCountryFlag, getCountryName } from '../lib/countries';
@@ -12,11 +13,12 @@ export default function ShopListingMedia({ item }) {
   return (
     <div className="shop-listing-media">
       {item.photo && (
-        <img
+        <Image
           className="shop-listing-image"
           src={item.photo.url}
           alt={item.photo.alt || item.title}
-          loading="lazy"
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       )}
       {item.category && <span className="shop-listing-category">{item.category}</span>}

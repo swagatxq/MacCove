@@ -5,7 +5,16 @@ import Reveal from '../../../components/Reveal'
 import Icon from '../../../components/Icon'
 import FAQ from '../../../components/FAQ'
 import { getBrandAffiliates } from '../../../lib/datocms'
-import { getBrandPrimaryLink } from '../../../lib/format'
+import { faqs } from '../../../lib/faqs'
+
+const PAGE_QUESTIONS = [
+  'How to make Find... work in Mac Excel Shortcuts?',
+  'How to make Replace... work in Mac Excel Shortcuts?',
+  'How to make Go To... work in Mac Excel Shortcuts?',
+  'How to make Filter work in Mac Excel Shortcuts?',
+  'How to make Sort A to Z work in Mac Excel Shortcuts?',
+  'How to make Sort Z to A work in Mac Excel Shortcuts?',
+]
 
 export const metadata = {
   title: 'Excel Navigation & Data Shortcuts for Mac',
@@ -22,9 +31,59 @@ export const metadata = {
 
 export default async function NavigationShortcutsLandingPage() {
   const brandAffiliates = await getBrandAffiliates({ first: 5 })
+  const pageFaqs = faqs.filter((faq) => PAGE_QUESTIONS.includes(faq.q))
+
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: pageFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: { '@type': 'Answer', text: faq.a },
+    })),
+  }
+
+  const howToJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to get Excel navigation shortcuts working on Mac',
+    description: 'Get Windows Excel navigation and data shortcuts working natively on your Mac in under a minute.',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Download the App',
+        text: 'Download the DMG directly. Installation takes seconds and requires zero setup.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Provide Permissions',
+        text: 'Grant Accessibility and Input Monitoring so your keyboard shortcuts can reach Excel.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Open Excel and Navigate',
+        text: 'Open Excel and use your Windows navigation shortcuts exactly as before.',
+      },
+    ],
+  }
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://maccove.com/' },
+      { '@type': 'ListItem', position: 2, name: 'Excel Navigation & Data Shortcuts for Mac', item: 'https://maccove.com/lp/navigation-shortcuts-mac' },
+    ],
+  }
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <NavBar />
 
       <section className="hero" id="hero">
@@ -218,6 +277,13 @@ export default async function NavigationShortcutsLandingPage() {
               <div className="security-card-desc">Move to the next sheet tab. Add Shift to move to the previous one.</div>
             </div>
           </div>
+          <Reveal>
+            <p className="text-body" style={{ textAlign: 'center', marginTop: '2rem' }}>
+              Looking for more? See the{' '}
+              <a href="/lp/excel-shortcuts-mac">full list of Excel shortcuts on Mac</a>{' '}
+              &mdash; Paste Special, AutoSum, formatting, and everything else, in one place.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -262,131 +328,33 @@ export default async function NavigationShortcutsLandingPage() {
             <h2 className="text-h2">Questions &amp; Answers</h2>
             <p className="text-body">Everything you need to know about Excel navigation shortcuts on your Mac.</p>
           </Reveal>
-          <FAQ />
+          <FAQ items={pageFaqs} />
         </div>
       </section>
 
       <section className="section security-section" id="security">
         <div className="container">
-          <Reveal className="security-header">
-            <h2 className="text-h2">Security & Privacy</h2>
-            <p className="text-body">Your usage data never leaves your device.</p>
-          </Reveal>
-
-          <Reveal className="security-badges">
-            <div className="security-badge">
-              <Icon id="award" size={20} /> No data collection
-            </div>
-            <div className="security-badge">
-              <Icon id="shield" size={20} /> No data transmission
-            </div>
-            <div className="security-badge">
-              <Icon id="lock" size={20} /> Apple Notarized
-            </div>
-            <div className="security-badge">
-              <Icon id="file-text" size={20} /> Just functional
+          <Reveal className="callout-banner">
+            <Icon id="shield" size={22} />
+            <div>
+              <strong>Your usage data never leaves your device.</strong> Zero data collection, local-first
+              processing, Apple notarized. See the full{' '}
+              <a href="/lp/excel-shortcuts-mac#security">security &amp; privacy details</a>.
             </div>
           </Reveal>
-
-          <div className="security-grid stagger-children">
-            <div className="security-card glass-tinted-rose">
-              <div className="security-icon-wrap" style={{ background: 'var(--accent-rose)' }}>
-                <Icon id="x" size={24} />
-              </div>
-              <div className="security-card-title">Zero Data Collection</div>
-              <div className="security-card-desc">We don&apos;t track what you use, sell your data, or run analytics. What you automate is your business &mdash; not ours.</div>
-              <div className="security-card-meta">Privacy Policy <Icon id="chevron-right" size={12} /></div>
-            </div>
-            <div className="security-card glass">
-              <div className="security-icon-wrap" style={{ background: 'var(--apple-green)' }}>
-                <Icon id="monitor" size={24} />
-              </div>
-              <div className="security-card-title">Local-First Processing</div>
-              <div className="security-card-desc">Shortcuts run entirely on your device. Cloud is required only license management.</div>
-              <div className="security-card-meta">Architecture <Icon id="chevron-right" size={12} /></div>
-            </div>
-            <div className="security-card glass-tinted-blue">
-              <div className="security-icon-wrap" style={{ background: 'var(--accent-cyan)' }}>
-                <Icon id="check-circle" size={24} />
-              </div>
-              <div className="security-card-title">Apple Notarized</div>
-              <div className="security-card-desc">Every MacCove release is scanned and notarized by Apple. No malware, no tampering, no unsigned code ever reaches your Mac.</div>
-              <div className="security-card-meta">Verify <Icon id="chevron-right" size={12} /></div>
-            </div>
-          </div>
         </div>
       </section>
 
       {brandAffiliates.length > 0 && (
         <section className="section brand-section" id="brand-affiliates">
           <div className="container">
-            <Reveal className="brand-header">
-              <div className="brand-header-left">
-                <h2 className="text-h2">Brand Affiliates</h2>
-                <p className="text-body">Brands we partner with and recommend to the MacCove community.</p>
+            <Reveal className="callout-banner">
+              <Icon id="award" size={22} />
+              <div>
+                <strong>We partner with brands the MacCove community trusts.</strong>{' '}
+                <a href="/brand-affiliates">See all affiliates</a>.
               </div>
-              <a href="/brand-affiliates" className="brand-link">
-                See all affiliates
-                <Icon id="chevron-right" size={16} className="arrow" />
-              </a>
             </Reveal>
-            <div className="brand-grid stagger-children">
-              {brandAffiliates.map((brand) => {
-                const primaryLink = getBrandPrimaryLink(brand)
-                const CardTag = primaryLink ? 'a' : 'div'
-                return (
-                  <CardTag
-                    key={brand.id}
-                    className="brand-card glass"
-                    {...(primaryLink ? { href: primaryLink, target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  >
-                    <div className="brand-card-identity">
-                      {brand.logo && (
-                        <img
-                          className="brand-card-logo"
-                          src={brand.logo.url}
-                          alt={brand.logo.alt || `${brand.name} logo`}
-                          loading="lazy"
-                        />
-                      )}
-                      <div className="brand-card-name">{brand.name}</div>
-                    </div>
-                    {brand.image && (
-                      <div className="brand-card-image-wrap">
-                        <img
-                          className="brand-card-image"
-                          src={brand.image.url}
-                          alt={brand.image.alt || brand.name}
-                          loading="lazy"
-                        />
-                      </div>
-                    )}
-                    <div className="brand-card-links">
-                      {brand.website && (
-                        <span className="brand-card-link" aria-label={`${brand.name} website`}>
-                          <Icon id="globe" size={16} />
-                        </span>
-                      )}
-                      {brand.twitter && (
-                        <span className="brand-card-link" aria-label={`${brand.name} on Twitter`}>
-                          <Icon id="x" size={16} />
-                        </span>
-                      )}
-                      {brand.youtube && (
-                        <span className="brand-card-link" aria-label={`${brand.name} on YouTube`}>
-                          <Icon id="play" size={16} />
-                        </span>
-                      )}
-                      {brand.telegram && (
-                        <span className="brand-card-link" aria-label={`${brand.name} on Telegram`}>
-                          <Icon id="send" size={16} />
-                        </span>
-                      )}
-                    </div>
-                  </CardTag>
-                )
-              })}
-            </div>
           </div>
         </section>
       )}

@@ -1,5 +1,6 @@
 'use client';
 import { useState } from 'react';
+import Image from 'next/image';
 import ImageLightbox from './ImageLightbox';
 
 export default function ShopDetailGallery({ gallery, title }) {
@@ -17,7 +18,7 @@ export default function ShopDetailGallery({ gallery, title }) {
           onClick={() => setZoomedPhoto(photo)}
           aria-label={`Enlarge ${title} photo ${i + 1}`}
         >
-          <img src={photo.url} alt={photo.alt || `${title} photo ${i + 1}`} loading="lazy" />
+          <Image src={photo.url} alt={photo.alt || `${title} photo ${i + 1}`} fill sizes="(max-width: 640px) 50vw, 25vw" />
         </button>
       ))}
       <ImageLightbox image={zoomedPhoto} onClose={() => setZoomedPhoto(null)} />

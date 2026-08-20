@@ -13,6 +13,7 @@ import { getAllBlogPosts, getBrandAffiliates, getMerchandise } from '../lib/dato
 import { formatBlogDate, getBrandPrimaryLink } from '../lib/format'
 import { getVisitorCountryCode } from '../lib/geo'
 import { getCountryName } from '../lib/countries'
+import { faqs, HOMEPAGE_QUESTIONS } from '../lib/faqs'
 
 export const revalidate = 60
 
@@ -34,7 +35,7 @@ export default async function Home() {
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'macOS 14.0+',
     url: 'https://maccove.com/',
-    description: 'Run the Windows Excel shortcuts you already know, natively on your Mac. No relearning required.',
+    description: 'Make Excel work the way it does on Windows, natively on your Mac. No Parallels, no Boot Camp, no VM, no relearning required.',
     offers: [
       {
         '@type': 'Offer',
@@ -58,9 +59,50 @@ export default async function Home() {
     ],
   }
 
+  const faqJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs
+      .filter((faq) => HOMEPAGE_QUESTIONS.includes(faq.q))
+      .map((faq) => ({
+        '@type': 'Question',
+        name: faq.q,
+        acceptedAnswer: { '@type': 'Answer', text: faq.a },
+      })),
+  }
+
+  const howToJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'HowTo',
+    name: 'How to use Windows Excel shortcuts on Mac',
+    description: 'Get Windows Excel keyboard shortcuts working natively on your Mac in under a minute.',
+    step: [
+      {
+        '@type': 'HowToStep',
+        position: 1,
+        name: 'Download the App',
+        text: 'Download the DMG directly. Installation takes seconds and requires zero setup.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 2,
+        name: 'Provide permissions',
+        text: 'Grant Accessibility and Input Monitoring permissions so the app can access Excel and connect your keyboard.',
+      },
+      {
+        '@type': 'HowToStep',
+        position: 3,
+        name: 'Open Excel and start using',
+        text: 'Open Excel and start using your Windows shortcuts, natively.',
+      },
+    ],
+  }
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareAppJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <NavBar />
 
       {visitorCountryCode === 'IN' && (
@@ -84,8 +126,8 @@ export default async function Home() {
               <div className="dot"></div>
               Available for Mac OS
             </div>
-            <h1 className="text-hero">Mac Excel<br/>Shortcuts</h1>
-            <p className="hero-subtitle">Run Windows excel shortcuts on Mac, and get native Windows experience on Mac. Get your work done fast.</p>
+            <h1 className="text-hero">Excel Shortcuts<br/>on Mac, Native</h1>
+            <p className="hero-subtitle">Make Excel actually work on your Mac, natively. No Parallels, no Boot Camp, no VM, no dual-booting. Just your Windows shortcuts, running for real.</p>
             <div className="hero-ctas">
               <DownloadCTA className="btn btn-primary">
                 <Icon id="download" size={20} /> Download .dmg for Mac
@@ -406,6 +448,91 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="section whyus-section" id="vs-vm-solutions">
+        <div className="container">
+          <Reveal className="security-header">
+            <h2 className="text-h2">Mac Excel Shortcuts vs. Parallels vs. Boot Camp</h2>
+            <p className="text-body">Running a virtual machine or dual-booting Windows just to use Excel shortcuts is overkill. Mac Excel Shortcuts gets you there without the overhead.</p>
+          </Reveal>
+          <Reveal className="callout-banner">
+            <Icon id="zap" size={22} />
+            <div><strong>No VM, no reboot, no Windows license.</strong> Parallels and Boot Camp make Excel work by running Windows itself — Mac Excel Shortcuts makes Excel work by staying native to macOS.</div>
+          </Reveal>
+          <Reveal className="comparison-table-wrap">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th className="comparison-highlight-col">Mac Excel Shortcuts</th>
+                  <th>Parallels Desktop</th>
+                  <th>Boot Camp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="mapping-action">Runs natively on macOS</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-no">Runs a full Windows VM</td>
+                  <td className="comparison-no">Boots into Windows instead</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Windows license required</td>
+                  <td className="comparison-highlight-col comparison-yes">None</td>
+                  <td className="comparison-no">Yes, extra cost</td>
+                  <td className="comparison-no">Yes, extra cost</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">RAM &amp; disk overhead</td>
+                  <td className="comparison-highlight-col comparison-yes">Minimal — no VM</td>
+                  <td className="comparison-no">4–8GB+ RAM, 60GB+ disk</td>
+                  <td className="comparison-no">60GB+ dedicated partition</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Switch between Mac apps &amp; Excel instantly</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td>Partial — still a VM under the hood</td>
+                  <td className="comparison-no">No — full reboot required</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Setup required</td>
+                  <td className="comparison-highlight-col comparison-yes">None — install &amp; go</td>
+                  <td>Install hypervisor + Windows + Office</td>
+                  <td>Partition drive + install Windows + Office</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Price</td>
+                  <td className="comparison-highlight-col comparison-yes">$49 one-time or $4.99/mo</td>
+                  <td>Subscription + Windows license</td>
+                  <td>Free app, but needs Windows + Office license</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Get it now</td>
+                  <td className="comparison-highlight-col">
+                    <DownloadCTA className="comparison-download-btn">
+                      <Icon id="download" size={14} /> Download
+                    </DownloadCTA>
+                  </td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </Reveal>
+          <p className="usecases-footnote">Feature availability compared as of this page&apos;s last update — check each vendor&apos;s site for current details.</p>
+          <Reveal className="comparison-footer">
+            <div className="comparison-footer-title">How the alternatives compare</div>
+            <div className="comparison-footer-links">
+              <a href="https://www.parallels.com" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
+                Parallels Desktop <span>Full Windows virtualization for Mac — powerful, but you're running an entire second OS just for Excel</span> <Icon id="chevron-right" size={14} className="arrow" />
+              </a>
+              <a href="https://support.apple.com/boot-camp" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
+                Boot Camp <span>Apple's native dual-boot utility — free, but requires a dedicated partition and a full reboot to use Excel</span> <Icon id="chevron-right" size={14} className="arrow" />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section mapping-section" id="shortcut-mapping">
         <div className="container">
           <Reveal className="security-header">
@@ -479,6 +606,13 @@ export default async function Home() {
               <Icon id="zap" size={20} /> Enable Windows Shortcuts
             </DownloadCTA>
           </div>
+          <Reveal>
+            <p className="text-body" style={{ textAlign: 'center', marginTop: '2rem' }}>
+              Dig deeper: <a href="/lp/excel-shortcuts-mac">the full Excel shortcuts on Mac list</a>,{' '}
+              <a href="/lp/navigation-shortcuts-mac">navigation &amp; data shortcuts</a>, or{' '}
+              <a href="/lp/paste-shortcuts-mac">Paste Special shortcuts</a>.
+            </p>
+          </Reveal>
         </div>
       </section>
 
@@ -994,6 +1128,9 @@ export default async function Home() {
             <p className="founder-quote">&quot;I built Mac Excel Shortcuts after switching to a MacBook and realizing every Excel shortcut I&apos;d used for a decade was suddenly gone. Relearning Excel felt like the wrong problem to solve — so I built the fix instead.&quot;</p>
             <div className="founder-name">Swagat Sarma</div>
             <div className="founder-role">Founder, MacCove</div>
+            <a href="https://x.com/swagatsarma" className="founder-social" title="Twitter" target="_blank" rel="noopener noreferrer">
+              <Icon id="x" size={18} />
+            </a>
           </Reveal>
         </div>
       </section>

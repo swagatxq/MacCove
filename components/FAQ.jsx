@@ -1,17 +1,7 @@
 'use client';
 import { useState } from 'react';
 import Icon from './Icon';
-import { faqs as allFaqs } from '../lib/faqs';
-
-const HOMEPAGE_QUESTIONS = [
-  'What is Mac Excel Shortcuts?',
-  'What platforms does Mac Excel Shortcuts support?',
-  'Is there a free version?',
-  'Can I share shortcuts with my team?',
-  'Do shortcuts run when my device is offline?',
-  'Does the app collect my data?',
-  'Are there any discounts?',
-];
+import { faqs as allFaqs, HOMEPAGE_QUESTIONS } from '../lib/faqs';
 
 export default function FAQ({ items, showSeeAll = false }) {
   const faqs = items || allFaqs.filter((f) => HOMEPAGE_QUESTIONS.includes(f.q));

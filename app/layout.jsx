@@ -1,8 +1,9 @@
 import './globals.css'
+import Script from 'next/script'
 import Attribution from '../components/Attribution'
 
-const SITE_TITLE = 'Mac Excel Shortcuts — Run Windows Excel Shortcuts on Mac | MacCove';
-const SITE_DESCRIPTION = 'Run the Windows Excel shortcuts you already know, natively on your Mac. Mac Excel Shortcuts brings back Paste Special, AutoSum, and more, no relearning required.';
+const SITE_TITLE = 'Mac Excel Shortcuts — Make Excel Work on Mac, No VM Needed | MacCove';
+const SITE_DESCRIPTION = 'Get a native Windows Excel experience on your Mac, no Parallels, no Boot Camp, no dual-booting. Mac Excel Shortcuts brings back Paste Special, AutoSum, and every shortcut you rely on, natively.';
 
 export const metadata = {
   title: {
@@ -47,15 +48,9 @@ export default function RootLayout({ children }) {
     <html lang="en" suppressHydrationWarning>
       <head>
 
-        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+        <link rel="llms" href="/llms.txt" />
 
-        <script dangerouslySetInnerHTML={{ __html: `
-          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-          })(window,document,'script','dataLayer','GTM-WD4VVF2N');
-        `}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
 
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
@@ -68,6 +63,13 @@ export default function RootLayout({ children }) {
         `}} />
       </head>
       <body>
+        <Script id="gtm-script" strategy="afterInteractive" dangerouslySetInnerHTML={{ __html: `
+          (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+          new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+          'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+          })(window,document,'script','dataLayer','GTM-WD4VVF2N');
+        `}} />
         <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WD4VVF2N"
         height="0" width="0" style={{ display: 'none', visibility: 'hidden' }}></iframe></noscript>
         <svg width="0" height="0" style={{ position: 'absolute' }} aria-hidden="true">

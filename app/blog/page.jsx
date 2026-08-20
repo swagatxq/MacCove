@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import Reveal from '../../components/Reveal';
@@ -32,11 +33,12 @@ export default async function BlogIndexPage() {
               <a key={post.id} href={`/blog/${post.slug}`} className="blog-card glass">
                 <div className="blog-image-wrap">
                   {post.featuredImage && (
-                    <img
+                    <Image
                       className="blog-image"
                       src={post.featuredImage.url}
                       alt={post.featuredImage.alt || post.title}
-                      loading="lazy"
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
                   )}
                   {post.tag && (
