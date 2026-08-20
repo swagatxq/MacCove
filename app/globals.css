@@ -328,8 +328,57 @@ body::before {
 }
 .hero-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.6s var(--ease-decelerate) 0.4s both; }
 
+.hero .container { max-width: 1400px; }
+
+/* Homepage hero: hero-split centers itself in the space above the launch-partners
+   trust strip (via auto margins), which stays anchored to the bottom of the viewport. */
+.hero-home {
+  display: flex; flex-direction: column; align-items: stretch;
+  min-height: 100vh; padding: 96px 0 0;
+}
+
+.hero-partners { margin-top: var(--space-11); padding-bottom: var(--space-9); }
+.hero-partners .launch-partners-label { margin-bottom: var(--space-2); }
+
+.hero-split { display: grid; grid-template-columns: minmax(0, 560px) minmax(0, 640px); gap: var(--space-11); align-items: start; text-align: left; justify-content: center; margin-top: auto; margin-bottom: auto; }
+.hero-left { max-width: 560px; }
+.hero-left .hero-badge, .hero-left .hero-ctas { justify-content: flex-start; }
+.hero-left .hero-subtitle { margin-left: 0; margin-right: 0; text-align: left; }
+/* Offsets the card down past the "Available for Mac OS" badge so its top lines up
+   with the h1 ("Excel Shortcuts on Mac, Native") instead of the badge above it. */
+.hero-right { display: flex; flex-direction: column; align-items: center; gap: var(--space-6); margin-top: 55px; }
+@media (max-width: 1000px) {
+  .hero-split { grid-template-columns: 1fr; text-align: center; gap: var(--space-8); }
+  .hero-left { max-width: 640px; margin: 0 auto; }
+  .hero-left .hero-badge, .hero-left .hero-ctas { justify-content: center; }
+  .hero-left .hero-subtitle { text-align: center; margin-left: auto; margin-right: auto; }
+  .hero-right { margin-top: 0; }
+}
+
+/* Hero ribbon shortcut demo (homepage) */
+.hero-ribbon-card { padding: var(--space-8); width: 100%; max-width: 640px; animation: fadeInUp 0.6s var(--ease-decelerate) 0.5s both; }
+.hero-ribbon-svg { width: 100%; height: auto; display: block; overflow: visible; }
+.ribbon-title { font: 700 28px var(--font-sans); fill: var(--text-primary); letter-spacing: -0.3px; }
+.ribbon-subtitle { font: 500 16px var(--font-sans); fill: var(--text-tertiary); }
+.ribbon-stage-bg { fill: var(--bg-tertiary); opacity: 0.5; }
+.ribbon-key { fill: var(--bg-secondary); stroke: var(--border-prominent); stroke-width: 1.5; transition: fill 0.15s var(--ease-standard); }
+.ribbon-key.active { fill: var(--apple-blue); stroke: var(--apple-blue); }
+.ribbon-key-text { font: 700 16px var(--font-sans); fill: var(--text-primary); text-anchor: middle; dominant-baseline: middle; transition: fill 0.15s var(--ease-standard); }
+.ribbon-key-text.active { fill: var(--white-100); }
+.ribbon-arrow { font: 400 20px var(--font-sans); fill: var(--text-tertiary); text-anchor: middle; dominant-baseline: middle; }
+.ribbon-label { font: 700 20px var(--font-sans); fill: var(--text-primary); dominant-baseline: middle; }
+.ribbon-caption { font: 400 14px var(--font-sans); fill: var(--text-tertiary); }
+.ribbon-pill { fill: rgba(52,199,89,0.12); stroke: var(--apple-green); stroke-width: 1.5; transition: fill 0.2s var(--ease-standard); }
+.ribbon-pill.active { fill: var(--apple-green); }
+.ribbon-pill-text { font: 700 16px var(--font-sans); fill: var(--apple-green); text-anchor: middle; dominant-baseline: middle; transition: fill 0.2s var(--ease-standard); }
+.ribbon-pill-text.active { fill: var(--white-100); }
+.ribbon-dot { fill: var(--border-prominent); transition: fill 0.2s var(--ease-standard); }
+.ribbon-dot.active { fill: var(--apple-blue); }
+
+.hero-shortcut-list-link { margin-top: var(--space-2); }
+
 .hero-visual {
-  position: relative; margin: var(--space-8) auto 0; width: 100%; max-width: 900px;
+  position: relative; margin: var(--space-8) auto 0; width: 100%; max-width: 1200px;
   padding: 0 var(--space-5); animation: fadeInUp 0.6s var(--ease-decelerate) 0.5s both;
 }
 .hero-image img {

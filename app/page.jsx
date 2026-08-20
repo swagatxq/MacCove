@@ -9,6 +9,7 @@ import DownloadCTA from '../components/DownloadCTA'
 import ProductCarousel from '../components/ProductCarousel'
 import ShortcutKeysDemo from '../components/ShortcutKeysDemo'
 import DownloadTrigger from '../components/DownloadTrigger'
+import HeroRibbonDemo from '../components/HeroRibbonDemo'
 import { getAllBlogPosts, getBrandAffiliates, getMerchandise } from '../lib/datocms'
 import { formatBlogDate, getBrandPrimaryLink } from '../lib/format'
 import { getVisitorCountryCode } from '../lib/geo'
@@ -119,9 +120,9 @@ export default async function Home() {
         </a>
       )}
 
-      <section className="hero" id="hero">
-        <div className="container">
-          <div className="hero-content">
+      <section className="hero hero-home" id="hero">
+        <div className="container hero-split">
+          <div className="hero-left">
             <div className="hero-badge">
               <div className="dot"></div>
               Available for Mac OS
@@ -135,40 +136,15 @@ export default async function Home() {
             </div>
           </div>
 
-          <div className="hero-visual">
-            <div className="hero-image-row">
-              <div className="hero-image hero-image-side hero-image-left">
-                <Image
-                  src="/PasteSpecial.webp"
-                  alt="Paste Special shortcuts in Mac Excel Shortcuts"
-                  width={2202}
-                  height={1650}
-                />
-              </div>
-              <div className="hero-image hero-image-side hero-image-right">
-                <Image
-                  src="/Formatting.webp"
-                  alt="Formatting shortcuts in Mac Excel Shortcuts"
-                  width={2166}
-                  height={1636}
-                />
-              </div>
-            </div>
-            <div className="hero-image hero-image-main">
-              <Image
-                src="/AppScreenshot.webp"
-                alt="Mac Excel Shortcuts app screenshot"
-                width={2206}
-                height={1186}
-                priority
-              />
-            </div>
+          <div className="hero-right">
+            <HeroRibbonDemo />
+            <a href="/blog/mac-excel-shortcuts-covered-list" className="section-link hero-shortcut-list-link">
+              See the full list of shortcuts we cover <Icon id="chevron-right" size={16} className="arrow" />
+            </a>
           </div>
         </div>
-      </section>
 
-      <section className="section launch-partners-section" id="launch-partners">
-        <div className="container">
+        <div className="container hero-partners" id="launch-partners">
           <Reveal className="launch-partners-inner">
             <div className="launch-partners-label">Launch Partners</div>
             <div className="launch-partners-marquee">
@@ -428,7 +404,7 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section shortcuts-section" id="shortcuts">
+      {/* <section className="section shortcuts-section" id="shortcuts">
         <div className="container">
           <Reveal className="how-to-header">
             <h2 className="text-h2">Top 5 Voted Shortcuts</h2>
@@ -446,7 +422,7 @@ export default async function Home() {
             </DownloadCTA>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="section whyus-section" id="vs-vm-solutions">
         <div className="container">
