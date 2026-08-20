@@ -51,6 +51,8 @@ export default function Footer() {
             <div className="footer-col-title">Resources</div>
             <a href="https://github.com/swagatxq/MacCove" target="_blank" rel="noopener noreferrer">Documentation</a>
             <a href="/affiliate">Become an affiliate</a>
+            <a href="https://maccove.com/blog/mac-excel-shortcuts-vs-parallels-vs-bootcamp">Mac Excel Shortcuts vs Parallels</a>
+            <a href="https://maccove.com/blog/mac-excel-shortcuts-vs-parallels-vs-bootcamp">Mac Excel Shortcuts vs Bootcamp</a>
           </div>
           <div className="footer-col">
             <div className="footer-col-title">Company</div>
