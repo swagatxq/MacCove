@@ -81,4 +81,4 @@ Yes — refer two people to Mac Excel Shortcuts, and get 50% off your upgrade.
 
 ## Support
 
-Have a question not covered here? Reach out to us — we're happy to help.
+Have a question not covered here? Reach out to us at support@maccove.com — we're happy to help.
