@@ -15,7 +15,7 @@ export default function FileCutPasteTermsPage() {
         <div className="container">
           <div className="legal-content">
             <h1 className="text-h1">Terms &amp; Conditions</h1>
-            <p className="legal-meta">Last updated: August 22, 2026</p>
+            <p className="legal-meta">Last updated: August 30, 2026</p>
 
             <p>
               These Terms &amp; Conditions (&quot;Terms&quot;) govern your access to and use of the FileCutPaste
@@ -31,19 +31,19 @@ export default function FileCutPasteTermsPage() {
               covers a single Mac.
             </p>
 
-            <h2>2. Free Trial</h2>
+            <h2>2. Free Plan</h2>
             <p>
-              The App is free to download and includes 10 free cuts to try the core Cut &amp; Paste functionality.
-              Continued access beyond the free cuts requires an upgrade to a paid subscription.
+              The App is free to download and free to use forever, with a limit of 5 cuts per day using the core
+              Cut &amp; Paste functionality. Removing the daily limit requires a paid subscription.
             </p>
 
             <h2>3. Subscriptions</h2>
             <p>
-              Continued use of the App is available on a monthly or yearly auto-renewing subscription, purchased and
-              billed through the Apple App Store. Subscriptions renew automatically until cancelled. You may cancel
-              at any time through your Apple ID subscription settings; access continues until the end of the current
-              billing period. Pricing is set and displayed by the App Store at the time of purchase and may vary by
-              region.
+              Unlimited use of the App is available on an auto-renewing subscription: $1.99 per month or $9.99 per
+              year, purchased and billed through the Apple App Store. Subscriptions renew automatically until
+              cancelled. You may cancel at any time through your Apple ID subscription settings; access continues
+              until the end of the current billing period. Pricing is set and displayed by the App Store at the time
+              of purchase and may vary by region.
             </p>
 
             <h2>4. Refunds</h2>
@@ -58,7 +58,7 @@ export default function FileCutPasteTermsPage() {
               <li>Reverse engineer, decompile, or attempt to extract the source code of the App, except as permitted by law;</li>
               <li>Redistribute, resell, or sublicense the App or your subscription to any third party;</li>
               <li>Use the App to violate any applicable law or the rights of any third party;</li>
-              <li>Circumvent or attempt to circumvent free trial or subscription restrictions.</li>
+              <li>Circumvent or attempt to circumvent the daily free-cut limit or subscription restrictions.</li>
             </ul>
 
             <h2>6. Permissions Required</h2>

@@ -3,6 +3,8 @@ import Icon from '../../components/Icon'
 import Reveal from '../../components/Reveal'
 import FileCutPasteNav, { APP_STORE_URL } from '../../components/FileCutPasteNav'
 import FileCutPasteFooter from '../../components/FileCutPasteFooter'
+import { getAllFileCutPasteBlogs } from '../../lib/datocms'
+import { formatBlogDate } from '../../lib/format'
 
 export const metadata = {
   title: 'FileCutPaste — Cut & Paste Files on Mac',
@@ -17,7 +19,11 @@ export const metadata = {
   },
 }
 
-export default function FileCutPasteAppPage() {
+export const revalidate = 60
+
+export default async function FileCutPasteAppPage() {
+  const latestPosts = await getAllFileCutPasteBlogs({ first: 3 })
+
   const softwareAppJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -25,11 +31,12 @@ export default function FileCutPasteAppPage() {
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'macOS',
     url: 'https://maccove.com/FileCutPasteApp',
+    downloadUrl: APP_STORE_URL,
     description: 'Cut and paste files in Finder on Mac using ⌘X / ⌘V, exactly like Windows.',
     offers: [
-      { '@type': 'Offer', name: 'Free trial', price: '0', priceCurrency: 'USD', description: '10 free cuts to try it out.' },
-      { '@type': 'Offer', name: 'Monthly subscription', priceCurrency: 'USD' },
-      { '@type': 'Offer', name: 'Yearly subscription', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Free forever', price: '0', priceCurrency: 'USD', description: 'Free forever with 5 cuts per day.' },
+      { '@type': 'Offer', name: 'Monthly subscription', price: '1.99', priceCurrency: 'USD' },
+      { '@type': 'Offer', name: 'Yearly subscription', price: '9.99', priceCurrency: 'USD' },
     ],
   }
 
@@ -164,15 +171,61 @@ export default function FileCutPasteAppPage() {
       <section className="section whyus-section" id="pricing">
         <div className="container">
           <Reveal className="security-header">
-            <h2 className="text-h2">Try It Free, Then Subscribe</h2>
-            <p className="text-body">10 free cuts to see it work. Then continue with a monthly or yearly subscription, managed entirely through the App Store.</p>
+            <h2 className="text-h2">Free Forever, or Go Unlimited</h2>
+            <p className="text-body">5 cuts per day, free forever. Need more? Go unlimited for $1.99/month or $9.99/year, managed entirely through the App Store.</p>
           </Reveal>
           <Reveal className="callout-banner">
             <Icon id="zap" size={22} />
-            <div><strong>No trial period to worry about.</strong> Use your 10 free cuts whenever you like — subscribe only when you&apos;re ready to keep going.</div>
+            <div><strong>No trial period to worry about.</strong> Use your 5 free cuts every day for as long as you like — subscribe only when you&apos;re ready for unlimited.</div>
           </Reveal>
         </div>
       </section>
+
+      {latestPosts.length > 0 && (
+        <section className="section blog-section" id="blog">
+          <div className="container">
+            <Reveal className="blog-header">
+              <div className="blog-header-left">
+                <h2 className="text-h2">From the Blog</h2>
+                <p className="text-body">Guides and tips for moving files on your Mac the way you did on Windows.</p>
+              </div>
+              <a href="/FileCutPasteApp/blog" className="blog-link">
+                View all articles
+                <Icon id="chevron-right" size={16} className="arrow" />
+              </a>
+            </Reveal>
+            <div className="blog-grid stagger-children">
+              {latestPosts.map((post) => (
+                <a key={post.id} href={`/FileCutPasteApp/blog/${post.slug}`} className="blog-card glass">
+                  <div className="blog-image-wrap">
+                    {post.featuredImage && (
+                      <img
+                        className="blog-image"
+                        src={post.featuredImage.url}
+                        alt={post.featuredImage.alt || post.title}
+                        loading="lazy"
+                      />
+                    )}
+                    {post.tag && (
+                      <div className="blog-image-overlay">
+                        <span className="blog-tag">{post.tag}</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="blog-content">
+                    <div className="blog-meta">
+                      <span>{formatBlogDate(post.date)}</span>
+                    </div>
+                    <h3 className="blog-title">{post.title}</h3>
+                    <p className="blog-excerpt">{post.excerpt}</p>
+                    <span className="blog-readmore">Read more <Icon id="chevron-right" size={12} /></span>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       <section className="section founder-section" id="support">
         <div className="container">

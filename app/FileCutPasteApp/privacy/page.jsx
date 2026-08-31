@@ -15,7 +15,7 @@ export default function FileCutPastePrivacyPage() {
         <div className="container">
           <div className="legal-content">
             <h1 className="text-h1">Privacy Policy</h1>
-            <p className="legal-meta">Last updated: August 22, 2026</p>
+            <p className="legal-meta">Last updated: August 30, 2026</p>
 
             <p>
               This Privacy Policy explains how Xquantum Pvt Ltd (&quot;MacCove&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;)
@@ -49,7 +49,7 @@ export default function FileCutPastePrivacyPage() {
             <h2>4. Product Usage</h2>
             <p>
               We count basic, on-device usage such as the number of cuts performed, so the App can show you your own
-              usage and manage the free trial limit. This information is stored locally on your Mac and is not
+              usage and manage the daily free-cut limit. This information is stored locally on your Mac and is not
               transmitted to us.
             </p>
 

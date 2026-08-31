@@ -24,6 +24,7 @@ export default function FileCutPasteFooter() {
           <div className="footer-col">
             <div className="footer-col-title">Product</div>
             <a href="/FileCutPasteApp#how-it-works">How it works</a>
+            <a href="/FileCutPasteApp/blog">Blog</a>
             <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer">Download</a>
           </div>
           <div className="footer-col">

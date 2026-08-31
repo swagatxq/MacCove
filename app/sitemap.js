@@ -1,13 +1,14 @@
-import { getAllBlogPosts, getAllMerchandiseSlugs } from '../lib/datocms';
+import { getAllBlogPosts, getAllMerchandiseSlugs, getAllFileCutPasteBlogs } from '../lib/datocms';
 
 const BASE_URL = 'https://maccove.com';
 
 export const revalidate = 3600;
 
 export default async function sitemap() {
-  const [posts, merchandiseSlugs] = await Promise.all([
+  const [posts, merchandiseSlugs, fcpPosts] = await Promise.all([
     getAllBlogPosts(),
     getAllMerchandiseSlugs(),
+    getAllFileCutPasteBlogs(),
   ]);
 
   const staticRoutes = [
@@ -22,6 +23,10 @@ export default async function sitemap() {
     { url: `${BASE_URL}/lp/paste-shortcuts-mac`, changeFrequency: 'monthly', priority: 0.6 },
     { url: `${BASE_URL}/privacy`, changeFrequency: 'yearly', priority: 0.3 },
     { url: `${BASE_URL}/terms`, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE_URL}/FileCutPasteApp`, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/FileCutPasteApp/blog`, changeFrequency: 'daily', priority: 0.5 },
+    { url: `${BASE_URL}/FileCutPasteApp/terms`, changeFrequency: 'yearly', priority: 0.3 },
+    { url: `${BASE_URL}/FileCutPasteApp/privacy`, changeFrequency: 'yearly', priority: 0.3 },
   ];
 
   const postRoutes = posts.map((post) => ({
@@ -31,11 +36,18 @@ export default async function sitemap() {
     priority: 0.6,
   }));
 
+  const fcpPostRoutes = fcpPosts.map((post) => ({
+    url: `${BASE_URL}/FileCutPasteApp/blog/${post.slug}`,
+    lastModified: post.date,
+    changeFrequency: 'monthly',
+    priority: 0.5,
+  }));
+
   const shopRoutes = merchandiseSlugs.map((slug) => ({
     url: `${BASE_URL}/shop/${slug}`,
     changeFrequency: 'weekly',
     priority: 0.6,
   }));
 
-  return [...staticRoutes, ...postRoutes, ...shopRoutes];
+  return [...staticRoutes, ...postRoutes, ...fcpPostRoutes, ...shopRoutes];
 }
