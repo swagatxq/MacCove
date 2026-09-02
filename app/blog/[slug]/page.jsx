@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import NavBar from '../../../components/NavBar';
 import Footer from '../../../components/Footer';
+import AssistantFloater from '../../../components/AssistantFloater';
 import { getAllBlogPostSlugs, getBlogPostBySlug, getRelatedBlogPosts } from '../../../lib/datocms';
 import { formatBlogDate, estimateReadingTime } from '../../../lib/format';
 import { renderRichText } from '../../../lib/richtext';
@@ -123,6 +124,7 @@ export default async function BlogPostPage({ params }) {
           </div>
         </div>
       </section>
+      <AssistantFloater />
       <Footer />
     </>
   );

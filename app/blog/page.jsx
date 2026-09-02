@@ -3,12 +3,13 @@ import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 import Reveal from '../../components/Reveal';
 import Icon from '../../components/Icon';
+import AssistantFloater from '../../components/AssistantFloater';
 import { getAllBlogPosts } from '../../lib/datocms';
 import { formatBlogDate } from '../../lib/format';
 
 export const metadata = {
-  title: 'Excel Shortcuts Blog',
-  description: 'Tips, tutorials, and updates from the MacCove team to help you get the most out of Mac Excel Shortcuts.',
+  title: 'The Excel Shortcuts App — Blog',
+  description: 'Guides and tips for making Excel keyboard shortcuts work the Windows way on your Mac — from the team behind the Mac Excel Shortcuts app.',
   alternates: { canonical: '/blog' },
 }
 
@@ -25,7 +26,7 @@ export default async function BlogIndexPage() {
           <Reveal className="blog-header">
             <div className="blog-header-left">
               <h1 className="text-h1">From the Blog</h1>
-              <p className="text-body">Tips, tutorials, and updates from the MacCove team to help you get the most out of your automation.</p>
+              <p className="text-body">Guides, shortcut references, and Windows-to-Mac Excel tips from the team behind the Excel Shortcuts app.</p>
             </div>
           </Reveal>
           <div className="blog-grid stagger-children">
@@ -60,6 +61,7 @@ export default async function BlogIndexPage() {
           </div>
         </div>
       </section>
+      <AssistantFloater />
       <Footer />
     </>
   );

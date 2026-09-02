@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import NavBar from '../../../components/NavBar'
 import Footer from '../../../components/Footer'
+import AssistantFloater from '../../../components/AssistantFloater'
 import Reveal from '../../../components/Reveal'
 import Icon from '../../../components/Icon'
 import FAQ from '../../../components/FAQ'
@@ -8,12 +9,12 @@ import { getBrandAffiliates } from '../../../lib/datocms'
 import { faqs } from '../../../lib/faqs'
 
 const PAGE_QUESTIONS = [
-  'How to make Find... work in Mac Excel Shortcuts?',
-  'How to make Replace... work in Mac Excel Shortcuts?',
-  'How to make Go To... work in Mac Excel Shortcuts?',
-  'How to make Filter work in Mac Excel Shortcuts?',
-  'How to make Sort A to Z work in Mac Excel Shortcuts?',
-  'How to make Sort Z to A work in Mac Excel Shortcuts?',
+  'How to make Find... work in Mac Excel Shortcuts app?',
+  'How to make Replace... work in Mac Excel Shortcuts app?',
+  'How to make Go To... work in Mac Excel Shortcuts app?',
+  'How to make Filter work in Mac Excel Shortcuts app?',
+  'How to make Sort A to Z work in Mac Excel Shortcuts app?',
+  'How to make Sort Z to A work in Mac Excel Shortcuts app?',
 ]
 
 export const metadata = {
@@ -358,6 +359,8 @@ export default async function NavigationShortcutsLandingPage() {
           </div>
         </section>
       )}
+
+      <AssistantFloater />
 
       <Footer />
     </>

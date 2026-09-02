@@ -9,6 +9,7 @@ import DownloadCTA from '../../components/DownloadCTA'
 import ProductCarousel from '../../components/ProductCarousel'
 import ShortcutKeysDemo from '../../components/ShortcutKeysDemo'
 import DownloadTrigger from '../../components/DownloadTrigger'
+import UsecaseCards from '../../components/UsecaseCards'
 import DownloadHeroPanel from '../../components/DownloadHeroPanel'
 import { getAllBlogPosts, getBrandAffiliates, getMerchandise } from '../../lib/datocms'
 import { formatBlogDate, getBrandPrimaryLink } from '../../lib/format'
@@ -129,7 +130,7 @@ export default async function Home() {
               <div className="dot"></div>
               Available for Mac OS
             </div>
-            <h1 className="text-hero">Excel Shortcuts<br/>on Mac, Native</h1>
+            <h1 className="text-hero">The Excel Shortcuts app,<br/>native on your Mac</h1>
             <p className="hero-subtitle">Make Excel actually work on your Mac, natively. No Parallels, no Boot Camp, no VM, no dual-booting. Just your Windows shortcuts, running for real.</p>
             <div className="hero-ctas">
               <DownloadCTA className="btn btn-primary">
@@ -594,79 +595,13 @@ export default async function Home() {
       <section className="section usecases-section" id="use-cases">
         <div className="container">
           <Reveal className="usecases-header">
-            <h2 className="text-h2">Built for the Way You Actually Use Excel</h2>
-            <p className="text-body">Every workflow below is time you get back the moment you stop hunting for a Mac-native way to do something Windows already made instant.</p>
+            <h2 className="text-h2">Built for those who never use a mouse for Excel</h2>
+            <p className="text-body">Every habit below is one you keep from Windows — hands on the keys, mouse untouched, the way you have always worked.</p>
             <div className="stat-callout">
-              <Icon id="zap" size={20} />
               <span>Save an average of <strong>25+ hours a month</strong> on typical power-user Excel workflows*</span>
             </div>
           </Reveal>
-          <div className="usecase-list stagger-children">
-            <DownloadTrigger className="usecase-row glass">
-              <div className="usecase-row-icon" style={{ background: 'var(--apple-blue)' }}>
-                <Icon id="bar-chart" size={28} />
-              </div>
-              <div className="usecase-row-body">
-                <div className="usecase-row-top">
-                  <h3 className="usecase-row-title">Consume &amp; Run Dashboards Like a Pro</h3>
-                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~7 hrs/month saved</span>
-                </div>
-                <ul className="usecase-row-points">
-                  <li>Jump across huge reporting workbooks without ever reaching for the mouse</li>
-                  <li>Filter and drill into pivot tables in a heartbeat, mid-conversation</li>
-                  <li>Review live dashboards at the same speed you did on Windows</li>
-                </ul>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="usecase-row glass-tinted-blue">
-              <div className="usecase-row-icon" style={{ background: 'var(--accent-cyan)' }}>
-                <Icon id="trending-up" size={28} />
-              </div>
-              <div className="usecase-row-body">
-                <div className="usecase-row-top">
-                  <h3 className="usecase-row-title">Financial Models</h3>
-                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~9 hrs/month saved</span>
-                </div>
-                <ul className="usecase-row-points">
-                  <li>Toggle between relative and absolute references without breaking flow</li>
-                  <li>Audit formulas and trace precedents in seconds, not minutes</li>
-                  <li>Reformat an entire statement moments before a deadline, instantly</li>
-                </ul>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="usecase-row glass-tinted-rose">
-              <div className="usecase-row-icon" style={{ background: 'var(--accent-rose)' }}>
-                <Icon id="sliders" size={28} />
-              </div>
-              <div className="usecase-row-body">
-                <div className="usecase-row-top">
-                  <h3 className="usecase-row-title">Quick Formatting</h3>
-                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~5 hrs/month saved</span>
-                </div>
-                <ul className="usecase-row-points">
-                  <li>Clean up a messy handoff workbook in seconds, not a slow ribbon crawl</li>
-                  <li>Apply consistent number and currency formats across an entire sheet</li>
-                  <li>Copy formatting only, without disturbing the values underneath</li>
-                </ul>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="usecase-row glass">
-              <div className="usecase-row-icon" style={{ background: 'var(--apple-green)' }}>
-                <Icon id="zap" size={28} />
-              </div>
-              <div className="usecase-row-body">
-                <div className="usecase-row-top">
-                  <h3 className="usecase-row-title">Faster Work, Same Muscle Memory</h3>
-                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~7 hrs/month saved</span>
-                </div>
-                <ul className="usecase-row-points">
-                  <li>No retraining your hands just because you switched machines</li>
-                  <li>Zero hesitation, zero second-guessing every keystroke</li>
-                  <li>Every saved second compounds across a full day of spreadsheet work</li>
-                </ul>
-              </div>
-            </DownloadTrigger>
-          </div>
+          <UsecaseCards />
           <p className="usecases-footnote">*Estimate based on typical power-user Excel workflows over a 22-day working month and the number of ribbon/menu trips a Windows shortcut replaces — actual time saved depends on how you use Excel.</p>
           <div className="section-cta">
             <DownloadCTA className="btn btn-primary">

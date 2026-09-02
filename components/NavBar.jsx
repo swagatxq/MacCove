@@ -41,7 +41,7 @@ export default function NavBar() {
           <a href="https://github.com/swagatxq/MacCove" target="_blank" rel="noopener noreferrer"><Icon id="book" size={16} /> Docs</a>
         </div>
         <div style={{display: 'flex', alignItems: 'center'}}>
-          <DownloadCTA className="nav-cta"><Icon id="download" size={16} /> Download Excel Shortcuts</DownloadCTA>
+          <DownloadCTA className="nav-cta"><Icon id="download" size={16} /> Get the Excel Shortcuts app</DownloadCTA>
           <ThemeToggle />
           <button className="mobile-menu-btn" aria-label="Open menu">
             <Icon id="menu" size={24} />

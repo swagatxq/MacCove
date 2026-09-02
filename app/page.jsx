@@ -10,6 +10,9 @@ import ProductCarousel from '../components/ProductCarousel'
 import ShortcutKeysDemo from '../components/ShortcutKeysDemo'
 import DownloadTrigger from '../components/DownloadTrigger'
 import HeroRibbonDemo from '../components/HeroRibbonDemo'
+import Kbd from '../components/Kbd'
+import AskAnAI from '../components/AskAnAI'
+import UsecaseCards from '../components/UsecaseCards'
 import { getAllBlogPosts, getBrandAffiliates, getMerchandise } from '../lib/datocms'
 import { formatBlogDate, getBrandPrimaryLink } from '../lib/format'
 import { getVisitorCountryCode } from '../lib/geo'
@@ -106,20 +109,6 @@ export default async function Home() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }} />
       <NavBar />
 
-      {visitorCountryCode === 'IN' && (
-        <a href="/shop" className="shop-banner">
-          <div className="container shop-banner-inner">
-            <span className="shop-banner-text">
-              <Icon id="shopping-bag" size={22} />
-              Looking for amazing Mac accessories? Look at our curated products.
-            </span>
-            <span className="shop-banner-cta">
-              Shop now <Icon id="chevron-right" size={18} />
-            </span>
-          </div>
-        </a>
-      )}
-
       <section className="hero hero-home" id="hero">
         <div className="container hero-split">
           <div className="hero-left">
@@ -127,17 +116,34 @@ export default async function Home() {
               <div className="dot"></div>
               Available for Mac OS
             </div>
-            <h1 className="text-hero">Excel Shortcuts<br/>on Mac, Native</h1>
-            <p className="hero-subtitle">Make Excel actually work on your Mac, natively. No Parallels, no Boot Camp, no VM, no dual-booting. Just your Windows shortcuts, running for real.</p>
+            <h1 className="text-hero">The Excel Shortcuts app,<br/>natively Mac</h1>
+            <p className="hero-subtitle">
+              Paste Special, AutoSum, Fill Down and every <Kbd>Alt</Kbd> ribbon sequence — the muscle memory you built
+              on Windows, working for real inside Excel for Mac. No Parallels, no Boot Camp, no VM.
+            </p>
             <div className="hero-ctas">
               <DownloadCTA className="btn btn-primary">
                 <Icon id="download" size={20} /> Download .dmg for Mac
               </DownloadCTA>
             </div>
+            <p className="hero-reassure">Free trial · no account needed · ~60 seconds to set up</p>
           </div>
 
           <div className="hero-right">
-            <HeroRibbonDemo />
+            <div className="hero-macbook">
+              <div className="hero-macbook-screen">
+                <Image
+                  src="/AppScreenshot.webp"
+                  alt="The Excel Shortcuts app running on a Mac, tracking Windows shortcuts live"
+                  width={2000}
+                  height={1096}
+                  priority
+                />
+              </div>
+              <div className="hero-macbook-deck">
+                <HeroRibbonDemo />
+              </div>
+            </div>
             <a href="/blog/mac-excel-shortcuts-covered-list" className="section-link hero-shortcut-list-link">
               See the full list of shortcuts we cover <Icon id="chevron-right" size={16} className="arrow" />
             </a>
@@ -310,6 +316,7 @@ export default async function Home() {
               </div>
             </div>
           </Reveal>
+          <Reveal><AskAnAI /></Reveal>
         </div>
       </section>
 
@@ -371,34 +378,25 @@ export default async function Home() {
       <section className="section how-to-section" id="how-to-use">
         <div className="container">
           <Reveal className="how-to-header">
-            <h2 className="text-h2">How It Works</h2>
-            <p className="text-body">Get started with Mac Excel Shortcuts in four simple steps. From download to full automation in under 1 minute.</p>
+            <h2 className="text-h1 how-to-title">How It Works</h2>
+            <p className="text-body">Get started with the Mac Excel Shortcuts app in three simple steps. From download to full automation in under 1 minute.</p>
           </Reveal>
           <div className="how-to-steps stagger-children">
             <DownloadCTA className="how-to-step how-to-step-download">
               <div className="how-to-step-number">1</div>
-              <div className="how-to-step-icon-wrap">
-                <Icon id="download" size={28} />
-              </div>
               <div className="how-to-step-title">Download the App</div>
               <div className="how-to-step-desc">Download the DMG directly. Installation takes seconds and requires zero setup.</div>
               <div className="how-to-step-download-cta">Get Started <Icon id="chevron-right" size={16} className="arrow" /></div>
             </DownloadCTA>
             <div className="how-to-step">
               <div className="how-to-step-number">2</div>
-              <div className="how-to-step-icon-wrap">
-                <Icon id="sliders" size={24} />
-              </div>
               <div className="how-to-step-title">Provide permissions</div>
               <div className="how-to-step-desc">We need two permissions, Accessibility to access Excel, and Input Monitoring to connect your keyboard to Excel.</div>
             </div>
             <div className="how-to-step">
               <div className="how-to-step-number">3</div>
-              <div className="how-to-step-icon-wrap">
-                <Icon id="zap" size={24} />
-              </div>
               <div className="how-to-step-title">Open Excel and start using</div>
-              <div className="how-to-step-desc">Open excel and start using your shortcuts.</div>
+              <div className="how-to-step-desc">Open Excel and start using your shortcuts.</div>
             </div>
           </div>
         </div>
@@ -424,250 +422,16 @@ export default async function Home() {
         </div>
       </section> */}
 
-      <section className="section whyus-section" id="vs-vm-solutions">
-        <div className="container">
-          <Reveal className="security-header">
-            <h2 className="text-h2">Mac Excel Shortcuts vs. Parallels vs. Boot Camp</h2>
-            <p className="text-body">Running a virtual machine or dual-booting Windows just to use Excel shortcuts is overkill. Mac Excel Shortcuts gets you there without the overhead.</p>
-          </Reveal>
-          <Reveal className="callout-banner">
-            <Icon id="zap" size={22} />
-            <div><strong>No VM, no reboot, no Windows license.</strong> Parallels and Boot Camp make Excel work by running Windows itself — Mac Excel Shortcuts makes Excel work by staying native to macOS.</div>
-          </Reveal>
-          <Reveal className="comparison-table-wrap">
-            <table className="comparison-table">
-              <thead>
-                <tr>
-                  <th>Feature</th>
-                  <th className="comparison-highlight-col">Mac Excel Shortcuts</th>
-                  <th>Parallels Desktop</th>
-                  <th>Boot Camp</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="mapping-action">Runs natively on macOS</td>
-                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
-                  <td className="comparison-no">Runs a full Windows VM</td>
-                  <td className="comparison-no">Boots into Windows instead</td>
-                </tr>
-                <tr>
-                  <td className="mapping-action">Windows license required</td>
-                  <td className="comparison-highlight-col comparison-yes">None</td>
-                  <td className="comparison-no">Yes, extra cost</td>
-                  <td className="comparison-no">Yes, extra cost</td>
-                </tr>
-                <tr>
-                  <td className="mapping-action">RAM &amp; disk overhead</td>
-                  <td className="comparison-highlight-col comparison-yes">Minimal — no VM</td>
-                  <td className="comparison-no">4–8GB+ RAM, 60GB+ disk</td>
-                  <td className="comparison-no">60GB+ dedicated partition</td>
-                </tr>
-                <tr>
-                  <td className="mapping-action">Switch between Mac apps &amp; Excel instantly</td>
-                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
-                  <td>Partial — still a VM under the hood</td>
-                  <td className="comparison-no">No — full reboot required</td>
-                </tr>
-                <tr>
-                  <td className="mapping-action">Setup required</td>
-                  <td className="comparison-highlight-col comparison-yes">None — install &amp; go</td>
-                  <td>Install hypervisor + Windows + Office</td>
-                  <td>Partition drive + install Windows + Office</td>
-                </tr>
-                <tr>
-                  <td className="mapping-action">Price</td>
-                  <td className="comparison-highlight-col comparison-yes">$49 one-time or $4.99/mo</td>
-                  <td>Subscription + Windows license</td>
-                  <td>Free app, but needs Windows + Office license</td>
-                </tr>
-                <tr>
-                  <td className="mapping-action">Get it now</td>
-                  <td className="comparison-highlight-col">
-                    <DownloadCTA className="comparison-download-btn">
-                      <Icon id="download" size={14} /> Download
-                    </DownloadCTA>
-                  </td>
-                  <td>—</td>
-                  <td>—</td>
-                </tr>
-              </tbody>
-            </table>
-          </Reveal>
-          <p className="usecases-footnote">Feature availability compared as of this page&apos;s last update — check each vendor&apos;s site for current details.</p>
-          <Reveal className="comparison-footer">
-            <div className="comparison-footer-title">How the alternatives compare</div>
-            <div className="comparison-footer-links">
-              <a href="https://www.parallels.com" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
-                Parallels Desktop <span>Full Windows virtualization for Mac — powerful, but you're running an entire second OS just for Excel</span> <Icon id="chevron-right" size={14} className="arrow" />
-              </a>
-              <a href="https://support.apple.com/boot-camp" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
-                Boot Camp <span>Apple's native dual-boot utility — free, but requires a dedicated partition and a full reboot to use Excel</span> <Icon id="chevron-right" size={14} className="arrow" />
-              </a>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section mapping-section" id="shortcut-mapping">
-        <div className="container">
-          <Reveal className="security-header">
-            <h2 className="text-h2">Windows Shortcuts vs. Native Excel on Mac</h2>
-            <p className="text-body">Excel on Mac remaps almost every shortcut you know. Here&apos;s what changes by default — and what Mac Excel Shortcuts gives back to you.</p>
-          </Reveal>
-          <Reveal className="mapping-table-wrap">
-            <table className="mapping-table">
-              <thead>
-                <tr>
-                  <th>Action</th>
-                  <th>Windows shortcut</th>
-                  <th>Native Excel on Mac</th>
-                  <th>With Mac Excel Shortcuts</th>
-                </tr>
-              </thead>
-              <tbody>
-                <DownloadTrigger as="tr">
-                  <td className="mapping-action">Paste Special</td>
-                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>V</kbd></span></td>
-                  <td><span className="shortcut-keys"><kbd>⌃</kbd><span>+</span><kbd>⌘</kbd><span>+</span><kbd>V</kbd></span></td>
-                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
-                </DownloadTrigger>
-                <DownloadTrigger as="tr">
-                  <td className="mapping-action">AutoSum</td>
-                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>=</kbd></span></td>
-                  <td><span className="shortcut-keys"><kbd>⇧</kbd><span>+</span><kbd>⌘</kbd><span>+</span><kbd>T</kbd></span></td>
-                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
-                </DownloadTrigger>
-                <DownloadTrigger as="tr">
-                  <td className="mapping-action">Fill Down</td>
-                  <td><span className="shortcut-keys"><kbd>Ctrl</kbd><span>+</span><kbd>D</kbd></span></td>
-                  <td><span className="shortcut-keys"><kbd>⌘</kbd><span>+</span><kbd>D</kbd></span></td>
-                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
-                </DownloadTrigger>
-                <DownloadTrigger as="tr">
-                  <td className="mapping-action">Freeze Panes</td>
-                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>W</kbd><span>+</span><kbd>F</kbd><span>+</span><kbd>F</kbd></span></td>
-                  <td>View menu only</td>
-                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
-                </DownloadTrigger>
-                <DownloadTrigger as="tr">
-                  <td className="mapping-action">Toggle Filter</td>
-                  <td><span className="shortcut-keys"><kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd></span></td>
-                  <td><span className="shortcut-keys"><kbd>⌘</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd></span></td>
-                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
-                </DownloadTrigger>
-                <DownloadTrigger as="tr">
-                  <td className="mapping-action">Sort A to Z</td>
-                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>A</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>A</kbd></span></td>
-                  <td>Data menu only</td>
-                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
-                </DownloadTrigger>
-                <DownloadTrigger as="tr">
-                  <td className="mapping-action">Data Validation</td>
-                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>A</kbd><span>+</span><kbd>V</kbd><span>+</span><kbd>V</kbd></span></td>
-                  <td>Data menu only</td>
-                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
-                </DownloadTrigger>
-                <DownloadTrigger as="tr">
-                  <td className="mapping-action">Insert Row</td>
-                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>I</kbd><span>+</span><kbd>R</kbd></span></td>
-                  <td>Home menu only</td>
-                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
-                </DownloadTrigger>
-              </tbody>
-            </table>
-          </Reveal>
-          <div className="section-cta">
-            <DownloadCTA className="btn btn-primary">
-              <Icon id="zap" size={20} /> Enable Windows Shortcuts
-            </DownloadCTA>
-          </div>
-          <Reveal>
-            <p className="text-body" style={{ textAlign: 'center', marginTop: '2rem' }}>
-              Dig deeper: <a href="/lp/excel-shortcuts-mac">the full Excel shortcuts on Mac list</a>,{' '}
-              <a href="/lp/navigation-shortcuts-mac">navigation &amp; data shortcuts</a>, or{' '}
-              <a href="/lp/paste-shortcuts-mac">Paste Special shortcuts</a>.
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
       <section className="section usecases-section" id="use-cases">
         <div className="container">
           <Reveal className="usecases-header">
-            <h2 className="text-h2">Built for the Way You Actually Use Excel</h2>
-            <p className="text-body">Every workflow below is time you get back the moment you stop hunting for a Mac-native way to do something Windows already made instant.</p>
+            <h2 className="text-h2">Built for those who never use a mouse for Excel</h2>
+            <p className="text-body">Every habit below is one you keep from Windows — hands on the keys, mouse untouched, the way you have always worked.</p>
             <div className="stat-callout">
-              <Icon id="zap" size={20} />
               <span>Save an average of <strong>25+ hours a month</strong> on typical power-user Excel workflows*</span>
             </div>
           </Reveal>
-          <div className="usecase-list stagger-children">
-            <DownloadTrigger className="usecase-row glass">
-              <div className="usecase-row-icon" style={{ background: 'var(--apple-blue)' }}>
-                <Icon id="bar-chart" size={28} />
-              </div>
-              <div className="usecase-row-body">
-                <div className="usecase-row-top">
-                  <h3 className="usecase-row-title">Consume &amp; Run Dashboards Like a Pro</h3>
-                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~7 hrs/month saved</span>
-                </div>
-                <ul className="usecase-row-points">
-                  <li>Jump across huge reporting workbooks without ever reaching for the mouse</li>
-                  <li>Filter and drill into pivot tables in a heartbeat, mid-conversation</li>
-                  <li>Review live dashboards at the same speed you did on Windows</li>
-                </ul>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="usecase-row glass-tinted-blue">
-              <div className="usecase-row-icon" style={{ background: 'var(--accent-cyan)' }}>
-                <Icon id="trending-up" size={28} />
-              </div>
-              <div className="usecase-row-body">
-                <div className="usecase-row-top">
-                  <h3 className="usecase-row-title">Financial Models</h3>
-                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~9 hrs/month saved</span>
-                </div>
-                <ul className="usecase-row-points">
-                  <li>Toggle between relative and absolute references without breaking flow</li>
-                  <li>Audit formulas and trace precedents in seconds, not minutes</li>
-                  <li>Reformat an entire statement moments before a deadline, instantly</li>
-                </ul>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="usecase-row glass-tinted-rose">
-              <div className="usecase-row-icon" style={{ background: 'var(--accent-rose)' }}>
-                <Icon id="sliders" size={28} />
-              </div>
-              <div className="usecase-row-body">
-                <div className="usecase-row-top">
-                  <h3 className="usecase-row-title">Quick Formatting</h3>
-                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~5 hrs/month saved</span>
-                </div>
-                <ul className="usecase-row-points">
-                  <li>Clean up a messy handoff workbook in seconds, not a slow ribbon crawl</li>
-                  <li>Apply consistent number and currency formats across an entire sheet</li>
-                  <li>Copy formatting only, without disturbing the values underneath</li>
-                </ul>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="usecase-row glass">
-              <div className="usecase-row-icon" style={{ background: 'var(--apple-green)' }}>
-                <Icon id="zap" size={28} />
-              </div>
-              <div className="usecase-row-body">
-                <div className="usecase-row-top">
-                  <h3 className="usecase-row-title">Faster Work, Same Muscle Memory</h3>
-                  <span className="usecase-time-badge"><Icon id="zap" size={14} /> ~7 hrs/month saved</span>
-                </div>
-                <ul className="usecase-row-points">
-                  <li>No retraining your hands just because you switched machines</li>
-                  <li>Zero hesitation, zero second-guessing every keystroke</li>
-                  <li>Every saved second compounds across a full day of spreadsheet work</li>
-                </ul>
-              </div>
-            </DownloadTrigger>
-          </div>
+          <UsecaseCards />
           <p className="usecases-footnote">*Estimate based on typical power-user Excel workflows over a 22-day working month and the number of ribbon/menu trips a Windows shortcut replaces — actual time saved depends on how you use Excel.</p>
           <div className="section-cta">
             <DownloadCTA className="btn btn-primary">
@@ -680,7 +444,7 @@ export default async function Home() {
       <section className="section personas-section" id="who-its-for">
         <div className="container">
           <Reveal className="security-header">
-            <h2 className="text-h2">Who Uses Mac Excel Shortcuts</h2>
+            <h2 className="text-h2">Who Uses Mac Excel Shortcuts app</h2>
             <p className="text-body">Anyone who spent years in Excel on Windows and doesn&apos;t want to lose that speed on a Mac.</p>
           </Reveal>
           <Reveal className="persona-list">
@@ -756,7 +520,7 @@ export default async function Home() {
               </div>
               <div className="persona-row-body">
                 <div className="persona-row-title">Small Business Owners</div>
-                <div className="persona-row-desc">Handling invoicing, inventory, and budgets solo — Mac Excel Shortcuts keeps Excel fast without needing to become a Mac power user first.</div>
+                <div className="persona-row-desc">Handling invoicing, inventory, and budgets solo — Mac Excel Shortcuts app keeps Excel fast without needing to become a Mac power user first.</div>
                 <div className="persona-problem">
                   <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
                   <ul className="persona-problem-list">
@@ -789,7 +553,7 @@ export default async function Home() {
             </div>
             <div className="security-highlight-content">
               <div className="security-highlight-title">Worried Excel Won&apos;t Work the Same on Mac?</div>
-              <div className="security-highlight-desc">Switching from Windows to Mac usually means relearning Excel from scratch — Excel on Mac remaps nearly every shortcut you rely on. Mac Excel Shortcuts fixes that by running your existing Windows shortcuts natively inside Excel on your Mac, so the switch is about the hardware, not your workflow.</div>
+              <div className="security-highlight-desc">Switching from Windows to Mac usually means relearning Excel from scratch — Excel on Mac remaps nearly every shortcut you rely on. Mac Excel Shortcuts app fixes that by running your existing Windows shortcuts natively inside Excel on your Mac, so the switch is about the hardware, not your workflow.</div>
               <div className="security-checklist">
                 <div className="security-checklist-item">
                   <div className="check"><Icon id="check" size={12} /></div>
@@ -816,22 +580,190 @@ export default async function Home() {
         </div>
       </section>
 
-      <section className="section whyus-section" id="why-key-remapper">
+      <section className="section whyus-section" id="vs-vm-solutions">
         <div className="container">
           <Reveal className="security-header">
-            <h2 className="text-h2">Why Not Just Use a Key Remapper?</h2>
-            <p className="text-body">Generic remapping tools move key presses around. Mac Excel Shortcuts understands Excel.</p>
+            <h2 className="text-h2">Mac Excel Shortcuts app vs. Parallels vs. Boot Camp</h2>
+            <p className="text-body">Running a virtual machine or dual-booting Windows just to use Excel shortcuts is overkill. Mac Excel Shortcuts app gets you there without the overhead.</p>
           </Reveal>
           <Reveal className="callout-banner">
             <Icon id="zap" size={22} />
-            <div><strong>Only Mac Excel Shortcuts works instantly, out of the box.</strong> No profiles, no manual configuration — every other option below requires setup before a single shortcut works.</div>
+            <div><strong>No VM, no reboot, no Windows license.</strong> Parallels and Boot Camp make Excel work by running Windows itself — Mac Excel Shortcuts app makes Excel work by staying native to macOS.</div>
           </Reveal>
           <Reveal className="comparison-table-wrap">
             <table className="comparison-table">
               <thead>
                 <tr>
                   <th>Feature</th>
-                  <th className="comparison-highlight-col">Mac Excel Shortcuts</th>
+                  <th className="comparison-highlight-col">Mac Excel Shortcuts app</th>
+                  <th>Parallels Desktop</th>
+                  <th>Boot Camp</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="mapping-action">Runs natively on macOS</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-no">Runs a full Windows VM</td>
+                  <td className="comparison-no">Boots into Windows instead</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Windows license required</td>
+                  <td className="comparison-highlight-col comparison-yes">None</td>
+                  <td className="comparison-no">Yes, extra cost</td>
+                  <td className="comparison-no">Yes, extra cost</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">RAM &amp; disk overhead</td>
+                  <td className="comparison-highlight-col comparison-yes">Minimal — no VM</td>
+                  <td className="comparison-no">4–8GB+ RAM, 60GB+ disk</td>
+                  <td className="comparison-no">60GB+ dedicated partition</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Switch between Mac apps &amp; Excel instantly</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td>Partial — still a VM under the hood</td>
+                  <td className="comparison-no">No — full reboot required</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Setup required</td>
+                  <td className="comparison-highlight-col comparison-yes">None — install &amp; go</td>
+                  <td>Install hypervisor + Windows + Office</td>
+                  <td>Partition drive + install Windows + Office</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Price</td>
+                  <td className="comparison-highlight-col comparison-yes">$49 one-time or $4.99/mo</td>
+                  <td>Subscription + Windows license</td>
+                  <td>Free app, but needs Windows + Office license</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Get it now</td>
+                  <td className="comparison-highlight-col">
+                    <DownloadCTA className="comparison-download-btn">
+                      <Icon id="download" size={14} /> Download
+                    </DownloadCTA>
+                  </td>
+                  <td>—</td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </Reveal>
+          <p className="usecases-footnote">Feature availability compared as of this page&apos;s last update — check each vendor&apos;s site for current details.</p>
+          <Reveal className="comparison-footer">
+            <div className="comparison-footer-title">How the alternatives compare</div>
+            <div className="comparison-footer-links">
+              <a href="https://www.parallels.com" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
+                Parallels Desktop <span>Full Windows virtualization for Mac — powerful, but you're running an entire second OS just for Excel</span> <Icon id="chevron-right" size={14} className="arrow" />
+              </a>
+              <a href="https://support.apple.com/boot-camp" target="_blank" rel="noopener noreferrer" className="comparison-footer-link">
+                Boot Camp <span>Apple's native dual-boot utility — free, but requires a dedicated partition and a full reboot to use Excel</span> <Icon id="chevron-right" size={14} className="arrow" />
+              </a>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section mapping-section" id="shortcut-mapping">
+        <div className="container">
+          <Reveal className="security-header">
+            <h2 className="text-h2">Windows Shortcuts vs. Native Excel on Mac</h2>
+            <p className="text-body">Excel on Mac remaps almost every shortcut you know. Here&apos;s what changes by default — and what Mac Excel Shortcuts app gives back to you.</p>
+          </Reveal>
+          <Reveal className="mapping-table-wrap">
+            <table className="mapping-table">
+              <thead>
+                <tr>
+                  <th>Action</th>
+                  <th>Windows shortcut</th>
+                  <th>Native Excel on Mac</th>
+                  <th>With Mac Excel Shortcuts app</th>
+                </tr>
+              </thead>
+              <tbody>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Paste Special</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>V</kbd></span></td>
+                  <td><span className="shortcut-keys"><kbd>⌃</kbd><span>+</span><kbd>⌘</kbd><span>+</span><kbd>V</kbd></span></td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">AutoSum</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>=</kbd></span></td>
+                  <td><span className="shortcut-keys"><kbd>⇧</kbd><span>+</span><kbd>⌘</kbd><span>+</span><kbd>T</kbd></span></td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Fill Down</td>
+                  <td><span className="shortcut-keys"><kbd>Ctrl</kbd><span>+</span><kbd>D</kbd></span></td>
+                  <td><span className="shortcut-keys"><kbd>⌘</kbd><span>+</span><kbd>D</kbd></span></td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Freeze Panes</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>W</kbd><span>+</span><kbd>F</kbd><span>+</span><kbd>F</kbd></span></td>
+                  <td>View menu only</td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Toggle Filter</td>
+                  <td><span className="shortcut-keys"><kbd>Ctrl</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd></span></td>
+                  <td><span className="shortcut-keys"><kbd>⌘</kbd><span>+</span><kbd>Shift</kbd><span>+</span><kbd>L</kbd></span></td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Sort A to Z</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>A</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>A</kbd></span></td>
+                  <td>Data menu only</td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Data Validation</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>A</kbd><span>+</span><kbd>V</kbd><span>+</span><kbd>V</kbd></span></td>
+                  <td>Data menu only</td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+                <DownloadTrigger as="tr">
+                  <td className="mapping-action">Insert Row</td>
+                  <td><span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>I</kbd><span>+</span><kbd>R</kbd></span></td>
+                  <td>Home menu only</td>
+                  <td className="mapping-match"><Icon id="check" size={16} /> Same as Windows</td>
+                </DownloadTrigger>
+              </tbody>
+            </table>
+          </Reveal>
+          <div className="section-cta">
+            <DownloadCTA className="btn btn-primary">
+              <Icon id="zap" size={20} /> Enable Windows Shortcuts
+            </DownloadCTA>
+          </div>
+          <Reveal>
+            <p className="text-body" style={{ textAlign: 'center', marginTop: '2rem' }}>
+              Dig deeper: <a href="/lp/excel-shortcuts-mac">the full Excel shortcuts on Mac list</a>,{' '}
+              <a href="/lp/navigation-shortcuts-mac">navigation &amp; data shortcuts</a>, or{' '}
+              <a href="/lp/paste-shortcuts-mac">Paste Special shortcuts</a>.
+            </p>
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section whyus-section" id="why-key-remapper">
+        <div className="container">
+          <Reveal className="security-header">
+            <h2 className="text-h2">Why Not Just Use a Key Remapper?</h2>
+            <p className="text-body">Generic remapping tools move key presses around. Mac Excel Shortcuts app understands Excel.</p>
+          </Reveal>
+          <Reveal className="callout-banner">
+            <Icon id="zap" size={22} />
+            <div><strong>Only Mac Excel Shortcuts app works instantly, out of the box.</strong> No profiles, no manual configuration — every other option below requires setup before a single shortcut works.</div>
+          </Reveal>
+          <Reveal className="comparison-table-wrap">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th className="comparison-highlight-col">Mac Excel Shortcuts app</th>
                   <th>Karabiner-Elements</th>
                   <th>BetterTouchTool</th>
                   <th>Keyboard Maestro</th>
@@ -1044,7 +976,7 @@ export default async function Home() {
                 <Icon id="check-circle" size={24} />
               </div>
               <div className="security-card-title">Apple Notarized</div>
-              <div className="security-card-desc">Every Mac Excel Shortcuts release is scanned and notarized by Apple. No malware, no tampering, no unsigned code ever reaches your Mac.</div>
+              <div className="security-card-desc">Every Mac Excel Shortcuts app release is scanned and notarized by Apple. No malware, no tampering, no unsigned code ever reaches your Mac.</div>
               <div className="security-card-meta">Verify <Icon id="chevron-right" size={12} /></div>
             </div>
             {/* <div className="security-card glass">
@@ -1101,7 +1033,7 @@ export default async function Home() {
         <div className="container">
           <Reveal className="founder-inner">
             <div className="founder-avatar">SS</div>
-            <p className="founder-quote">&quot;I built Mac Excel Shortcuts after switching to a MacBook and realizing every Excel shortcut I&apos;d used for a decade was suddenly gone. Relearning Excel felt like the wrong problem to solve — so I built the fix instead.&quot;</p>
+            <p className="founder-quote">&quot;I built Mac Excel Shortcuts app after switching to a MacBook and realizing every Excel shortcut I&apos;d used for a decade was suddenly gone. Relearning Excel felt like the wrong problem to solve — so I built the fix instead.&quot;</p>
             <div className="founder-name">Swagat Sarma</div>
             <div className="founder-role">Founder, MacCove</div>
             <a href="https://x.com/swagatsarma" className="founder-social" title="Twitter" target="_blank" rel="noopener noreferrer">
@@ -1115,7 +1047,7 @@ export default async function Home() {
         <div className="container">
           <Reveal className="faq-header">
             <h2 className="text-h2">Questions &amp; Answers</h2>
-            <p className="text-body">Everything you need to know about Mac Excel Shortcuts. Can&apos;t find what you&apos;re looking for? Reach out to our team — we&apos;re happy to help.</p>
+            <p className="text-body">Everything you need to know about Mac Excel Shortcuts app. Can&apos;t find what you&apos;re looking for? Reach out to our team — we&apos;re happy to help.</p>
           </Reveal>
           <FAQ showSeeAll />
         </div>

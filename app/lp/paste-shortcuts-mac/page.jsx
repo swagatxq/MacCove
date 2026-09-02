@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import NavBar from '../../../components/NavBar'
 import Footer from '../../../components/Footer'
+import AssistantFloater from '../../../components/AssistantFloater'
 import Reveal from '../../../components/Reveal'
 import Icon from '../../../components/Icon'
 import FAQ from '../../../components/FAQ'
@@ -14,7 +15,7 @@ const PAGE_FAQS = [
   },
   {
     q: 'How do I paste only values, not formulas, on Mac?',
-    a: 'Press Alt+E+S+V to open Paste Special, or Alt+E+S+F to paste only formulas — both work natively once Mac Excel Shortcuts is installed.',
+    a: 'Press Alt+E+S+V to open Paste Special, or Alt+E+S+F to paste only formulas — both work natively once Mac Excel Shortcuts app is installed.',
     icon: 'copy',
   },
   {
@@ -24,7 +25,7 @@ const PAGE_FAQS = [
   },
   {
     q: 'Does the regular Cmd+V paste still work?',
-    a: 'Yes — standard paste (Cmd+V) works exactly as expected. Mac Excel Shortcuts only adds the Windows Paste Special sequences on top.',
+    a: 'Yes — standard paste (Cmd+V) works exactly as expected. Mac Excel Shortcuts app only adds the Windows Paste Special sequences on top.',
     icon: 'copy',
   },
 ]
@@ -121,7 +122,7 @@ export default async function PasteShortcutsLandingPage() {
             <div className="hero-image hero-image-main">
               <Image
                 src="/PasteSpecial.webp"
-                alt="Paste Special shortcuts in Mac Excel Shortcuts"
+                alt="Paste Special shortcuts in Mac Excel Shortcuts app"
                 width={2202}
                 height={1650}
                 priority
@@ -348,6 +349,8 @@ export default async function PasteShortcutsLandingPage() {
           </div>
         </section>
       )}
+
+      <AssistantFloater />
 
       <Footer />
     </>

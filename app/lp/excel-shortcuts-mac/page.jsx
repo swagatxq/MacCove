@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import NavBar from '../../../components/NavBar'
 import Footer from '../../../components/Footer'
+import AssistantFloater from '../../../components/AssistantFloater'
 import Reveal from '../../../components/Reveal'
 import Icon from '../../../components/Icon'
 import FAQ from '../../../components/FAQ'
@@ -9,11 +10,11 @@ import { getBrandPrimaryLink } from '../../../lib/format'
 import { faqs } from '../../../lib/faqs'
 
 const PAGE_QUESTIONS = [
-  'What is Mac Excel Shortcuts?',
+  'What is Mac Excel Shortcuts app?',
   'How do I install it?',
   'What permissions does it need, and why?',
   'Does it work with Google Sheets or Numbers?',
-  'What platforms does Mac Excel Shortcuts support?',
+  'What platforms does Mac Excel Shortcuts app support?',
   'Is there a free version?',
 ]
 
@@ -114,7 +115,7 @@ export default async function ExcelShortcutsLandingPage() {
               <div className="hero-image hero-image-side hero-image-left">
                 <Image
                   src="/PasteSpecial.webp"
-                  alt="Paste Special shortcuts in Mac Excel Shortcuts"
+                  alt="Paste Special shortcuts in Mac Excel Shortcuts app"
                   width={2202}
                   height={1650}
                 />
@@ -122,7 +123,7 @@ export default async function ExcelShortcutsLandingPage() {
               <div className="hero-image hero-image-side hero-image-right">
                 <Image
                   src="/Formatting.webp"
-                  alt="Formatting shortcuts in Mac Excel Shortcuts"
+                  alt="Formatting shortcuts in Mac Excel Shortcuts app"
                   width={2166}
                   height={1636}
                 />
@@ -291,7 +292,7 @@ export default async function ExcelShortcutsLandingPage() {
         <div className="container">
           <Reveal className="how-to-header">
             <h2 className="text-h2">How It Works</h2>
-            <p className="text-body">Get started with Mac Excel Shortcuts in three simple steps. From download to full automation in under 1 minute.</p>
+            <p className="text-body">Get started with Mac Excel Shortcuts app in three simple steps. From download to full automation in under 1 minute.</p>
           </Reveal>
           <div className="how-to-steps stagger-children">
             <div className="how-to-step glass">
@@ -456,6 +457,8 @@ export default async function ExcelShortcutsLandingPage() {
           </div>
         </section>
       )}
+
+      <AssistantFloater />
 
       <Footer />
     </>

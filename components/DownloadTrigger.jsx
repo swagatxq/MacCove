@@ -17,17 +17,22 @@ export default function DownloadTrigger({ as: Tag = 'div', className, children, 
     setIsMac(isMacOS());
   }, []);
 
+  const openModal = () => {
+    try { sessionStorage.setItem('mes_download_intent', '1'); } catch {}
+    setOpen(true);
+  };
+
   return (
     <>
       <Tag
         className={className}
         role="button"
         tabIndex={0}
-        onClick={() => setOpen(true)}
+        onClick={openModal}
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            setOpen(true);
+            openModal();
           }
         }}
         {...props}

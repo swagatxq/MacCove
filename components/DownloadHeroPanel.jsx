@@ -24,6 +24,7 @@ export default function DownloadHeroPanel() {
 
   const startDownload = useCallback(() => {
     setStarted(true);
+    try { sessionStorage.setItem('mes_download_intent', '1'); } catch {}
     if (typeof window !== 'undefined' && window.dataLayer) {
       window.dataLayer.push({ event: 'dmg_download_start', file: 'Mac_Excel_Shortcuts.dmg' });
     }

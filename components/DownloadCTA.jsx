@@ -26,6 +26,11 @@ export default function DownloadCTA({ className, children }) {
     setIsMobile(isMobileDevice());
   }, []);
 
+  const openModal = () => {
+    try { sessionStorage.setItem('mes_download_intent', '1'); } catch {}
+    setOpen(true);
+  };
+
   const copyLink = async () => {
     await navigator.clipboard.writeText(HOME_URL);
     setCopied(true);
@@ -47,7 +52,7 @@ export default function DownloadCTA({ className, children }) {
   return (
     <>
       <div className="download-cta-row">
-        <button type="button" className={className} onClick={() => setOpen(true)}>
+        <button type="button" className={className} onClick={openModal}>
           {isMac ? children : (
             <>
               <Icon id="mail" size={20} />
