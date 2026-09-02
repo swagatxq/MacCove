@@ -255,8 +255,48 @@ body::before {
   transition: all 0.2s var(--ease-standard); margin-left: var(--space-4);
 }
 .theme-toggle:hover { transform: scale(1.05); background: var(--bg-tertiary); }
-.mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-primary); }
-@media (max-width: 768px) { .nav-links { display: none; } .mobile-menu-btn { display: block; } .nav-cta { display: none; } .nav-inner .download-cta-row { display: none; } }
+.mobile-menu-btn { display: none; background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-primary); align-items: center; justify-content: center; padding: 4px; }
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: flex; }
+  .nav-cta { display: none; }
+  .theme-toggle-desktop { display: none; }
+  .nav-inner .download-cta-row { display: none; }
+}
+
+/* Mobile dropdown menu */
+.mobile-menu-backdrop {
+  position: fixed; inset: 64px 0 0; z-index: 998; background: rgba(0,0,0,0.35);
+  -webkit-backdrop-filter: blur(2px); backdrop-filter: blur(2px);
+}
+.mobile-menu {
+  position: absolute; top: 100%; left: 0; right: 0; z-index: 999;
+  display: flex; flex-direction: column; gap: 4px; padding: var(--space-4);
+  background: var(--bg-secondary); border-bottom: 1px solid var(--border-default);
+  box-shadow: var(--glass-shadow-3);
+  animation: mobile-menu-in 0.18s var(--ease-standard);
+}
+@keyframes mobile-menu-in { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+.mobile-menu a {
+  display: flex; align-items: center; gap: var(--space-3); padding: var(--space-4) var(--space-3);
+  border-radius: var(--radius-4); text-decoration: none; font-size: 16px; font-weight: 500;
+  color: var(--text-primary); transition: background 0.15s var(--ease-standard);
+}
+.mobile-menu a:hover, .mobile-menu a:active { background: var(--state-hover); }
+.mobile-menu a.active { color: var(--text-accent); }
+.mobile-menu-cta {
+  display: flex; width: 100%; align-items: center; justify-content: center; gap: var(--space-2);
+  margin-top: var(--space-3); background: var(--apple-blue); color: var(--white-100);
+  font-size: 15px; font-weight: 600; height: 44px; padding: 0 var(--space-5);
+  border-radius: var(--radius-full); text-decoration: none; border: none; cursor: pointer;
+  font-family: var(--font-sans); box-shadow: 0 2px 8px rgba(0,122,255,0.30);
+}
+.mobile-menu-theme {
+  display: flex; align-items: center; justify-content: space-between; margin-top: var(--space-3);
+  padding: var(--space-3) var(--space-3) var(--space-1); font-size: 13px; font-weight: 600;
+  color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.4px;
+}
+.mobile-menu-theme .theme-toggle { margin-left: 0; }
 
 .download-cta-row { display: flex; align-items: center; gap: var(--space-3); flex-wrap: wrap; justify-content: center; }
 .download-cta-secondary { display: flex; align-items: center; gap: var(--space-2); }
@@ -818,6 +858,54 @@ body::before {
 }
 .persona-problem-list .shortcut-keys { flex-shrink: 0; }
 .persona-problem-list .shortcut-label { font-size: 13px; line-height: 19px; color: var(--text-secondary); }
+
+/* ICP carousel — inverted cards (black in light mode, white in dark) */
+.persona-carousel {
+  --pc-bg: #0B0B0F; --pc-fg: #F5F5F7; --pc-fg-dim: rgba(245,245,247,0.66); --pc-border: rgba(245,245,247,0.14);
+  position: relative;
+}
+[data-theme="dark"] .persona-carousel {
+  --pc-bg: #FFFFFF; --pc-fg: #0B0B0F; --pc-fg-dim: #5B5B62; --pc-border: rgba(0,0,0,0.12);
+}
+.persona-carousel-track {
+  display: flex; gap: 24px; overflow-x: auto; scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch; padding: 4px 4px 20px; scrollbar-width: thin;
+}
+.persona-card {
+  scroll-snap-align: center; flex: 0 0 clamp(300px, 30vw, 460px); height: min(82vh, 740px);
+  display: flex; flex-direction: column; overflow: hidden; cursor: pointer;
+  border-radius: var(--radius-7); background: var(--pc-bg); color: var(--pc-fg);
+  border: 1px solid var(--pc-border); transition: transform 0.4s var(--ease-standard), box-shadow 0.4s var(--ease-standard);
+}
+.persona-card:hover { transform: translateY(-6px); box-shadow: var(--glass-shadow-3); }
+.persona-card-photo { position: relative; width: 100%; flex: 1 1 auto; min-height: 120px; background: var(--pc-border); }
+.persona-card-photo img { display: block; }
+.persona-card-body { display: flex; flex-direction: column; gap: 12px; padding: clamp(20px, 2vw, 30px); flex: 0 0 auto; }
+.persona-card-title {
+  font-size: clamp(28px, 2.6vw, 40px); font-weight: 800; letter-spacing: -0.8px; line-height: 1.08;
+  color: var(--pc-fg); margin: 0;
+}
+.persona-card-desc { font-size: clamp(15px, 1.15vw, 18px); line-height: 1.5; color: var(--pc-fg-dim); margin: 0; }
+.persona-card-keys { margin-top: auto; display: flex; flex-direction: column; gap: 10px; padding-top: 16px; border-top: 1px solid var(--pc-border); }
+.persona-card-keys-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: var(--pc-fg-dim); }
+.persona-card-key { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.persona-card-key-combo { display: inline-flex; align-items: center; gap: 3px; flex-shrink: 0; }
+.persona-card-key-combo kbd {
+  font-size: 11px; font-weight: 700; padding: 3px 6px; border-radius: 5px; line-height: 1;
+  background: var(--pc-fg); color: var(--pc-bg); border: none;
+}
+.persona-card-key-plus { font-size: 10px; color: var(--pc-fg-dim); margin: 0 1px; }
+.persona-card-key-label { font-size: 12px; color: var(--pc-fg-dim); }
+.persona-carousel-nav { display: flex; gap: 10px; justify-content: flex-end; margin-top: 12px; }
+.persona-carousel-nav button {
+  width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  background: var(--glass-surface-bg); border: 1px solid var(--glass-border-color); color: var(--text-primary);
+  cursor: pointer; transition: background 0.2s var(--ease-standard);
+}
+.persona-carousel-nav button:hover { background: var(--state-hover); }
+@media (max-width: 640px) {
+  .persona-card { flex-basis: 82vw; height: 76vh; }
+}
 
 .callout-banner {
   display: flex; align-items: flex-start; gap: var(--space-4); margin-bottom: var(--space-8); padding: var(--space-5) var(--space-6);

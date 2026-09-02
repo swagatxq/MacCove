@@ -1,4 +1,5 @@
 'use client';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import ThemeToggle from './ThemeToggle';
@@ -10,6 +11,27 @@ export default function NavBar() {
   const isBlog = pathname.startsWith('/blog');
   const isProduct = pathname === '/';
   const isShop = pathname.startsWith('/shop');
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  // Close the mobile menu on route change.
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
+  // Lock body scroll + close on Escape while the menu is open.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setMenuOpen(false);
+    };
+    document.addEventListener('keydown', onKey);
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKey);
+      document.body.style.overflow = prev;
+    };
+  }, [menuOpen]);
 
   return (
     <nav className="nav-bar">
@@ -42,12 +64,34 @@ export default function NavBar() {
         </div>
         <div style={{display: 'flex', alignItems: 'center'}}>
           <DownloadCTA className="nav-cta"><Icon id="download" size={16} /> Get the Excel Shortcuts app</DownloadCTA>
-          <ThemeToggle />
-          <button className="mobile-menu-btn" aria-label="Open menu">
-            <Icon id="menu" size={24} />
+          <div className="theme-toggle-desktop"><ThemeToggle /></div>
+          <button
+            className="mobile-menu-btn"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            <Icon id={menuOpen ? 'x' : 'menu'} size={24} />
           </button>
         </div>
       </div>
+
+      {menuOpen && (
+        <>
+          <div className="mobile-menu-backdrop" onClick={() => setMenuOpen(false)} />
+          <div className="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
+            <a href="/#features" className={isProduct ? 'active' : ''} onClick={() => setMenuOpen(false)}><Icon id="box" size={18} /> Apps</a>
+            <a href="/shop" className={isShop ? 'active' : ''} onClick={() => setMenuOpen(false)}><Icon id="shopping-bag" size={18} /> Shop</a>
+            <a href="/blog" className={isBlog ? 'active' : ''} onClick={() => setMenuOpen(false)}><Icon id="file-text" size={18} /> Blog</a>
+            <a href="https://github.com/swagatxq/MacCove" target="_blank" rel="noopener noreferrer" onClick={() => setMenuOpen(false)}><Icon id="book" size={18} /> Docs</a>
+            <DownloadCTA className="mobile-menu-cta"><Icon id="download" size={16} /> Get the Excel Shortcuts app</DownloadCTA>
+            <div className="mobile-menu-theme">
+              <span>Appearance</span>
+              <ThemeToggle />
+            </div>
+          </div>
+        </>
+      )}
     </nav>
   );
 }

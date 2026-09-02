@@ -10,6 +10,7 @@ import ProductCarousel from '../../components/ProductCarousel'
 import ShortcutKeysDemo from '../../components/ShortcutKeysDemo'
 import DownloadTrigger from '../../components/DownloadTrigger'
 import UsecaseCards from '../../components/UsecaseCards'
+import PersonaCarousel from '../../components/PersonaCarousel'
 import DownloadHeroPanel from '../../components/DownloadHeroPanel'
 import { getAllBlogPosts, getBrandAffiliates, getMerchandise } from '../../lib/datocms'
 import { formatBlogDate, getBrandPrimaryLink } from '../../lib/format'
@@ -614,98 +615,11 @@ export default async function Home() {
       <section className="section personas-section" id="who-its-for">
         <div className="container">
           <Reveal className="security-header">
-            <h2 className="text-h2">Who Uses Mac Excel Shortcuts</h2>
+            <h2 className="text-h2">Who Uses Mac Excel Shortcuts app</h2>
             <p className="text-body">Anyone who spent years in Excel on Windows and doesn&apos;t want to lose that speed on a Mac.</p>
           </Reveal>
-          <Reveal className="persona-list">
-            <DownloadTrigger className="persona-row">
-              <div className="persona-row-icon" style={{ background: 'var(--apple-blue)' }}>
-                <Icon id="bar-chart" size={22} />
-              </div>
-              <div className="persona-row-body">
-                <div className="persona-row-title">Analysts</div>
-                <div className="persona-row-desc">Live in spreadsheets all day — pivot tables, lookups, and formatting shortcuts need to be instant, not an afterthought.</div>
-                <div className="persona-problem">
-                  <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
-                  <ul className="persona-problem-list">
-                    <li>
-                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>V</kbd></span>
-                      <span className="shortcut-label">Paste Special — pull in just the values or formulas from a copied cell, skip formatting mismatches from other systems entirely.</span>
-                    </li>
-                    <li>
-                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>W</kbd><span>+</span><kbd>F</kbd><span>+</span><kbd>F</kbd></span>
-                      <span className="shortcut-label">Freeze Panes — lock header rows in place while scrolling through thousands of rows of data, used almost every other minute reviewing large models.</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="persona-row">
-              <div className="persona-row-icon" style={{ background: 'var(--apple-purple)' }}>
-                <Icon id="book" size={22} />
-              </div>
-              <div className="persona-row-body">
-                <div className="persona-row-title">Consultants</div>
-                <div className="persona-row-desc">Move between client laptops and their own Mac constantly — same shortcuts everywhere means no lost time relearning.</div>
-                <div className="persona-problem">
-                  <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
-                  <ul className="persona-problem-list">
-                    <li>
-                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>W</kbd><span>+</span><kbd>A</kbd></span>
-                      <span className="shortcut-label">Arrange All — view multiple client workbooks side-by-side in separate windows instead of alt-tabbing between them all day.</span>
-                    </li>
-                    <li>
-                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>O</kbd><span>+</span><kbd>I</kbd></span>
-                      <span className="shortcut-label">AutoFit Column Width — clean up messy columns in seconds before every client-facing export.</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="persona-row">
-              <div className="persona-row-icon" style={{ background: 'var(--accent-cyan)' }}>
-                <Icon id="trending-up" size={22} />
-              </div>
-              <div className="persona-row-body">
-                <div className="persona-row-title">Founders</div>
-                <div className="persona-row-desc">Building the model, the deck, and the roadmap themselves — every saved second in Excel is a second back in the day.</div>
-                <div className="persona-problem">
-                  <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
-                  <ul className="persona-problem-list">
-                    <li>
-                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>=</kbd></span>
-                      <span className="shortcut-label">AutoSum — total up rows and columns instantly while building a financial model solo, no finance team to hand it off to.</span>
-                    </li>
-                    <li>
-                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>H</kbd><span>+</span><kbd>K</kbd></span>
-                      <span className="shortcut-label">Currency — apply consistent currency formatting to an investor-ready deck fast, without hunting through the ribbon before a pitch.</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </DownloadTrigger>
-            <DownloadTrigger className="persona-row">
-              <div className="persona-row-icon" style={{ background: 'var(--accent-rose)' }}>
-                <Icon id="home" size={22} />
-              </div>
-              <div className="persona-row-body">
-                <div className="persona-row-title">Small Business Owners</div>
-                <div className="persona-row-desc">Handling invoicing, inventory, and budgets solo — Mac Excel Shortcuts keeps Excel fast without needing to become a Mac power user first.</div>
-                <div className="persona-problem">
-                  <div className="persona-problem-label"><Icon id="zap" size={12} /> Problem solved</div>
-                  <ul className="persona-problem-list">
-                    <li>
-                      <span className="shortcut-keys"><kbd>Ctrl</kbd><span>+</span><kbd>D</kbd></span>
-                      <span className="shortcut-label">Fill Down — repeat the same value or formula down a full column of invoices in one keystroke.</span>
-                    </li>
-                    <li>
-                      <span className="shortcut-keys"><kbd>Alt</kbd><span>+</span><kbd>E</kbd><span>+</span><kbd>S</kbd><span>+</span><kbd>T</kbd></span>
-                      <span className="shortcut-label">Paste Formats — apply consistent formatting across inventory sheets without redoing it by hand every time.</span>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </DownloadTrigger>
+          <Reveal>
+            <PersonaCarousel />
           </Reveal>
         </div>
       </section>
