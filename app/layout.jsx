@@ -1,7 +1,7 @@
 import './globals.css'
 import Script from 'next/script'
 import Attribution from '../components/Attribution'
-import ExitIntentSurvey from '../components/ExitIntentSurvey'
+// import ExitIntentSurvey from '../components/ExitIntentSurvey' // temporarily disabled
 
 const SITE_TITLE = 'Mac Excel Shortcuts — Make Excel Work on Mac, No VM Needed | MacCove';
 const SITE_DESCRIPTION = 'Get a native Windows Excel experience on your Mac, no Parallels, no Boot Camp, no dual-booting. Mac Excel Shortcuts brings back Paste Special, AutoSum, and every shortcut you rely on, natively.';
@@ -128,7 +128,8 @@ export default function RootLayout({ children }) {
           </defs>
         </svg>
         <Attribution />
-        <ExitIntentSurvey />
+        {/* Exit-intent survey temporarily disabled — re-enable by restoring <ExitIntentSurvey /> */}
+        {/* <ExitIntentSurvey /> */}
         {children}
       </body>
     </html>
