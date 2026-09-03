@@ -2,10 +2,12 @@ import Image from 'next/image'
 import NavBar from '../../../components/NavBar'
 import Footer from '../../../components/Footer'
 import AssistantFloater from '../../../components/AssistantFloater'
+import FloatingDownloadCTA from '../../../components/FloatingDownloadCTA'
 import Reveal from '../../../components/Reveal'
 import Icon from '../../../components/Icon'
 import FAQ from '../../../components/FAQ'
 import { getBrandAffiliates } from '../../../lib/datocms'
+import { getBrandPrimaryLink } from '../../../lib/format'
 
 const PAGE_FAQS = [
   {
@@ -119,12 +121,30 @@ export default async function PasteShortcutsLandingPage() {
           </div>
 
           <div className="hero-visual">
+            <div className="hero-image-row">
+              <div className="hero-image hero-image-side hero-image-left">
+                <Image
+                  src="/PasteSpecial.webp"
+                  alt="Paste Special shortcuts in Mac Excel Shortcuts app"
+                  width={2202}
+                  height={1650}
+                />
+              </div>
+              <div className="hero-image hero-image-side hero-image-right">
+                <Image
+                  src="/Formatting.webp"
+                  alt="Formatting shortcuts in Mac Excel Shortcuts app"
+                  width={2166}
+                  height={1636}
+                />
+              </div>
+            </div>
             <div className="hero-image hero-image-main">
               <Image
-                src="/PasteSpecial.webp"
-                alt="Paste Special shortcuts in Mac Excel Shortcuts app"
-                width={2202}
-                height={1650}
+                src="/AppScreenshot.webp"
+                alt="Mac Excel Shortcuts app screenshot"
+                width={2206}
+                height={1186}
                 priority
               />
             </div>
@@ -325,32 +345,131 @@ export default async function PasteShortcutsLandingPage() {
 
       <section className="section security-section" id="security">
         <div className="container">
-          <Reveal className="callout-banner">
-            <Icon id="shield" size={22} />
-            <div>
-              <strong>Your usage data never leaves your device.</strong> Zero data collection, local-first
-              processing, Apple notarized. See the full{' '}
-              <a href="/lp/excel-shortcuts-mac#security">security &amp; privacy details</a>.
+          <Reveal className="security-header">
+            <h2 className="text-h2">Security & Privacy</h2>
+            <p className="text-body">Your usage data never leaves your device.</p>
+          </Reveal>
+
+          <Reveal className="security-badges">
+            <div className="security-badge">
+              <Icon id="award" size={20} /> No data collection
+            </div>
+            <div className="security-badge">
+              <Icon id="shield" size={20} /> No data transmission
+            </div>
+            <div className="security-badge">
+              <Icon id="lock" size={20} /> Apple Notarized
+            </div>
+            <div className="security-badge">
+              <Icon id="file-text" size={20} /> Just functional
             </div>
           </Reveal>
+
+          <div className="security-grid stagger-children">
+            <div className="security-card glass-tinted-rose">
+              <div className="security-icon-wrap" style={{ background: 'var(--accent-rose)' }}>
+                <Icon id="x" size={24} />
+              </div>
+              <div className="security-card-title">Zero Data Collection</div>
+              <div className="security-card-desc">We don&apos;t track what you use, sell your data, or run analytics. What you automate is your business &mdash; not ours.</div>
+              <div className="security-card-meta">Privacy Policy <Icon id="chevron-right" size={12} /></div>
+            </div>
+            <div className="security-card glass">
+              <div className="security-icon-wrap" style={{ background: 'var(--apple-green)' }}>
+                <Icon id="monitor" size={24} />
+              </div>
+              <div className="security-card-title">Local-First Processing</div>
+              <div className="security-card-desc">Shortcuts run entirely on your device. Cloud is required only license management.</div>
+              <div className="security-card-meta">Architecture <Icon id="chevron-right" size={12} /></div>
+            </div>
+            <div className="security-card glass-tinted-blue">
+              <div className="security-icon-wrap" style={{ background: 'var(--accent-cyan)' }}>
+                <Icon id="check-circle" size={24} />
+              </div>
+              <div className="security-card-title">Apple Notarized</div>
+              <div className="security-card-desc">Every MacCove release is scanned and notarized by Apple. No malware, no tampering, no unsigned code ever reaches your Mac.</div>
+              <div className="security-card-meta">Verify <Icon id="chevron-right" size={12} /></div>
+            </div>
+          </div>
         </div>
       </section>
 
       {brandAffiliates.length > 0 && (
         <section className="section brand-section" id="brand-affiliates">
           <div className="container">
-            <Reveal className="callout-banner">
-              <Icon id="award" size={22} />
-              <div>
-                <strong>We partner with brands the MacCove community trusts.</strong>{' '}
-                <a href="/brand-affiliates">See all affiliates</a>.
+            <Reveal className="brand-header">
+              <div className="brand-header-left">
+                <h2 className="text-h2">Brand Affiliates</h2>
+                <p className="text-body">Brands we partner with and recommend to the MacCove community.</p>
               </div>
+              <a href="/brand-affiliates" className="brand-link">
+                See all affiliates
+                <Icon id="chevron-right" size={16} className="arrow" />
+              </a>
             </Reveal>
+            <div className="brand-grid stagger-children">
+              {brandAffiliates.map((brand) => {
+                const primaryLink = getBrandPrimaryLink(brand)
+                const CardTag = primaryLink ? 'a' : 'div'
+                return (
+                  <CardTag
+                    key={brand.id}
+                    className="brand-card glass"
+                    {...(primaryLink ? { href: primaryLink, target: '_blank', rel: 'noopener noreferrer' } : {})}
+                  >
+                    <div className="brand-card-identity">
+                      {brand.logo && (
+                        <img
+                          className="brand-card-logo"
+                          src={brand.logo.url}
+                          alt={brand.logo.alt || `${brand.name} logo`}
+                          loading="lazy"
+                        />
+                      )}
+                      <div className="brand-card-name">{brand.name}</div>
+                    </div>
+                    {brand.image && (
+                      <div className="brand-card-image-wrap">
+                        <img
+                          className="brand-card-image"
+                          src={brand.image.url}
+                          alt={brand.image.alt || brand.name}
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div className="brand-card-links">
+                      {brand.website && (
+                        <span className="brand-card-link" aria-label={`${brand.name} website`}>
+                          <Icon id="globe" size={16} />
+                        </span>
+                      )}
+                      {brand.twitter && (
+                        <span className="brand-card-link" aria-label={`${brand.name} on Twitter`}>
+                          <Icon id="x" size={16} />
+                        </span>
+                      )}
+                      {brand.youtube && (
+                        <span className="brand-card-link" aria-label={`${brand.name} on YouTube`}>
+                          <Icon id="play" size={16} />
+                        </span>
+                      )}
+                      {brand.telegram && (
+                        <span className="brand-card-link" aria-label={`${brand.name} on Telegram`}>
+                          <Icon id="send" size={16} />
+                        </span>
+                      )}
+                    </div>
+                  </CardTag>
+                )
+              })}
+            </div>
           </div>
         </section>
       )}
 
       <AssistantFloater />
+      <FloatingDownloadCTA />
 
       <Footer />
     </>

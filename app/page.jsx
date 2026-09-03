@@ -14,6 +14,7 @@ import Kbd from '../components/Kbd'
 import AskAnAI from '../components/AskAnAI'
 import UsecaseCards from '../components/UsecaseCards'
 import PersonaCarousel from '../components/PersonaCarousel'
+import FloatingDownloadCTA from '../components/FloatingDownloadCTA'
 import { getAllBlogPosts, getBrandAffiliates, getMerchandise } from '../lib/datocms'
 import { formatBlogDate, getBrandPrimaryLink } from '../lib/format'
 import { getVisitorCountryCode } from '../lib/geo'
@@ -434,11 +435,6 @@ export default async function Home() {
           </Reveal>
           <UsecaseCards />
           <p className="usecases-footnote">*Estimate based on typical power-user Excel workflows over a 22-day working month and the number of ribbon/menu trips a Windows shortcut replaces — actual time saved depends on how you use Excel.</p>
-          <div className="section-cta">
-            <DownloadCTA className="btn btn-primary">
-              <Icon id="zap" size={20} /> Save 25 Hours
-            </DownloadCTA>
-          </div>
         </div>
       </section>
 
@@ -647,11 +643,6 @@ export default async function Home() {
               </tbody>
             </table>
           </Reveal>
-          <div className="section-cta">
-            <DownloadCTA className="btn btn-primary">
-              <Icon id="zap" size={20} /> Enable Windows Shortcuts
-            </DownloadCTA>
-          </div>
           <Reveal>
             <p className="text-body" style={{ textAlign: 'center', marginTop: '2rem' }}>
               Dig deeper: <a href="/lp/excel-shortcuts-mac">the full Excel shortcuts on Mac list</a>,{' '}
@@ -1069,7 +1060,7 @@ export default async function Home() {
                 <h2 className="text-h2">From the Blog</h2>
                 <p className="text-body">Tips, tutorials, and updates from the MacCove team to help you get the most out of your automation.</p>
               </div>
-              <a href="/blog" className="blog-link">
+              <a href="/blog" className="btn btn-primary blog-link-cta">
                 View all articles
                 <Icon id="chevron-right" size={16} className="arrow" />
               </a>
@@ -1107,6 +1098,7 @@ export default async function Home() {
         </section>
       )}
 
+      <FloatingDownloadCTA />
       <Footer />
     </>
   )

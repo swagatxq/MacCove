@@ -425,6 +425,72 @@ export default async function Home() {
         </div>
       </section> */}
 
+      <section className="section usecases-section" id="use-cases">
+        <div className="container">
+          <Reveal className="usecases-header">
+            <h2 className="text-h2">Built for those who never use a mouse for Excel</h2>
+            <p className="text-body">Every habit below is one you keep from Windows — hands on the keys, mouse untouched, the way you have always worked.</p>
+            <div className="stat-callout">
+              <span>Save an average of <strong>25+ hours a month</strong> on typical power-user Excel workflows*</span>
+            </div>
+          </Reveal>
+          <UsecaseCards />
+          <p className="usecases-footnote">*Estimate based on typical power-user Excel workflows over a 22-day working month and the number of ribbon/menu trips a Windows shortcut replaces — actual time saved depends on how you use Excel.</p>
+        </div>
+      </section>
+
+      <section className="section personas-section" id="who-its-for">
+        <div className="container">
+          <Reveal className="security-header">
+            <h2 className="text-h2">Who Uses Mac Excel Shortcuts app</h2>
+            <p className="text-body">Anyone who spent years in Excel on Windows and doesn&apos;t want to lose that speed on a Mac.</p>
+          </Reveal>
+          <Reveal>
+            <PersonaCarousel />
+          </Reveal>
+        </div>
+      </section>
+
+      <section className="section migration-section" id="migrating-to-mac">
+        <div className="container">
+          <Reveal className="security-highlight">
+            <div className="security-highlight-visual migration-visual">
+              <Image
+                src="/MicrosoftVsAppleV2.webp"
+                alt="Windows Excel shortcuts compared to Mac Excel shortcuts"
+                fill
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
+            <div className="security-highlight-content">
+              <div className="security-highlight-title">Worried Excel Won&apos;t Work the Same on Mac?</div>
+              <div className="security-highlight-desc">Switching from Windows to Mac usually means relearning Excel from scratch — Excel on Mac remaps nearly every shortcut you rely on. Mac Excel Shortcuts fixes that by running your existing Windows shortcuts natively inside Excel on your Mac, so the switch is about the hardware, not your workflow.</div>
+              <div className="security-checklist">
+                <div className="security-checklist-item">
+                  <div className="check"><Icon id="check" size={12} /></div>
+                  All your Windows Excel shortcuts work out of the box
+                </div>
+                <div className="security-checklist-item">
+                  <div className="check"><Icon id="check" size={12} /></div>
+                  No relearning — same key combos you already know
+                </div>
+                <div className="security-checklist-item">
+                  <div className="check"><Icon id="check" size={12} /></div>
+                  Native macOS app, not an emulator or remote desktop
+                </div>
+                <div className="security-checklist-item">
+                  <div className="check"><Icon id="check" size={12} /></div>
+                  Free 7-day trial, no risk to try it on your own files
+                </div>
+              </div>
+              <DownloadCTA className="btn btn-secondary migration-cta">
+                Already Migrated? <Icon id="chevron-right" size={16} className="arrow" />
+              </DownloadCTA>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       <section className="section whyus-section" id="vs-vm-solutions">
         <div className="container">
           <Reveal className="security-header">
@@ -589,77 +655,6 @@ export default async function Home() {
               <a href="/lp/navigation-shortcuts-mac">navigation &amp; data shortcuts</a>, or{' '}
               <a href="/lp/paste-shortcuts-mac">Paste Special shortcuts</a>.
             </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section usecases-section" id="use-cases">
-        <div className="container">
-          <Reveal className="usecases-header">
-            <h2 className="text-h2">Built for those who never use a mouse for Excel</h2>
-            <p className="text-body">Every habit below is one you keep from Windows — hands on the keys, mouse untouched, the way you have always worked.</p>
-            <div className="stat-callout">
-              <span>Save an average of <strong>25+ hours a month</strong> on typical power-user Excel workflows*</span>
-            </div>
-          </Reveal>
-          <UsecaseCards />
-          <p className="usecases-footnote">*Estimate based on typical power-user Excel workflows over a 22-day working month and the number of ribbon/menu trips a Windows shortcut replaces — actual time saved depends on how you use Excel.</p>
-          <div className="section-cta">
-            <DownloadCTA className="btn btn-primary">
-              <Icon id="zap" size={20} /> Save 25 Hours
-            </DownloadCTA>
-          </div>
-        </div>
-      </section>
-
-      <section className="section personas-section" id="who-its-for">
-        <div className="container">
-          <Reveal className="security-header">
-            <h2 className="text-h2">Who Uses Mac Excel Shortcuts app</h2>
-            <p className="text-body">Anyone who spent years in Excel on Windows and doesn&apos;t want to lose that speed on a Mac.</p>
-          </Reveal>
-          <Reveal>
-            <PersonaCarousel />
-          </Reveal>
-        </div>
-      </section>
-
-      <section className="section migration-section" id="migrating-to-mac">
-        <div className="container">
-          <Reveal className="security-highlight">
-            <div className="security-highlight-visual migration-visual">
-              <Image
-                src="/MicrosoftVsAppleV2.webp"
-                alt="Windows Excel shortcuts compared to Mac Excel shortcuts"
-                fill
-                style={{ objectFit: 'cover' }}
-              />
-            </div>
-            <div className="security-highlight-content">
-              <div className="security-highlight-title">Worried Excel Won&apos;t Work the Same on Mac?</div>
-              <div className="security-highlight-desc">Switching from Windows to Mac usually means relearning Excel from scratch — Excel on Mac remaps nearly every shortcut you rely on. Mac Excel Shortcuts fixes that by running your existing Windows shortcuts natively inside Excel on your Mac, so the switch is about the hardware, not your workflow.</div>
-              <div className="security-checklist">
-                <div className="security-checklist-item">
-                  <div className="check"><Icon id="check" size={12} /></div>
-                  All your Windows Excel shortcuts work out of the box
-                </div>
-                <div className="security-checklist-item">
-                  <div className="check"><Icon id="check" size={12} /></div>
-                  No relearning — same key combos you already know
-                </div>
-                <div className="security-checklist-item">
-                  <div className="check"><Icon id="check" size={12} /></div>
-                  Native macOS app, not an emulator or remote desktop
-                </div>
-                <div className="security-checklist-item">
-                  <div className="check"><Icon id="check" size={12} /></div>
-                  Free 7-day trial, no risk to try it on your own files
-                </div>
-              </div>
-              <DownloadCTA className="btn btn-secondary migration-cta">
-                Already Migrated? <Icon id="chevron-right" size={16} className="arrow" />
-              </DownloadCTA>
-            </div>
           </Reveal>
         </div>
       </section>
@@ -1071,7 +1066,7 @@ export default async function Home() {
                 <h2 className="text-h2">From the Blog</h2>
                 <p className="text-body">Tips, tutorials, and updates from the MacCove team to help you get the most out of your automation.</p>
               </div>
-              <a href="/blog" className="blog-link">
+              <a href="/blog" className="btn btn-primary blog-link-cta">
                 View all articles
                 <Icon id="chevron-right" size={16} className="arrow" />
               </a>

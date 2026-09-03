@@ -2,6 +2,7 @@ import Image from 'next/image'
 import NavBar from '../../../components/NavBar'
 import Footer from '../../../components/Footer'
 import AssistantFloater from '../../../components/AssistantFloater'
+import FloatingDownloadCTA from '../../../components/FloatingDownloadCTA'
 import Reveal from '../../../components/Reveal'
 import Icon from '../../../components/Icon'
 import FAQ from '../../../components/FAQ'
@@ -135,6 +136,7 @@ export default async function ExcelShortcutsLandingPage() {
                 alt="Mac Excel Shortcuts app screenshot"
                 width={2206}
                 height={1186}
+                priority
               />
             </div>
           </div>
@@ -459,6 +461,7 @@ export default async function ExcelShortcutsLandingPage() {
       )}
 
       <AssistantFloater />
+      <FloatingDownloadCTA />
 
       <Footer />
     </>
