@@ -46,7 +46,13 @@ export default async function FileCutPasteAppPage() {
 
       <FileCutPasteNav />
 
-      <section className="hero hero-home" id="hero">
+      <a href="/" className="cross-promo-banner">
+        <Icon id="zap" size={16} />
+        Tired of Excel Alt Ribbon shortcuts not working on Mac? Check out Mac Excel Shortcuts app!
+        <Icon id="chevron-right" size={16} className="arrow" />
+      </a>
+
+      <section className="hero hero-home hero-fcp" id="hero">
         <div className="container hero-split">
           <div className="hero-left">
             <div className="hero-badge">
