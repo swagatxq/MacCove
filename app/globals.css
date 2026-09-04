@@ -378,7 +378,7 @@ body::before {
   min-height: auto; padding: clamp(72px, 9vh, 100px) 0 0;
 }
 
-.hero-partners { margin-top: clamp(8px, 1.6vh, 20px); padding-bottom: var(--space-7); }
+.hero-partners { margin-top: clamp(8px, 1.6vh, 20px); padding-bottom: var(--space-7); width: 100%; min-width: 0; }
 .hero-partners .launch-partners-label { margin-bottom: var(--space-2); }
 
 .hero-split { display: grid; grid-template-columns: minmax(0, 540px) minmax(0, 680px); gap: var(--space-8); align-items: center; text-align: left; justify-content: center; margin-top: clamp(6px, 1.8vh, 22px); margin-bottom: 0; }
