@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import Icon from '../../components/Icon'
 import Reveal from '../../components/Reveal'
+import FAQ from '../../components/FAQ'
 import FileCutPasteNav, { APP_STORE_URL } from '../../components/FileCutPasteNav'
 import FileCutPasteFooter from '../../components/FileCutPasteFooter'
+import FileCutPasteFloatingCTA from '../../components/FileCutPasteFloatingCTA'
 import { getAllFileCutPasteBlogs } from '../../lib/datocms'
 import { formatBlogDate } from '../../lib/format'
+import { fileCutPasteFaqs } from '../../lib/filecutpaste-faqs'
 
 export const metadata = {
   title: 'FileCutPaste — Cut & Paste Files on Mac',
@@ -66,8 +69,15 @@ export default async function FileCutPasteAppPage() {
             </p>
             <div className="hero-ctas">
               <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-                <Icon id="download" size={20} /> Get it on the App Store
+                <Icon id="apple" size={20} /> Download from App Store
               </a>
+              <div className="app-rating-badge">
+                <Icon id="award" size={22} />
+                <div className="app-rating-badge-text">
+                  <span className="app-rating-badge-score"><Icon id="apple" size={13} /> 5/5</span>
+                  <span className="app-rating-badge-label">rating till now</span>
+                </div>
+              </div>
             </div>
           </div>
 
@@ -117,11 +127,6 @@ export default async function FileCutPasteAppPage() {
               <div className="how-to-step-title">Paste to Move</div>
               <div className="how-to-step-desc">Press ⌘V. Finder does the actual move — the file lands in its new home instantly.</div>
             </div>
-          </div>
-          <div className="section-cta">
-            <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              <Icon id="download" size={20} /> Download FileCutPaste
-            </a>
           </div>
         </div>
       </section>
@@ -187,6 +192,71 @@ export default async function FileCutPasteAppPage() {
         </div>
       </section>
 
+      <section className="section whyus-section" id="vs-cmd-x">
+        <div className="container">
+          <Reveal className="security-header">
+            <h2 className="text-h2">FileCutPaste vs. Native ⌘X in Finder</h2>
+            <p className="text-body">Pressing ⌘X in Finder doesn&apos;t do what you expect — here&apos;s what changes once FileCutPaste is installed.</p>
+          </Reveal>
+          <Reveal className="callout-banner">
+            <Icon id="zap" size={22} />
+            <div><strong>Finder doesn&apos;t have a real cut command.</strong> ⌘X is either ignored or silently deletes with no move — FileCutPaste gives it the Windows behavior you already know.</div>
+          </Reveal>
+          <Reveal className="comparison-table-wrap">
+            <table className="comparison-table">
+              <thead>
+                <tr>
+                  <th>Feature</th>
+                  <th className="comparison-highlight-col">FileCutPaste</th>
+                  <th>Native ⌘X in Finder</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td className="mapping-action">⌘X marks the file to move</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-no">Ignored — Finder has no native cut</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">⌘V moves the file to the new folder</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-no">Pastes a duplicate copy instead</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Cut stays queued while you navigate</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-no">No cut state to keep track of</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Matches the Windows shortcut you know</td>
+                  <td className="comparison-highlight-col comparison-yes"><Icon id="check" size={16} /></td>
+                  <td className="comparison-no">Requires ⌥+⌘+V as a workaround</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Setup required</td>
+                  <td className="comparison-highlight-col comparison-yes">None — install &amp; go</td>
+                  <td>—</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Price</td>
+                  <td className="comparison-highlight-col comparison-yes">Free — 5 cuts/day, or $1.99/mo</td>
+                  <td>Free, but doesn&apos;t move files</td>
+                </tr>
+                <tr>
+                  <td className="mapping-action">Get it now</td>
+                  <td className="comparison-highlight-col">
+                    <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="comparison-download-btn">
+                      <Icon id="apple" size={14} /> Download
+                    </a>
+                  </td>
+                  <td>—</td>
+                </tr>
+              </tbody>
+            </table>
+          </Reveal>
+        </div>
+      </section>
+
       {latestPosts.length > 0 && (
         <section className="section blog-section" id="blog">
           <div className="container">
@@ -247,6 +317,17 @@ export default async function FileCutPasteAppPage() {
         </div>
       </section>
 
+      <section className="section faq-section" id="faq">
+        <div className="container">
+          <Reveal className="faq-header">
+            <h2 className="text-h2">Questions &amp; Answers</h2>
+            <p className="text-body">Everything you need to know about FileCutPaste. Can&apos;t find what you&apos;re looking for? Reach out — we&apos;re happy to help.</p>
+          </Reveal>
+          <FAQ items={fileCutPasteFaqs} />
+        </div>
+      </section>
+
+      <FileCutPasteFloatingCTA />
       <FileCutPasteFooter />
     </>
   )

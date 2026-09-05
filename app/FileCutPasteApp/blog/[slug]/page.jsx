@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import FileCutPasteNav from '../../../../components/FileCutPasteNav';
 import FileCutPasteFooter from '../../../../components/FileCutPasteFooter';
+import AssistantFloater from '../../../../components/AssistantFloater';
 import {
   getAllFileCutPasteBlogSlugs,
   getFileCutPasteBlogBySlug,
@@ -131,6 +132,7 @@ export default async function FileCutPasteBlogPostPage({ params }) {
           </div>
         </div>
       </section>
+      <AssistantFloater />
       <FileCutPasteFooter />
     </>
   );

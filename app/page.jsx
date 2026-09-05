@@ -234,6 +234,9 @@ export default async function Home() {
                       className="startupbase-badge"
                     />
                   </a>
+                  <a href="https://launchkiwi.com/p/mac-excel-shortcuts" target="_blank" rel="noopener">
+                    <img src="https://launchkiwi.com/badge-light.svg" alt="Featured on LaunchKiwi" width="198" height="62" />
+                  </a>
                 </div>
                 <div className="launch-partners-row" aria-hidden="true">
                   <a
@@ -313,6 +316,9 @@ export default async function Home() {
                       height="55"
                       className="startupbase-badge"
                     />
+                  </a>
+                  <a href="https://launchkiwi.com/p/mac-excel-shortcuts" target="_blank" rel="noopener" tabIndex={-1}>
+                    <img src="https://launchkiwi.com/badge-light.svg" alt="Featured on LaunchKiwi" width="198" height="62" />
                   </a>
                 </div>
               </div>

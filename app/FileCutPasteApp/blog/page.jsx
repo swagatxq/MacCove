@@ -3,6 +3,7 @@ import FileCutPasteNav from '../../../components/FileCutPasteNav';
 import FileCutPasteFooter from '../../../components/FileCutPasteFooter';
 import Reveal from '../../../components/Reveal';
 import Icon from '../../../components/Icon';
+import AssistantFloater from '../../../components/AssistantFloater';
 import { getAllFileCutPasteBlogs } from '../../../lib/datocms';
 import { formatBlogDate } from '../../../lib/format';
 
@@ -60,6 +61,7 @@ export default async function FileCutPasteBlogIndexPage() {
           </div>
         </div>
       </section>
+      <AssistantFloater />
       <FileCutPasteFooter />
     </>
   );

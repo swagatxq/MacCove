@@ -9,14 +9,23 @@ export default function FileCutPasteNav() {
     <nav className="nav-bar">
       <div className="container nav-inner">
         <a href="/FileCutPasteApp" className="nav-logo">
-          <div className="logo-icon" style={{ overflow: 'hidden', padding: 4, background: 'var(--apple-blue)' }}>
-            <Icon id="copy" size={18} />
+          <div className="logo-icon" style={{ overflow: 'hidden', padding: 4 }}>
+            <svg viewBox="0 0 145 115" width="28" height="22" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ display: 'block' }}>
+              <polygon points="0,0 35,0 35,80 0,80" fill="currentColor" opacity="0.9" />
+              <polygon points="0,80 35,80 105,115 70,115" fill="currentColor" opacity="0.7" />
+              <polygon points="35,0 75,0 105,80 70,80" fill="currentColor" opacity="0.9" />
+              <polygon points="75,0 110,0 145,115 110,115" fill="currentColor" opacity="0.7" />
+              <rect x="5" y="10" width="25" height="50" rx="2" fill="white" opacity="0.15" />
+              <line x1="8" y1="20" x2="25" y2="20" stroke="white" strokeWidth="2" opacity="0.6" />
+              <line x1="8" y1="28" x2="20" y2="28" stroke="white" strokeWidth="2" opacity="0.4" />
+              <line x1="8" y1="36" x2="22" y2="36" stroke="white" strokeWidth="2" opacity="0.3" />
+            </svg>
           </div>
-          FileCutPaste
+          MacCove
           <span className="nav-powered-by">
             by
             <Image src="/Group 61.webp" alt="Xquantum" width={14} height={14} />
-            MacCove
+            Quantum
           </span>
         </a>
         <div className="nav-links">
@@ -26,8 +35,8 @@ export default function FileCutPasteNav() {
           <a href="https://maccove.com"><Icon id="home" size={16} /> MacCove</a>
         </div>
         <div style={{ display: 'flex', alignItems: 'center' }}>
-          <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta">
-            <Icon id="download" size={16} /> Get it on the App Store
+          <a href={APP_STORE_URL} target="_blank" rel="noopener noreferrer" className="nav-cta">
+            <Icon id="apple" size={16} /> Download from App Store
           </a>
         </div>
       </div>

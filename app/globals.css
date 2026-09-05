@@ -367,7 +367,18 @@ body::before {
   max-width: 580px; margin-left: auto; margin-right: auto; animation: fadeInUp 0.6s var(--ease-decelerate) 0.3s both;
 }
 @media (max-width: 768px) { .hero .hero-subtitle { font-size: 18px; line-height: 28px; } }
-.hero-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; animation: fadeInUp 0.6s var(--ease-decelerate) 0.4s both; }
+.hero-ctas { display: flex; gap: var(--space-4); justify-content: center; flex-wrap: wrap; align-items: center; animation: fadeInUp 0.6s var(--ease-decelerate) 0.4s both; }
+
+.app-rating-badge {
+  display: inline-flex; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) var(--space-5); border-radius: var(--radius-4);
+  background: var(--gray-50); border: 1px solid var(--gray-200); color: var(--apple-orange);
+}
+[data-theme="dark"] .app-rating-badge { background: var(--gray-800); border-color: var(--gray-700); }
+.app-rating-badge-text { display: flex; flex-direction: column; line-height: 1.25; }
+.app-rating-badge-score { display: inline-flex; align-items: center; gap: 4px; font-size: 15px; font-weight: 700; color: var(--text-primary); }
+.app-rating-badge-score .icon { color: var(--text-primary); }
+.app-rating-badge-label { font-size: 12px; color: var(--text-secondary); }
 
 .hero .container { max-width: 1400px; }
 
@@ -378,7 +389,7 @@ body::before {
   min-height: auto; padding: clamp(72px, 9vh, 100px) 0 0;
 }
 
-.hero-fcp { padding-bottom: var(--space-12); }
+.hero-fcp { padding-top: calc(clamp(72px, 9vh, 100px) - 8px); padding-bottom: var(--space-12); }
 
 .hero-partners { margin-top: clamp(8px, 1.6vh, 20px); padding-bottom: var(--space-7); width: 100%; min-width: 0; }
 .hero-partners .launch-partners-label { margin-bottom: var(--space-2); }
@@ -919,16 +930,16 @@ body::before {
 
 .cross-promo-banner {
   display: flex; align-items: center; justify-content: center; gap: var(--space-3);
-  margin-top: 64px; padding: var(--space-3) var(--space-6); background: var(--apple-blue); color: #fff;
+  margin-top: 64px; padding: var(--space-4) var(--space-6); background: linear-gradient(135deg, #4ECDC4, #45B7AA); color: #fff;
   text-align: center; font-size: 14px; font-weight: 500; line-height: 20px;
-  text-decoration: none; transition: background 0.2s var(--ease-standard);
+  text-decoration: none; transition: filter 0.2s var(--ease-standard);
 }
-.cross-promo-banner:hover { background: var(--apple-blue-hover, #0064d6); }
+.cross-promo-banner:hover { filter: brightness(0.94); }
 .cross-promo-banner .icon { flex-shrink: 0; }
 .cross-promo-banner .arrow { transition: transform 0.2s var(--ease-standard); }
 .cross-promo-banner:hover .arrow { transform: translateX(2px); }
 @media (max-width: 640px) {
-  .cross-promo-banner { font-size: 13px; padding: var(--space-3) var(--space-4); }
+  .cross-promo-banner { font-size: 13px; padding: var(--space-4) var(--space-4); }
 }
 
 .comparison-table-wrap {
